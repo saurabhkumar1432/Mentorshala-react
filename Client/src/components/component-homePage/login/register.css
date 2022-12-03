@@ -1,0 +1,17 @@
+.RegistrationContainer{
+    display: grid;
+    background-image: url(../../../images/bg-texture.png);
+    font-family: 'Poppins', sans-serif; 
+    grid-template-columns: 35% 40%;
+    align-items: center;
+    gap:12%
+}
+.image1_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    width: 75 vh;
+    height: 40vh;
+    object-fit: cover;
+}

@@ -1,0 +1,63 @@
+.auth-form-container{
+    height: 100%;
+    font-family: 'Poppins', sans-serif; 
+    background-color: var(--color-bg);
+    color:var(--color-white);
+    line-height: 1.7;
+    background-image: url(../../../images/bg-texture.png);
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    /* border: 1px solid red; */
+}
+#formContainer{
+    width: 40%;
+    margin: 5%;
+    /* display: flex;
+    align-items: center; */
+}
+.formContainer-div{
+    margin: 5% 0%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+
+}
+#formContainer form{
+    /* border: 1px solid red; */
+    width: 100%;
+}
+#formContainer form input{
+    margin: 2% 0%;
+    background: transparent;
+    color: aliceblue;
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: white;
+    padding: 7px 0;
+    background: transparent;
+    transition:  0.2s;
+    /* border-style: none; */
+}
+.loginBTN{
+    margin: 3% 0%;
+    width: 100%;
+    color: aliceblue;
+}
+#registerFormDiv{
+    height: 100%;
+}
+.RegistrationContainer{
+    border: 1px solid rgb(53, 16, 240);
+    font-family: 'Poppins', sans-serif; 
+    background-color: var(--color-bg);
+    color:var(--color-white);
+    line-height: 1.7;
+    background-image: url(../../../images/bg-texture.png);
+}

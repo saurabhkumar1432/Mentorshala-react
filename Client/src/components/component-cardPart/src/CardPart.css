@@ -1,0 +1,83 @@
+.cardPart{
+    /* border: 1px solid red; */
+    /* background-color: #ffffff; */
+    background: linear-gradient(
+        to right, #e394f1,#8d8dfa);
+    width: 65%;
+    /* height: ; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    overflow-y: hidden;
+    background-image: url(../../../images/bg-texture.png);
+    background-color: var(--color-bg);
+}
+.card-container{
+    overflow-y: hidden;
+    height: 90%;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    
+    /* width: 90vw;
+    max-width: 260px;
+    height: 300px; */
+}
+.bgGreen{
+    background: rgb(106, 201, 106);
+}
+.bgRed{
+    background: rgb(239, 120, 120);
+}
+/* .cards{
+    height: 90%;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+.swipe{
+    overflow-y: hidden;
+    position: absolute;
+    /* border: 1px solid red; */
+    height: 90%;
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* .cards:hover{
+    transform: scale(1.01);
+} */
+.remove-card{
+    display: none;
+}
+.card-buttons{
+    /* position: relative; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    /* border: 1px solid green; */
+}
+.card-buttons button{
+    margin: 0% 1%;
+    width: auto;
+    margin: 0% 3%;
+    padding: 1.9%;
+    border-radius: 50%;
+    border-style: none;
+    box-shadow: 0 10px 10px rgb(0 0 0 / 0.5);
+}
+.card-buttons button:active{
+    transform: scale(1.05);
+}
+#accepted{
+    background: rgb(106, 201, 106);
+}
+#rejected{
+    background: rgb(239, 120, 120);
+}
+

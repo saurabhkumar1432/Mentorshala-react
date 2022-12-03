@@ -1,0 +1,28 @@
+#sentMessage{
+    float:right;
+    margin-right:14px;
+    clear:both;
+    margin-bottom: 20px;
+    border-radius: 10px 10px 0 10px;
+    border:1px solid white;
+    background: #075E54;
+    padding:1vh;
+    color:white;
+    font-family: lobster;
+    font-size: large;
+
+}
+#receivedMessage{
+
+    float:left;
+    margin-left:10px;
+    clear: both;
+    margin-bottom: 20px;
+    border-radius: 10px 10px 10px 0;
+    border:1px solid white;
+    background: #3496f1;  
+    padding:1vh; 
+    color:white;
+    font-family: lobster;
+    font-size: large;
+}

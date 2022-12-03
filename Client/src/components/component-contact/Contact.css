@@ -1,0 +1,42 @@
+#contactContainer{
+    width:100%;
+    height: 8vh;
+    background:#fefefe;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    border-style: none;
+    padding: 5% 0%;
+}
+#contactContainer:hover{
+    box-shadow: 5px 5px 10px grey;
+    transform:scale(1.001);
+}
+
+#contactImage{
+    border-radius: 50%;
+    border: 2px solid black;
+    width:50px;
+    height:50px;
+    margin-left: 1vw;
+}
+#contactName{
+    margin-left: 1vw;
+    font-weight: 700;
+    font-size: larger;
+    font-family: 'Mukta', sans-serif;
+}
+#contactLastmessage{
+    margin-left:1.4vw;
+    font-weight: 300;
+    /* color: #353535; */
+}
+/* #timestamp{
+    flex-direction: column;
+    align-self: start;
+    position: relative;
+    right:10px;
+    justify-self: end;
+    margin-top: 1vh;
+    justify-content: right;
+} */

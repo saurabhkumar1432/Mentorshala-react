@@ -1,0 +1,90 @@
+.messagePart{
+    border-right: 1px solid #808080;
+    margin-left: 10px;
+    /* box-shadow: 15px 0px 15px -10px rgba(0,0,0,0.75); */
+    /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
+    /* padding: 20px 30px;
+    background: linear-gradient(
+        to right, #e394f1,#8d8dfa); */
+    height: 100%;
+    box-shadow: 0px 0px 2px rgb(118, 118, 118);
+}
+.messagePart-profile{
+    height: 10%;
+    padding: 5px;
+    /* border: 2px solid green; */
+    /* background: linear-gradient(
+        to right, #e394f1,#8d8dfa); */
+    background-image: url(../../../images/bg-texture.png);
+    background-color: var(--color-bg);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+}
+.messagePart-profile div{
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+}
+.messagePart-profile .col-sm-4{
+    /* border: #e394f1 solid 1px; */
+    display: flex;
+    align-items: center;
+    justify-content:right;
+    padding: 0% 4%;
+    color: white
+}
+.messagePart-profile .col-sm-4 button{
+    border-style: none;
+    background: transparent;
+    color: white;
+    width: 30%;
+}
+.messagePart-profile-pic a img{
+    width: 100%;
+    border-radius: 50%;
+}
+.messagePart-profile-name a{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: large;
+    font-weight: 600;
+}
+.modeChanger{
+    height: 6%;
+    display: flex;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    /* padding: 4px 8px; */
+    /* justify-content: center; */
+}
+.modeChanger .d-flex .p-2{
+    display: flex;
+    align-items: center;
+    /* border:1px solid red; */
+}
+.modeChanger .d-flex .p-2 button{
+    display: flex;
+    border-style: none;
+    background: transparent;
+    /* border:1px solid red; */
+    align-items: center;
+    font-weight: 600;
+    font-family: 'Mukta', sans-serif;
+    font-size: large;
+}
+.active{
+    color: #8d8dfa;
+}
+.chatMessageSection{
+    /* border: 1px solid #ff3300; */
+    height: 84%;
+    display: flex;
+    
+    /* overflow: hidden; */
+}
+/* .chatMessageSection div{
+    border: 1px solid #000000;
+    width: 100%;
+} */
+/* .chatMessageSection .col-sm-8{
+    border: 1px solid #ff3300;
+} */

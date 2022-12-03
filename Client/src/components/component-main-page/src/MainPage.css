@@ -1,0 +1,6 @@
+.mainPage-container{
+    height: 100%;
+    /* border: 1px solid red; */
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
