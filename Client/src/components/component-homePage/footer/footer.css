@@ -1,56 +1,77 @@
 footer{
-    background: var(--color-primary);
+    background: #0D324D;
     padding: 3rem 0;
     text-align: center;
     font-size:0.9rem;
     margin-top:7rem;
+    color: white;
 }
-.footer_logo{
-    font-size:2rem;
-    font-weight:500;
-    margin-bottom: 2rem;
-    color: black;
-    display: inline-block;
-}
-.permalinks{
+#footerContainer-Name{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap:2rem;
-    margin: 0 auto 3rem;
+    align-items: center;
+    padding: 0% 1%;
 }
-.permalinks a{
-    color: black;
+#footerContainer-Name h3{
+    padding: 0% 1%;
+    text-align: start;
+    font-family: 'Ubuntu', sans-serif;
 }
-.footer_socials{
+#footerContainer-Name img{
+    width: 4%;
+}
+#footerContainer-list{
+    /* border: 1px solid red; */
+    margin: 1% 0%;
+    padding: 0% 1%;
+    text-align: start;
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 4rem;
 }
-.footer_socials a{
-    background: var(--color-bg);
-    color:var(--color-white);
-    padding: 0.8rem;
-    border-radius: 0.7rem;
+.footerContainer-list-item{
+    /* border: 1px solid blue; */
+    margin: 0% 3%;
+    padding: 0% 0%;
+}
+.footerContainer-list-item h5{
+    font-weight: 300;
+}
+.footerContainer-list-item ul{
+    list-style: none;
+}
+.footerContainer-list-item ul li::before{
+    content: "\2022";
+    color: #539f9f;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+.footerContainer-list-item ul li{
+    color: #539f9f;
+    margin: 3% 0%;
+}
+.footerContainer-list-item ul li:hover{
+    color: white;
+}
+.footerContainer-list-item:nth-child(5){
+    float: right;
+    padding: 0% 5%;
+}
+.footerContainer-list-item:nth-child(5) div{
+    margin: 7% 0%;
+    /* border: 1px solid red; */
     display: flex;
-    border: 1px solid transparent;
+    color: #539f9f;
+
 }
-.footer_socials a:hover{
-    background: transparent;
-    color: var(--color-bg);
-    border-color: var(--color-bg);
+.footerContainer-list-item:nth-child(5) div:hover{
+    color: white;
 }
-.footer_copyright{
-    margin-bottom: 4rem;
-    color:var(--color-bg);
+.footer-icons{
+    margin: 0% 1%;
+    color: aliceblue;
 }
-@media screen and (max-width:600px) {
-    .permalinks{
-        flex-direction: column;
-        gap:1.5rem;
-    }
-    .footer_socials{
-        margin-bottom: 2.6rem;
-    }
+
+.footerContainer-list-item:nth-child(5) div:nth-child(1){
+    color: aliceblue;
+    margin: 0%;
 }

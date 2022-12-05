@@ -35,12 +35,6 @@ html{
 ::-webkit-scrollbar{ 
     display:none;
 }
-/* body{
-    font-family: 'Poppins', sans-serif; 
-    background-color: var(--color-bg);
-    color:var(--color-white);
-    line-height: 1.7;
-} */
 .container{
     width:var(--container-width-lg);
     margin:0 auto;
@@ -119,9 +113,9 @@ img{
     
 }
 .homeContainer{
-    font-family: 'Poppins', sans-serif; 
-    background-color: var(--color-bg);
-    color:var(--color-white);
+    /* font-family: 'Poppins', sans-serif;  */
+    /* background-color: var(--color-bg); */
+    /* color:var(--color-white); */
     line-height: 1.7;
-    background-image: url(../../images/bg-texture.png);
+    /* background-image: url(../../images/bg-texture.png); */
 }

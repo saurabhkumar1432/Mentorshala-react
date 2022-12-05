@@ -1,16 +1,15 @@
 .cardPart{
     /* border: 1px solid red; */
     /* background-color: #ffffff; */
-    background: linear-gradient(
-        to right, #e394f1,#8d8dfa);
+    background: linear-gradient(#36096D,#37d5d6);
     width: 65%;
     /* height: ; */
     /* display: flex;
     align-items: center;
     justify-content: center; */
     overflow-y: hidden;
-    background-image: url(../../../images/bg-texture.png);
-    background-color: var(--color-bg);
+    /* background-image: url(../../../images/bg-texture.png); */
+    /* background-color: var(--color-bg); */
 }
 .card-container{
     overflow-y: hidden;

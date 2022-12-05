@@ -1,62 +1,64 @@
 .frontContainer{
-    display:grid;
-    width: 75%;
-    grid-template-columns: 45% 20%;
-    gap:12%;
-    margin: 1.2rem 3rem;
+    /* border: 1px solid red; */
+    padding: 2% 0%;
+    margin:5% 0%;
+    /* display: flex;
+    align-items: center; */
+}
+.frontContainer h1{
+    color: #647DEE;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    margin: 0% 3%;
+}
+.frontContainer-div{
+    /* border: 1px solid blue; */
+    width: 100%;
+    margin: 2% 0%;
+    display: flex;
     justify-content: center;
-    grid-auto-flow: column;
 }
 
-.image_container{
-    clear: both;
-    height: 97vh;
-    width:97vh;
-    transform: translateX(-30);
-}
-.sidecontainer{
-    
-    width: 50vw;
-    margin:auto;
-    float: right;
-    clear:both;
+.frontContainer-div-grid{
+    /* border: 1px solid blue; */
     display: flex;
-    height:20vh;
+    flex-direction: row;
     justify-content: center;
+}
+.frontContainer-div-grid:nth-child(2){
+    display: flex;
+    flex-direction: row-reverse;   
+}
+.frontContainer-div-grid img{
+    /* border: 1px solid green; */
+    width: 30%;
+    transition: 0.5s;
+}
+.frontContainer-div-grid img:hover{
+    transform: scale(1.1);
+}
+.gridContent{
+    /* border: 1px solid red; */
+    margin: 0% 2%;
+    display: flex;
     align-items: center;
-    flex-direction: column;
-    margin-bottom:50vh;
+    width: 50%;
 }
-.template{
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-    align-items: space-around;
-    width:37vw;
-    justify-self: center;
-    margin-bottom: 10vh;
+.gridContent div{
+    /* border: 1px solid blue; */
+    width: 100%;
+    padding: 2%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: black;
+    /* background: #249090; */
+    /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.5); */
 }
-.btn_container{
-    display: flex;
-    width:15vw;
-    justify-content: space-around;
-    gap: 1.2rem;
+.gridContent div h2{
+    font-family: 'Ubuntu', sans-serif;
 }
-.btn1{
-    width:12vw;
-    display:inline-block;
-    color: rgba(red, green, blue, alpha);
-    font-size: 1.1rem;
-    font-weight: 700;
-    font-family: lobster;
-    padding: 0.75rem 1.2rem;
-    border-radius: 0.4rem;
-    cursor:pointer;
-    border:1px solid var(--color-primary);
-    transform: var(--transition); 
-}
-.btn1:hover{
-    background: var(--color-white);
-    color:var(--color-bg);
-    border-color: transparent;
+.gridContent div h4{
+    font-weight: 300;
 }

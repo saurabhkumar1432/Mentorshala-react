@@ -40,7 +40,7 @@ const About= () => {
     }
   }, [index,people])
   return (
-      <section id='about' className='container'>
+      <section id='about' className='Aboutcontainer'>
         <div className="title">
           <h2>About Us</h2>
           <div className="underline"></div>

@@ -85,16 +85,16 @@ const CardPart=()=>{
     // console.log(dbData[currentIndexRef.current+1]);
   }
 
-  const swipe =  (dir) => {
+  const swipe =  async(dir) => {
     if (canSwipe && currentIndex < dbData.length) {
-       childRefs[currentIndex].current.swipe(dir) // Swipe the card!
+      await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
     }
-    if(dir==='right'){
-      document.getElementsByClassName('cardPart')[0].classList.add('bgGreen')
-    }
-    else{
-        document.getElementsByClassName('cardPart')[0].classList.add('bgRed')
-    }
+    // if(dir==='right'){
+    //   document.getElementsByClassName('cardPart')[0].classList.add('bgGreen')
+    // }
+    // else{
+    //     document.getElementsByClassName('cardPart')[0].classList.add('bgRed')
+    // }
   }
 
   // increase current index and show card

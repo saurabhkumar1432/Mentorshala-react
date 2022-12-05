@@ -182,3 +182,16 @@
     transform: scale(1.55);
     color: red;
 }
+#report-div{
+    /* border: 1px solid red; */
+    display: inline-block;
+    float: right;
+    padding: 1%;
+    
+}
+#report-div button{
+    /* border: 1px solid red; */
+    border-style: none;
+    background: transparent;
+    color: red;
+}

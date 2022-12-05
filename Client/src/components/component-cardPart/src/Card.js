@@ -7,8 +7,10 @@ import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import EmailIcon from '@mui/icons-material/Email';
+import ReportIcon from '@mui/icons-material/Report';
 import { useState } from 'react';
 const Card=(props)=>{
+    const {id,firstName,lastName,profilePic,banner,from,country,college,specialization,description,experience,Linkedin,Email}=props.character
     // console.log(props);
     const [radioCheck,setRadioCheck]=useState([false,true]);
     const handleClickbtn=()=>{
@@ -19,17 +21,20 @@ const Card=(props)=>{
             setRadioCheck([false,true])
         }
     }
-    const {id,firstName,lastName,profilePic,banner,from,country,college,specialization,description,experience,Linkedin,Email}=props.character
+    const reportHandler=()=>{
+        console.log(Email);
+    }
     return(
         <div class="card">
             <img id="card-img-banner" src={banner} alt="Card image cap"></img>
            <img id='card-img-profilpic' src={profilePic} alt="profilPic"></img>
-           
            <div id='card-body-container'>
                 <input id='radioBtnCard1' type="radio" checked={radioCheck[0]}></input>
                 <input id='radioBtnCard2' type="radio" checked={radioCheck[1]}></input>
                 <div className='card-body-div first-card-body-div'>
-                   
+                    <div id='report-div'>
+                        <button onClick={reportHandler}><ReportIcon/></button>
+                    </div>
                     <div id='name-div' className='div-firstPage'>
                         <h1>{firstName} {lastName}</h1>
                     </div>
