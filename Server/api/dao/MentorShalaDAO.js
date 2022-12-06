@@ -97,4 +97,17 @@ export default class mentorShalaDb{
             console.log("cant post the data");
         }
     }
+    static async postUser(obj){
+        // let cursor
+        try{
+            await mentorshalaUsers.collection("usersDetails").insertOne(obj,(err,res)=>{
+                if (err) throw err;
+                console.log("1 document inserted");
+            })
+            // console.log(cursor);
+        }
+        catch{
+            console.log("cant post the data");
+        }
+    }
 }
