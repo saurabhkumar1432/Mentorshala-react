@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './register.css'
 import logInimg from '../../../images/22866003-removebg-preview.png'
-import axios from axios
+import axios from 'axios'
 // import {History} from 'react-router-dom';
 const Register = (props) => {
     // const history=useHistory();
