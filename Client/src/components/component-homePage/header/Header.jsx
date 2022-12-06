@@ -1,7 +1,7 @@
 import React from 'react'
 import './header.css'
 // import LogoImg from '../../../images/m4.jpg'
-import MentorShalaLogo from '../../../images/MentorShalaLogo.png'
+import mlogo from '../../../images/mlogo.png'
 import Grid from '@mui/material/Grid';
 import bannerImg from '../../../images/bannerImg.svg'
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
     <div className='header'>
       <Grid container spacing={2} id="header-grid">
         <Grid item xs={2} className="coloumns-grid">
-          <img src={MentorShalaLogo} alt="Logo"></img><h4>MentorShala</h4>
+          <img src={mlogo} alt="Logo" id="mlogo"></img><h4>MentorShala</h4>
         </Grid>
         <Grid item xs={10} className="coloumns-grid">
             <div id='header-nav-items'>

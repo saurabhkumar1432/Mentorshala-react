@@ -1,0 +1,66 @@
+.userList {
+    flex: 4;
+    /* border: 1px solid red; */
+    justify-content: center;
+  }
+  .styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+.styled-table {
+  border-collapse: collapse;
+  margin: 50px 10px;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  /* min-width: 400px; */
+  width: 95%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+  .userListUser {
+    display: flex;
+    align-items: center;
+  }
+  
+  .userListImg {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .userListEdit{
+      border: none;
+      border-radius: 10px;
+      padding: 5px 10px;
+      background-color: #3bb077;
+      color: white;
+      cursor: pointer;
+      margin-right: 20px;
+  }
+  
+  .userListDelete{
+      color: red;
+      cursor: pointer;
+  }
