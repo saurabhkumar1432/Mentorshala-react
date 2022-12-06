@@ -9,7 +9,7 @@ const MainPage=()=>{
     const [active,setActive]=useState(false)
     return(
         <div className="row mainPage-container">
-            <MessagePart/>
+            <MessagePart setActive={setActive} active={active}/>
             <div id='cardpart' className={active?'remover':''}>
                 <CardPart/>
             </div>

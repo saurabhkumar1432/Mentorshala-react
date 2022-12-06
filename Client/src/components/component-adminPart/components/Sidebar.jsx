@@ -48,12 +48,12 @@ function Sidebar() {
                 Users
               </li>
             </Link>
-            <Link to="/admin/products" className="link">
+            {/* <Link to="/admin/products" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
                 Products
               </li>
-            </Link>
+            </Link> */}
             {/* <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
               Transactions
@@ -75,14 +75,14 @@ function Sidebar() {
               <DynamicFeed className="sidebarIcon" />
               Feedback
             </li>
-            <li className="sidebarListItem">
+            {/* <li className="sidebarListItem">
               <ChatBubbleOutline className="sidebarIcon" />
               Messages
-            </li>
+            </li> */}
           </ul>
         </div>
-        {/* <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Staff</h3>
+        <div className="sidebarMenu">
+          {/* <h3 className="sidebarTitle">Staff</h3>
           <ul className="sidebarList">
             <li className="sidebarListItem">
               <WorkOutline className="sidebarIcon" />
@@ -96,8 +96,8 @@ function Sidebar() {
               <Report className="sidebarIcon" />
               Reports
             </li>
-          </ul>
-        </div> */}
+          </ul> */}
+        </div>
       </div>
     </div>
   );
