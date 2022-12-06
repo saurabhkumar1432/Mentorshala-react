@@ -1,16 +1,20 @@
 .cardPart{
     /* border: 1px solid red; */
-    /* background-color: #ffffff; */
-    background: linear-gradient(#36096D,#37d5d6);
-    width: 65%;
+    /* background-color: #1F305E; */
+    /* background: linear-gradient(#002D62,#095ebe); */
+    /* width: 65%; */
     /* height: ; */
     /* display: flex;
     align-items: center;
     justify-content: center; */
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
+    /* position:relative; */
     /* background-image: url(../../../images/bg-texture.png); */
     /* background-color: var(--color-bg); */
+    width: 100%;
+    height: 100%;
 }
+
 .card-container{
     overflow-y: hidden;
     height: 90%;
@@ -25,7 +29,7 @@
     height: 300px; */
 }
 .bgGreen{
-    background: rgb(106, 201, 106);
+    background: #6ac96a;
 }
 .bgRed{
     background: rgb(239, 120, 120);
@@ -80,3 +84,6 @@
     background: rgb(239, 120, 120);
 }
 
+#community-btn{
+    
+}

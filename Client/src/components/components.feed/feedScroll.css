@@ -1,0 +1,88 @@
+#feedScroll-container{
+    /* border: 1px solid red; */
+    height: 89.5%;
+    overflow-y: auto;
+    display: block;
+    padding: 0% 3%;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+.feed-card{
+    display: block;
+    /* height: 30%; */
+    margin: 2% 0%;
+    /* box-shadow: 10px 10px 10px rgb(0 0 0 / 1); */
+}
+.feed-cardHeader{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+
+    margin: 1% 0%;
+}
+.cardHeader-image{
+    /* border: 1px solid blue; */
+    width: 6%;
+}
+.cardHeader-image img{
+    width: 100%;
+    border-radius: 50%;
+}
+.cardHeader-title{
+    /* border: 1px solid blue; */
+    width: 94%;
+    height: 100%;
+}
+.cardHeader-title div{
+    /* border: 1px solid red; */
+    font-size: small;
+    text-align: start;
+    padding: 0% 2%;
+}
+.cardHeader-title-name{
+    font-weight: 600;
+}
+.cardHeader-title-work{
+    font-weight: 300;
+    color: #5d5c5c;
+}
+.feed-cardMedia{
+    /* border: 1px solid red; */
+    margin: 1% 0%;
+    height:20%
+}
+.feed-cardMedia img{
+    width: 100%;
+}
+.feed-cardContent{
+    /* border: 1px solid red; */
+    margin: 1% 0%;
+    text-align: start;
+    padding: 1%;
+}
+.feed-actions{
+    /* border: 1px solid red; */
+    margin: 1% 0%;
+    text-align: start;
+    display: flex;
+    /* padding: 0.5%; */
+}
+.feed-actions button{
+    display: flex;
+    align-items: center;
+    margin: 0.5% 1%;
+    color: #4681f4;
+    border-radius: 5px;
+    border-style: none;
+    background: transparent;
+    transition: 0.3s;
+}
+.feed-actions button:hover{
+    color: aliceblue;
+    background: #4681f4;
+    transform: scale(1.2);
+}
+#notActive{
+    display: none;
+}

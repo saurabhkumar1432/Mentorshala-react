@@ -2,6 +2,7 @@ import data from '../../component-main-page/data/data.js'
 import './MessagePart.css'
 import {BsSearch,BsFillQuestionCircleFill,BsTools} from "react-icons/bs";
 import SettingsIcon from '@mui/icons-material/Settings';
+import ForumIcon from '@mui/icons-material/Forum';
 import { useState } from 'react';
 import X from './renderer.js';
 const MessagePart=()=>{
@@ -26,14 +27,6 @@ const MessagePart=()=>{
 
     }
     const handler=(id)=>{
-        // modes.map((mode)=>{
-        //     if(mode.id==id){
-        //         mode.active=true;
-        //     }
-        //     else{
-        //         mode.active=false;
-        //     }
-        // })
         if(id===1){
             Setisactive([false,true])
         }
@@ -41,6 +34,9 @@ const MessagePart=()=>{
             Setisactive([true,false]);
         }
         return Setmode(modes[id]);
+    }
+    const Community=()=>{
+        
     }
     return(
         <div className="col-4 messagePart">
@@ -50,7 +46,9 @@ const MessagePart=()=>{
                 </div>
                 <div className="col-sm-6 messagePart-profile-name"><a href='#'>{data.firstName}</a></div>
                 <div className="col-sm-4 messagePart-profil-explore">
-                    <a href='/setting'><button onClick={settingHandler}><SettingsIcon/></button></a>
+                    <a href='/setting'><button id="setting-btn" onClick={settingHandler}><SettingsIcon /></button></a>
+                    <button onClick={Community}><ForumIcon/></button>
+                    {/* <a id="community-btn" href='/community'><ForumIcon /></a> */}
                 </div>
             </div>
             <div className='row modeChanger'>

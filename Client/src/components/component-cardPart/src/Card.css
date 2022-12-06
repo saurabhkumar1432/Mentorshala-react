@@ -11,16 +11,17 @@
     height: 100%;
 }
 .card{
-    width: 40%;
+    width: 60%;
     height: 95%;
     transition: 0.5s;
-    box-shadow: 10px 10px 10px rgb(0 0 0 / 0.15);
+    /* box-shadow: 10px 10px 10px rgb(0 0 0 / 0.15); */
     /* position: relative; */
     display: flex;
     align-items: center;
     justify-items: center;
     background: #fbfafa;
-    color: #000000;
+    /* background: linear-gradient(#647DEE,#7F53AC); */
+    color: #000;
 }
 
 /* .card:hover{

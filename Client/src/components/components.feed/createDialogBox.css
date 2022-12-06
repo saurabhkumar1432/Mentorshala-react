@@ -1,0 +1,85 @@
+#createBox-container{
+    /* border: 1px solid red; */
+    margin-bottom: 0%;
+    height: 40%;
+    transition: 0.5s;
+}
+#createBox-card{
+    height: 100%;
+}
+#cretaeBox-username{
+    /* border: 1px solid blue; */
+    display: flex;
+}
+#cretaeBox-username #user-img{
+    /* border: 1px solid green; */
+    width: 7%;
+}
+#cretaeBox-username #user-img img{
+    width: 100%;
+}
+#cretaeBox-username #user-name{
+    /* border: 1px solid green; */
+    text-align: start;
+    width: 90%;
+    font-size: medium;
+    /* display: flex;
+    align-items: center; */
+}
+#createBox-textArea{
+    /* border: 1px solid blue; */
+    padding: 1% 2% 1% 1%;
+    height: 50%;
+}
+#cretaeBox-username  button{
+    background: transparent;
+    border-style: none;
+}
+#createBox-textArea textarea{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #c7c7c7;
+    /* background: #abc0e9; */
+    border-radius: 10px;
+}
+#createBox-textArea textarea:active{
+    border: 1px solid #c7c7c7;
+}
+#createBox-textArea textarea::placeholder{
+    color: rgb(0, 0, 0/0.2);
+    margin: 2%;
+}
+#createBox-button{
+    margin: 2% 0%;
+    /* border: 1px solid red; */
+    height: 10%;
+    display: flex;
+    /* padding: 1% 0%; */
+}
+#createBox-button label{
+    margin: 0% 2.5%;
+}
+#createBox-button label i{
+    display: flex;
+    align-items: center;
+    font-size: small;
+    padding: 1px;
+    color: #4681f4;
+    transition: 0.3s;
+}
+#createBox-button label i:hover{
+    background: #ccc;
+}
+#postBtn{
+    border-radius: 2px;
+    border-style: none;
+    background: #4681f4;
+    color: white;
+    transition: 0.3s;
+    padding: 0.5% 2%;
+    width: 100%;
+}
+#postBtn:hover{
+    background: #3461bcf2;
+    /* transform: scale(1.1); */
+}

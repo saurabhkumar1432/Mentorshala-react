@@ -1,6 +1,6 @@
 // import { useState } from 'react'
 import React, { useState, useMemo, useRef, useEffect } from 'react'
-
+import Waves from './Waves.jsx';
 import './CardPart.css'
 import Card from './Card'
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
@@ -11,8 +11,6 @@ import TinderCard from 'react-tinder-card'
 import UndoIcon from '@mui/icons-material/Undo';
 import { ReactDOM } from 'react';
 import http from "../../../http-common.js"
-
-// const dbData=[]
 let likedPeople=[]
 let dislikedPeople=[]
 const CardPart=()=>{
@@ -27,14 +25,9 @@ const CardPart=()=>{
       console.log(err);
     })
   },[])
-  // console.log(indexCurrently);
-  // console.log(likedPeople);
-  // console.log(dislikedPeople);
     const [currentIndex, setCurrentIndex] = useState(dbData.length - 1)
   const [lastDirection, setLastDirection] = useState()
-  // used for outOfFrame closure
   const currentIndexRef = useRef(currentIndex)
-  // console.log(dbData[currentIndex]);
   const childRefs = useMemo(
     () =>
       Array(dbData.length)
@@ -52,11 +45,9 @@ const CardPart=()=>{
 
   const canSwipe = currentIndex >= 0
 
-  // set last direction and decrease current index
   const swiped = (direction, nameToDelete, index) => {
     setLastDirection(direction)
     updateCurrentIndex(index - 1)
-    // console.log(dbData[currentIndex]);
     if(direction==='right'){
       document.getElementsByClassName('cardPart')[0].classList.add('bgGreen')
     }
@@ -75,39 +66,21 @@ const CardPart=()=>{
 
   const outOfFrame = (name, idx) => {
     console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current)
-    // handle the case in which go back is pressed before card goes outOfFrame
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
-    // TODO: when quickly swipe and restore multiple times the same card,
-    // it happens multiple outOfFrame events are queued and the card disappear
-    // during latest swipes. Only the last outOfFrame event should be considered valid
     document.getElementsByClassName('cardPart')[0].classList.remove('bgGreen')
     document.getElementsByClassName('cardPart')[0].classList.remove('bgRed')
-    // console.log(dbData[currentIndexRef.current+1]);
   }
 
   const swipe =  async(dir) => {
     if (canSwipe && currentIndex < dbData.length) {
       await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
     }
-    // if(dir==='right'){
-    //   document.getElementsByClassName('cardPart')[0].classList.add('bgGreen')
-    // }
-    // else{
-    //     document.getElementsByClassName('cardPart')[0].classList.add('bgRed')
-    // }
   }
-
-  // increase current index and show card
-  // const goBack = async () => {
-  //   if (!canGoBack) return
-  //   const newIndex = currentIndex + 1
-  //   updateCurrentIndex(newIndex)
-  //   await childRefs[newIndex].current.restoreCard()
-  // }
 
   return (
     <div className="cardPart col-6">
-      <link
+      <Waves/>
+            <link
         href='https://fonts.googleapis.com/css?family=Damion&display=swap'
         rel='stylesheet'
       />
@@ -115,6 +88,7 @@ const CardPart=()=>{
         href='https://fonts.googleapis.com/css?family=Alatsi&display=swap'
         rel='stylesheet'
       />
+      
         <div className='card-container'>
         {dbData.map((character, index) => {
             return (
@@ -147,6 +121,7 @@ const CardPart=()=>{
           Swipe a card or press a button to get Restore Card button visible!
         </h2>
       )} */}
+      
     </div>
   )
 }

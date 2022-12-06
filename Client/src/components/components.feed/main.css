@@ -1,0 +1,21 @@
+#mainPage-container{
+    /* border: 1px solid red; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* background: #F0F8FF; */
+    /* border: 1px solid red; */
+    /* background-color: #1F305E; */
+    /* background: linear-gradient(#002D62,#095ebe); */
+    /* width: 65%; */
+    /* height: ; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* overflow-y: hidden; */
+    /* position:relative; */
+    /* background-image: url(../../../images/bg-texture.png); */
+    /* background-color: var(--color-bg); */
+
+}
