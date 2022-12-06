@@ -9,6 +9,7 @@ import ContactsIcon from '@mui/icons-material/Contacts';
 import EmailIcon from '@mui/icons-material/Email';
 import ReportIcon from '@mui/icons-material/Report';
 import { useState } from 'react';
+import axios from 'axios';
 const Card=(props)=>{
     const {id,firstName,lastName,profilePic,banner,from,country,college,specialization,description,experience,Linkedin,Email}=props.character
     // console.log(props);
@@ -21,8 +22,13 @@ const Card=(props)=>{
             setRadioCheck([false,true])
         }
     }
-    const reportHandler=()=>{
+    const reportHandler=async()=>{
         console.log(Email);
+        await axios.post('http://localhost:5000/api/v1/mentorshala/reportUser',{'Email':Email}).then((res)=>{
+            console.log(res.data);
+        }).catch((err)=>{
+            console.log("error");
+        })
     }
     return(
         <div class="card">

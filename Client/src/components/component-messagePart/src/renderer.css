@@ -17,6 +17,7 @@ div.scroll {
     flex-direction: column;
     flex-wrap: wrap;
     white-space: wrap;
+    overflow-x: hidden;
 }
 .modeCards{
     display: inline-block;
