@@ -37,4 +37,33 @@ export default class mentorShalaDb{
     //         cursor=await mentorshalaUsers.find({})
     //     }
     // }
+    static async updateUser(obj){
+        const query={Email:obj.Email}
+        // console.log("hello");
+            // console.log(query);
+        let reportValue;
+        let cursor;
+        try{
+            cursor=await mentorshalaUsers.find({Email:obj.Email})
+        }
+        catch{
+            console.log("can't find");
+        }
+        try{
+            const usersList=await cursor.toArray()
+            reportValue=usersList[0].report
+        }
+        catch{
+            console.log("cant make it an array");
+        }
+        const newvalues = {
+            $set: {
+                report:reportValue+1
+            }
+        };
+        await mentorshalaUsers.updateOne(query,newvalues,(err,res)=>{
+            if (err) throw err;
+            console.log("1 document updated");
+        })
+    }
 }
