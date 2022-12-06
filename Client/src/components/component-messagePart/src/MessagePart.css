@@ -81,10 +81,15 @@
     
     /* overflow: hidden; */
 }
-/* .chatMessageSection div{
-    border: 1px solid #000000;
-    width: 100%;
-} */
-/* .chatMessageSection .col-sm-8{
-    border: 1px solid #ff3300;
-} */
+
+#community-btn{
+    margin: 0% 2%;
+    color: aliceblue;
+    /* border: 1px solid red; */
+    margin-left: 2%;
+    padding: 0% 2%;
+}
+#setting-btn{
+    /* border: 1px solid red; */
+    margin: 0% 2%;
+}

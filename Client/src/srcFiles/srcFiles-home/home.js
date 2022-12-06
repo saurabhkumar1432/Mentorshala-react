@@ -8,6 +8,7 @@ import Home from '../../components/component-homePage/App'
 import Login from '../../components/component-homePage/login/Login';
 import Register from '../../components/component-homePage/login/Register';
 import Form from '../../components/component-homePage/login/Form'
+import Community from '../../components/components.feed/main';
 // import Admin from '../../components/component-adminPart/component-admin-src/admin'
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/setting" element={<Setting />} />
+      <Route path="/community" element={<Community />} />
+      
       {/* <Route path="/admin" element={<Admin />} /> */}
     </Routes>
   </BrowserRouter>
