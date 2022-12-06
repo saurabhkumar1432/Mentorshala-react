@@ -33,10 +33,10 @@ function Sidebar() {
               <Timeline className="sidebarIcon" />
               Analytics
             </li>
-            <li className="sidebarListItem">
+            {/* <li className="sidebarListItem">
               <TrendingUp className="sidebarIcon" />
               Sales
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -54,10 +54,10 @@ function Sidebar() {
                 Products
               </li>
             </Link>
-            <li className="sidebarListItem">
+            {/* <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
               Transactions
-            </li>
+            </li> */}
             <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
               Reports
@@ -81,7 +81,7 @@ function Sidebar() {
             </li>
           </ul>
         </div>
-        <div className="sidebarMenu">
+        {/* <div className="sidebarMenu">
           <h3 className="sidebarTitle">Staff</h3>
           <ul className="sidebarList">
             <li className="sidebarListItem">
@@ -97,7 +97,7 @@ function Sidebar() {
               Reports
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );
