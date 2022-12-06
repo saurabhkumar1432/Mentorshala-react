@@ -47,6 +47,10 @@
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
     width: 12%;
+    text-align: center;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
 }
 .coloumns-grid:nth-child(2) button:hover{
     background: #20B2AA;
