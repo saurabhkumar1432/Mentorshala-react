@@ -31,7 +31,7 @@ function App() {
       <Route path="/setting" element={<Setting />} />
       <Route path="/community" element={<Community />} />
       
-      <Route path="/admin" element={<Admin />} />
+      <Route path="/admin/*" element={<Admin />} />
     </Routes>
   </BrowserRouter>
   );
