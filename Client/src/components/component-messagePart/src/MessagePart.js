@@ -35,6 +35,9 @@ const MessagePart=()=>{
         }
         return Setmode(modes[id]);
     }
+    const Community=()=>{
+        
+    }
     return(
         <div className="col-4 messagePart">
             <div className="row messagePart-profile">
@@ -44,7 +47,7 @@ const MessagePart=()=>{
                 <div className="col-sm-6 messagePart-profile-name"><a href='#'>{data.firstName}</a></div>
                 <div className="col-sm-4 messagePart-profil-explore">
                     <a href='/setting'><button id="setting-btn" onClick={settingHandler}><SettingsIcon /></button></a>
-                    <button><ForumIcon/></button>
+                    <button onClick={Community}><ForumIcon/></button>
                     {/* <a id="community-btn" href='/community'><ForumIcon /></a> */}
                 </div>
             </div>

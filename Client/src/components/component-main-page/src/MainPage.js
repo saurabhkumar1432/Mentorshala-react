@@ -10,8 +10,12 @@ const MainPage=()=>{
     return(
         <div className="row mainPage-container">
             <MessagePart/>
-            <CardPart />
-            {/* <Community/> */}
+            <div id='cardpart' className={active?'remover':''}>
+                <CardPart/>
+            </div>
+            <div id='community' className={active?'':'remover'}>
+                <Community/>
+            </div>
         </div>
     )
 }
