@@ -20,7 +20,8 @@
     align-items: center;
     justify-items: center;
     background: #fbfafa;
-    color: #000000;
+    /* background: linear-gradient(#647DEE,#7F53AC); */
+    color: #000;
 }
 
 /* .card:hover{

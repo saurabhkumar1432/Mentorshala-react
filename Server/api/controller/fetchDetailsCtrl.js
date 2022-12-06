@@ -12,4 +12,15 @@ export default class usersDetailsCtrl{
             return []
         }
     }
+    static async getapiFeeds(){
+        try{
+            const feedslists=await MentorShalaDAO.getFeed()
+            // console.log(userlists);
+            return feedslists
+        }
+        catch{
+            console.log("Can't fetch data");
+            return []
+        }
+    }
 }
