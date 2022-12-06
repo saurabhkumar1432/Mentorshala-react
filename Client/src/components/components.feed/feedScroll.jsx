@@ -18,7 +18,7 @@ const FeedScroll=()=>{
       .catch(err=>{
         console.log(err);
       })
-    })
+    },[])
     // const FeedData=dbData.reverse()
     // const likeFeed=async(noOflike,caption)=>{
     //     // console.log(noOflike);

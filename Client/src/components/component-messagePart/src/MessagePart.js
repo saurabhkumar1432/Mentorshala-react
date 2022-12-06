@@ -5,7 +5,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import ForumIcon from '@mui/icons-material/Forum';
 import { useState } from 'react';
 import X from './renderer.js';
-const MessagePart=()=>{
+const MessagePart=(props)=>{
     const modes=[
         {
             id:0,
@@ -36,7 +36,15 @@ const MessagePart=()=>{
         return Setmode(modes[id]);
     }
     const Community=()=>{
-        
+        // console.log(props.props);
+        console.log(props.active);
+        // props.setActive(true)
+        if(props.active==false){
+            props.setActive(true);
+        }
+        else{
+            props.setActive(false)
+        }
     }
     return(
         <div className="col-4 messagePart">
