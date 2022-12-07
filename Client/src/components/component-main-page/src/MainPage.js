@@ -5,6 +5,7 @@ import Feed from '../../components.feed/feed'
 
 import Community from '../../components.feed/main'
 import { useState } from 'react'
+import Waves from '../../component-cardPart/src/Waves'
 const MainPage=()=>{
     const [active,setActive]=useState(false)
     return(
@@ -14,6 +15,7 @@ const MainPage=()=>{
                 <CardPart/>
             </div>
             <div id='community' className={active?'':'remover'}>
+                <Waves/>
                 <Community/>
             </div>
         </div>

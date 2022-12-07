@@ -55,7 +55,7 @@ const MessagePart=(props)=>{
                 <div className="col-sm-6 messagePart-profile-name"><a href='#'>{data.firstName}</a></div>
                 <div className="col-sm-4 messagePart-profil-explore">
                     <a href='/setting'><button id="setting-btn" onClick={settingHandler}><SettingsIcon /></button></a>
-                    <button onClick={Community}><ForumIcon/></button>
+                    <button id="community-btn" onClick={Community}><ForumIcon/></button>
                     {/* <a id="community-btn" href='/community'><ForumIcon /></a> */}
                 </div>
             </div>
