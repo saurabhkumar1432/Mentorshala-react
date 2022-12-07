@@ -52,11 +52,11 @@ const MessagePart=(props)=>{
                 <div className="col-sm-2 messagePart-profile-pic">
                     <img src={data.profilePic} alt="profilePic"></img>
                 </div>
-                <div className="col-sm-6 messagePart-profile-name"><a href='#'>{data.firstName} {data.lastName}</a></div>
+                <div className="col-sm-6 messagePart-profile-name"><a href='#'>{data.firstName}</a></div>
                 <div className="col-sm-4 messagePart-profil-explore">
                     <a href='/setting'><button id="setting-btn" onClick={settingHandler}><SettingsIcon /></button></a>
-                    <button id="community-btn" onClick={Community}><ForumIcon/></button>
-                    {/* <a id="community-btn" href='/community'><ForumIcon /></a> */}
+                    {/* <button id="community-btn"><ForumIcon/></button> */}
+                    <a id="community-btn" href='/community'><ForumIcon /></a>
                 </div>
             </div>
             <div className='row modeChanger'>

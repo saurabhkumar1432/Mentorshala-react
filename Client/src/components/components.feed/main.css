@@ -4,6 +4,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    background: linear-gradient(#002D62,#095ebe);
     /* background: #F0F8FF; */
     /* border: 1px solid red; */
     /* background-color: #1F305E; */
