@@ -56,7 +56,7 @@ const Register = (props) => {
             </div>
             <div id='registerFormDiv'>
                 <div className='formContainer-div'>
-                    <form className="register-form" onSubmit={PostData}>
+                    <form className="register-form" method="GET" action="/main">
                         <label htmlFor="firstname" className='customField'>First name</label>
                         <input value={user.firstname} onChange={handleInput} name="firstname" id="firstname" placeholder="first Name" type='text' required/>
                         <label htmlFor="lastname" className='customField'>Last name</label>
@@ -76,10 +76,9 @@ const Register = (props) => {
                         <input value={user.description} onChange={handleInput} name="description" id="description" placeholder="Describe Yourself" />
                         {/* <label htmlFor="password">password</label>
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" /> */}
-                   <div className="box">
+                   {/* <div className="box"> */}
                         <button type='submit' className='submit'>Register</button>
-                        <a href="/main">a</a>
-                        </div>
+                        {/* </div> */}
                     </form>
                 </div>
             </div>
