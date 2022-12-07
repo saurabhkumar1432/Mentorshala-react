@@ -41,7 +41,7 @@
     color: white;
     width: 30%;
 }
-.messagePart-profile-pic a img{
+.messagePart-profile-pic  img{
     width: 100%;
     border-radius: 50%;
 }

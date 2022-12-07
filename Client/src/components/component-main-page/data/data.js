@@ -1,11 +1,11 @@
 // import {kakashiProfilePic} from '../../../images/kakashi2.jpg'
-import profilePic from '../../../images/profilePic.jpg'
+import photo from '../../../images/photo.jpg'
 
 const data=
     {
-        firstName:"Lawliet",
-        lastName:"laruso",
-        profilePic: profilePic,
+        firstName:"Abhishek",
+        lastName:"Singh",
+        profilePic: photo,
     }
 
 export default data

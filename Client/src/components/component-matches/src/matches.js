@@ -1,6 +1,7 @@
 import './matches.css'
 import chatData from '../../component-chat/data/chatData'
-import Contact from '../../component-contact/Contact'
+// import Contact from '../../component-contact/Contact'
+import MatchItem from './matchItem'
 const Matches=()=>{
     const contactList=chatData
     return(
@@ -9,7 +10,7 @@ const Matches=()=>{
                 contactList.map(
                     contact => {
                         // console.log(contact.Name);
-                        return <Contact contact={contact}/>
+                        return <MatchItem contact={contact}/>
                     }
                 ) 
             }
