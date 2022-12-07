@@ -10,6 +10,7 @@
     /* justify-content: center; */
     /* border: 1px solid red; */
 }
+
 .wave{
 	position: fixed;
 	bottom: 0;
@@ -183,7 +184,9 @@ a:hover{
 .btn1:hover{
 	background-position: right;
 }
-
+.ps3{
+transform: translateX(-38%);
+}
 
 @media screen and (max-width: 1050px){
 	.formContainer1{

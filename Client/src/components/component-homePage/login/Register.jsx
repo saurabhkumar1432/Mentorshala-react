@@ -8,15 +8,6 @@ const Register = (props) => {
     const [user,setUser]=useState({
         email:"",firstname:"",lastname:"",specialization:"",country:"",from:"",college:"",description:""
     });
-    // console.log(" hello");
-    // const [email, setEmail] = useState('');
-    // const [firstname, setFirstName] = useState('');
-    // const [lastname, setLastName] = useState('');
-    // const [specialization, setSpecialization] = useState('');
-    // const [country, setCountry] = useState('');
-    // const [from, setFrom] = useState('');
-    // const [college, setCollege] = useState('');
-    // const [description, setDescription] = useState('');
     let name,value;
     const handleInput = (e) => {
         console.log(e);
@@ -49,64 +40,52 @@ const Register = (props) => {
             "specialization":specialization
         }
         console.log(obj);
-        // const res=await fetch('/createUser',{
-        //     method:"POST",
-        //     headers:{
-        //         "content-Type":"application/json"
-        //     },
-        //     // body:json.stringify({
-        //     //     email,firstname,lastname,specialization,country,from,college,description
-        //     // })
-        // });
         await axios.post("http://localhost:5000/api/v1/mentorshala/createUser",obj).then((res)=>{
             console.log(res.data);
         }).catch((err)=>{
             console.log(err);
         })
-        // const data=await res.json();
-        // if(data.status===422||!data){
-        //     window.alert('Invalid Registration');
-        //     console.log('Invalid registration')
-        // }else{
-        //     window.alert(' Registration Success');
-        //     console.log('Successful registration');
-        //     // history.push('/login');
-        // }
+        
     };
     return (
+        <div class='ps2'>
+        <h2 className="ps1">Registration Form</h2>
         <div className="RegistrationContainer">
             <div className="image1_container">
                 <img src={logInimg} />
             </div>
             <div id='registerFormDiv'>
-                <div className='formContainer-div'><h2>Register</h2></div>
                 <div className='formContainer-div'>
-                    <form className="register-form">
-                        <label htmlFor="firstname">First name</label>
+                    <form className="register-form" onSubmit={PostData}>
+                        <label htmlFor="firstname" className='customField'>First name</label>
                         <input value={user.firstname} onChange={handleInput} name="firstname" id="firstname" placeholder="first Name" type='text' required/>
-                        <label htmlFor="lastname">Last name</label>
+                        <label htmlFor="lastname" className='customField'>Last name</label>
                         <input value={user.lastname} onChange={handleInput} name="lastname" id="lastname" placeholder="Last Name" required/>
-                        <label htmlFor="email">email</label>
+                        <label htmlFor="email" className='customField'>Email</label>
                         <input value={user.email} onChange={handleInput} type="email" placeholder="youremail@gmail.com" id="email" name="email" required/>
-                        <label htmlFor="from">From :</label>
+                        <label htmlFor="from" className='customField'>From :</label>
                         <input value={user.from} onChange={handleInput} name="from" id="from" placeholder="From" />
-                        <label htmlFor="country">Country</label>
+                        <label htmlFor="country" className='customField'>Country</label>
                         <input value={user.country} onChange={handleInput} name="country" id="country" placeholder="country" required />
-                        <label htmlFor="college">College</label>
+                        <label htmlFor="college" className='customField'>College</label>
                         <input value={user.college} onChange={handleInput} name="college" id="college" placeholder="college" />
-                        <label htmlFor="specialization">Specialization</label>
+                        <label htmlFor="specialization" className='customField'>Specialization</label>
                         <input value={user.specialization} onChange={handleInput} name="specialization" id="specialization" placeholder="Specialization" required />
                         {/* <input type='file' accept="image/jpeg" onchange="uploadImage()"/> */}
-                        <label htmlFor="description">Description</label>
+                        <label htmlFor="description" className='customField'>Description</label>
                         <input value={user.description} onChange={handleInput} name="description" id="description" placeholder="Describe Yourself" />
                         {/* <label htmlFor="password">password</label>
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" /> */}
-                        <button type='submit'  onClick={PostData}>Register</button>
+                   <div className="box">
+                        <button type='submit' className='submit'>Register</button>
+                        <a href="/main">a</a>
+                        </div>
                     </form>
                 </div>
             </div>
 
             {/* <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Already have an account? Login here.</button> */}
+        </div>
         </div>
     )
 }
