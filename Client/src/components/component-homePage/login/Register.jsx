@@ -56,7 +56,7 @@ const Register = (props) => {
             </div>
             <div id='registerFormDiv'>
                 <div className='formContainer-div'>
-                    <form className="register-form" method="GET" action="/main">
+                    <form className="register-form" method="GET" action="/main" onSubmit={PostData}>
                         <label htmlFor="firstname" className='customField'>First name</label>
                         <input value={user.firstname} onChange={handleInput} name="firstname" id="firstname" placeholder="first Name" type='text' required/>
                         <label htmlFor="lastname" className='customField'>Last name</label>

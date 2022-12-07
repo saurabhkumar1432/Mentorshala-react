@@ -9,7 +9,7 @@ const MatchItem = (props) => {
             </div>
             <div>
                 <div id="contactName" class="row"> {props.contact.firstName} {props.contact.lastName}</div>
-                {/* <div id="contactLastmessage" class="row">{props.contact.message[props.contact.message.length-1].content}</div> */}
+                <div id="contactLastmessage" class="row">You have been matched😊</div>
             </div>
         </div>
     </div>

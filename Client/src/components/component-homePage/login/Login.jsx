@@ -8,33 +8,33 @@ import logInimg from "../../../images/22866003-removebg-preview.png";
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [found, setFound] = useState(false);
-  const handleChange = useCallback(async () => {
-    try {
-      const response = await fetch(
-        "https://react-http-1-2a5c9-default-rtdb.firebaseio.com/movies.json"
-      );
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
-      const data = await response.json();
-      const loadedMovies = [];
-      console.log(data);
-      data.array.forEach((element) => {
-        if (element.email === email) {
-          setFound(true);
-        }
-      });
-      console.log(found);
-      if (found === false) {
-        alert("Register Yourself");
-      }
-    } catch (error) {
-      console.log(error.message);
-    }
-  }, []);
-  useEffect(() => {
-    handleChange();
-  }, [handleChange]);
+  // const handleChange = useCallback(async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://react-http-1-2a5c9-default-rtdb.firebaseio.com/movies.json"
+  //     );
+  //     if (!response.ok) {
+  //       throw new Error("Something went wrong!");
+  //     }
+  //     const data = await response.json();
+  //     const loadedMovies = [];
+  //     console.log(data);
+  //     data.array.forEach((element) => {
+  //       if (element.email === email) {
+  //         setFound(true);
+  //       }
+  //     });
+  //     console.log(found);
+  //     if (found === false) {
+  //       alert("Register Yourself");
+  //     }
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }, []);
+  // useEffect(() => {
+  //   handleChange();
+  // }, [handleChange]);
   return (
     <div className="auth-form-container">
       {/* <img class="wave" src={Wave} alt="wave"/> */}
@@ -84,7 +84,7 @@ const Login = (props) => {
             <button
               type="submit"
               className="btn1 btn-primary loginBTN"
-              onSubmit={handleChange}
+              // onSubmit={handleChange}
             >
               Log In
             </button>
