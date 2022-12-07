@@ -52,14 +52,14 @@ const Login = (props) => {
               </div>
               <div className="div">
                 {/* <label for="exampleInputEmail1">Email address </label> */}
-                <h5>Email Address</h5>
+                {/* <h5>Email Address</h5> */}
                 <input
                   type="email"
                   value={email}
                   className="input"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  // placeholder="Enter email"
+                  placeholder="Enter email"
                   onChange={(e) => setEmail(e.target.value)
                   }
                 required></input>
