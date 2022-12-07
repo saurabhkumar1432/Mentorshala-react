@@ -1,5 +1,7 @@
 .home{
     flex: 4;
+    background-image: linear-gradient(to right, #95bbf3, #b3f0ec);
+    z-index: -999;
 }
 
 .homeWidgets{

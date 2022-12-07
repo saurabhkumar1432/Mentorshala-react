@@ -14,7 +14,7 @@
     align-items: center;
     border-style: none;
     overflow-y: hidden;
-    margin: 4% 0%;
+    
 }
 #contacts{
     /* border: 1px solid green; */
@@ -23,10 +23,11 @@
     display: flex;
     margin-top: auto;
     height:5vh;
+    border:1px solid black;
     border-radius: 10px;
     position: fixed;
     bottom:2vh;
-    left:1vw;
+    left:1.7vw;
     
     background: transparent;
     font: 300;
@@ -51,8 +52,9 @@
     padding:0px;
     color:black;
     width:100%;
+    border:none;
+    color:white;
     /* border: 1px solid red; */
-    border-radius: 10px 0 0 10px;
 }
 #goBack{
     background: white;
@@ -60,7 +62,7 @@
     height:5vh;
     width:5vh;
     border-radius: 50%;
-    margin-top: 2vh;
+    margin-top: 3vh;
     justify-self: left;
     margin-bottom: 1vh;
     left: 1vw;
@@ -76,8 +78,14 @@
 }
 #chatContainer{
     height: 100vh;
+    margin-top:-2vw;
+    margin-left: -35vw;
+    margin-right:-1.5vw;
+    position:absolute;
+
     /* background:linear-gradient(90deg,violet,#aaf); */
     /* background: #2f2d2d; */
+    background: linear-gradient(#fff,#aaa);
     overflow: hidden;
     scrollbar-width:none;
 }
@@ -85,7 +93,7 @@
     position:fixed;
     height:67vh;
     margin-top: 7vh;
-
+    margin-left: -1vw;
     overflow-x: hidden;
     overflow-y:scroll;
     scrollbar-width: none;
@@ -104,7 +112,21 @@
     height: 100%;
     background: transparent;
     /* padding:6%; */
-    color: #075E54;
-    border-radius:0px 10px 10px 0px ;
+    color: black;
+    border-radius:0px 10px 10px 0px;
+    margin-right:1vw;
     /* border: 1px solid green; */
+}
+#msgImage{
+    margin-top: 0.2vh;
+    margin-left:0.4vh;
+    margin-right:1vh;
+    width: 4vh;
+    height: 4vh;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(#3496f1,#00a);
+    border-radius: 50%;
+    /* border: 1px solid red; */
 }

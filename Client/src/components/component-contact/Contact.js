@@ -5,7 +5,7 @@ const Contact=(props)=>{
     // console.log(Name);
     
     return(
-        <div id='contactContainer' className='d-flex'>
+        <div id='contactContainerInner' className='d-flex'>
             <div>
                 <img id="contactImage" src={props.contact.profilePic}></img>
             </div>
