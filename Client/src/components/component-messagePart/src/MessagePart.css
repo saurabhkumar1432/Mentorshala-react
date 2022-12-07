@@ -15,8 +15,10 @@
     /* border: 2px solid green; */
     /* background: linear-gradient(
         to right, #e394f1,#8d8dfa); */
-    background-image: url(../../../images/bg-texture.png);
-    background-color: var(--color-bg);
+    /* background-image: url(../../../images/bg-texture.png); */
+    /* background-color: var(--color-bg); */
+    /* background-color: #20B2AA; */
+    background: linear-gradient(#034a9b,#095ebe);
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
 }
@@ -86,7 +88,7 @@
     margin: 0% 2%;
     color: aliceblue;
     /* border: 1px solid red; */
-    margin-left: 2%;
+    margin-left: 10%;
     padding: 0% 2%;
 }
 #setting-btn{

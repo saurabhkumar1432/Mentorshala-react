@@ -7,6 +7,7 @@
 #createPost-card{
     display: flex;
     box-shadow: 10px 10px 10px rgb(0 0 0 / 0.15);
+    align-items: center;
 }
 .card-image{
     /* border: 1px solid red; */
