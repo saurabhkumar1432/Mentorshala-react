@@ -10,7 +10,9 @@
     /* justify-content: center; */
     /* border: 1px solid red; */
 }
-
+#exampleInputPassword1{
+	color: white;
+}
 .wave{
 	position: fixed;
 	bottom: 0;

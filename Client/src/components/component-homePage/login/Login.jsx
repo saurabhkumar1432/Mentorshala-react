@@ -60,7 +60,8 @@ const Login = (props) => {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   // placeholder="Enter email"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)
+                  }
                 required></input>
               </div>
             </div>
@@ -70,12 +71,12 @@ const Login = (props) => {
               </div>
               <div className="div">
                 {/* <label for="exampleInputPassword1" className="input">Password </label> */}
-                <h5>Password</h5>
+                {/* <h5>Password</h5> */}
                 <input
                   type="password"
                   className="input"
                   id="exampleInputPassword1"
-                  // placeholder="Password"
+                  placeholder="Password"
                  required></input>
               </div>
             </div>
