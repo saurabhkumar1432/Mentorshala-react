@@ -5,7 +5,7 @@
   }
   .styled-table tbody tr.active-row {
     font-weight: bold;
-    color: #009879;
+    color: #c24be6;
 }
 .styled-table tbody tr {
   border-bottom: 1px solid #dddddd;
@@ -16,7 +16,7 @@
 }
 
 .styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 2px solid #3936ee;
 }
 .styled-table th,
 .styled-table td {
@@ -24,7 +24,7 @@
     text-align: center;
 }
 .styled-table thead tr {
-  background-color: #009879;
+  background-color: #5849e0;
   color: #ffffff;
   text-align: left;
 }
@@ -54,7 +54,7 @@
       border: none;
       border-radius: 10px;
       padding: 5px 10px;
-      background-color: #3bb077;
+      background-color: #764df1;
       color: white;
       cursor: pointer;
       margin-right: 20px;
