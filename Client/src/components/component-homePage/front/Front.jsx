@@ -6,6 +6,7 @@ import CardSwipeSVG from '../../../images/CardSwipeSVG.svg'
 import CommunitySVG from '../../../images/CommunitySVG.svg'
 const Front = () => {
     return (
+        <section id="ps5">
         <div className='frontContainer'>
             <h1>Services Provided By MentorShala</h1>
             <div className="frontContainer-div">
@@ -47,6 +48,7 @@ const Front = () => {
                 </div>
             </div>
         </div>
+        </section>
     )
 }
 export default Front;
