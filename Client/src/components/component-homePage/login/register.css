@@ -1,17 +1,89 @@
+.ps2{
+	margin: auto 30px;
+	padding: auto 13px;
+	height: 150vh;
+	background: linear-gradient(to left,rgb(96, 227, 220),rgb(205, 205, 217));
+}
 .RegistrationContainer{
     display: grid;
-    background-image: url(../../../images/bg-texture.png);
     font-family: 'Poppins', sans-serif; 
-    grid-template-columns: 35% 40%;
+	grid-template-columns: 40% 40%;
     align-items: center;
-    gap:12%
+    background-size: cover;
+    gap:10%
 }
 .image1_container{
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
-    width: 75 vh;
+    width: 65 vh;
     height: 40vh;
     object-fit: cover;
 }
+.formContainer-div{
+	top:3%;
+	transform: translateX(30%);
+}
+.ps1{
+	transform: translateX(45%);
+	color:blue;
+	justify-content: center;
+	align-items: center;
+}
+.customField{
+	position: relative;
+	font-size: 14px;
+	padding-top: 20px;
+	margin-bottom: 5px;
+	width: 300px;
+}
+.customField input{
+	border:none;
+	appearance: none;
+	padding: 12px;
+	font-size: 14px;
+	outline: none;
+	width: 500px;
+
+}
+.customField input:focus {
+	top: 10px;
+	font-size: 10px;
+	color:#222;
+}
+.box{
+	width: 360px;
+	height: 35px;
+	margin-top: 10px;
+	font-family: verdana;
+	font-size: 12px;
+}
+
+
+.submit{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #3245be, #38d39f, #32be8f);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+}
+.btn1:hover{
+	background-position: right;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+
+}
+
+

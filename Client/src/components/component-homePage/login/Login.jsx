@@ -61,7 +61,7 @@ const Login = (props) => {
                   aria-describedby="emailHelp"
                   // placeholder="Enter email"
                   onChange={(e) => setEmail(e.target.value)}
-                ></input>
+                required></input>
               </div>
             </div>
             <div class="input-div pass">
@@ -76,7 +76,7 @@ const Login = (props) => {
                   className="input"
                   id="exampleInputPassword1"
                   // placeholder="Password"
-                ></input>
+                 required></input>
               </div>
             </div>
             <a href='#'>Forgot Password</a>
@@ -87,6 +87,8 @@ const Login = (props) => {
             >
               Log In
             </button>
+            <p>OR</p>
+            <a href="/register" className="ps3" >Register  here</a>
           </form>
         </div>
       </div>
