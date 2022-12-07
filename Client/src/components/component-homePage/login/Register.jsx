@@ -8,6 +8,7 @@ const Register = (props) => {
     const [user,setUser]=useState({
         email:"",firstname:"",lastname:"",specialization:"",country:"",from:"",college:"",description:""
     });
+    // console.log(" hello");
     // const [email, setEmail] = useState('');
     // const [firstname, setFirstName] = useState('');
     // const [lastname, setLastName] = useState('');
@@ -24,8 +25,11 @@ const Register = (props) => {
         setUser({...user,[name]:value})
     };
     const PostData=async(e)=>{
+        console.log(" hello");
+        console.log(user);
         e.preventDefault();
         const {email,firstname,lastname,specialization,country,from,college,description}=user;
+        // console.log(email);
         const formData=new FormData()
         formData.append("Email",email)
         formData.append("FirstName",firstname)
@@ -34,7 +38,17 @@ const Register = (props) => {
         formData.append("From",from)
         formData.append("College",college)
         formData.append("Description",description)
-        
+        const obj={
+            "Email":email,
+            "firstName":firstname,
+            "lastName":lastname,
+            "country":country,
+            "from":from,
+            "college":college,
+            "description":description,
+            "specialization":specialization
+        }
+        console.log(obj);
         // const res=await fetch('/createUser',{
         //     method:"POST",
         //     headers:{
@@ -44,7 +58,7 @@ const Register = (props) => {
         //     //     email,firstname,lastname,specialization,country,from,college,description
         //     // })
         // });
-        await axios.post("http://localhost:5000/api/v1/mentorshala/createUser",formData).then((res)=>{
+        await axios.post("http://localhost:5000/api/v1/mentorshala/createUser",obj).then((res)=>{
             console.log(res.data);
         }).catch((err)=>{
             console.log(err);
@@ -67,7 +81,7 @@ const Register = (props) => {
             <div id='registerFormDiv'>
                 <div className='formContainer-div'><h2>Register</h2></div>
                 <div className='formContainer-div'>
-                    <form className="register-form" method="POST">
+                    <form className="register-form">
                         <label htmlFor="firstname">First name</label>
                         <input value={user.firstname} onChange={handleInput} name="firstname" id="firstname" placeholder="first Name" type='text' required/>
                         <label htmlFor="lastname">Last name</label>
@@ -87,7 +101,7 @@ const Register = (props) => {
                         <input value={user.description} onChange={handleInput} name="description" id="description" placeholder="Describe Yourself" />
                         {/* <label htmlFor="password">password</label>
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" /> */}
-                        <button type="submit" className="btn btn-primary loginBTN" onSubmit={PostData}>Register</button>
+                        <button type='submit'  onClick={PostData}>Register</button>
                     </form>
                 </div>
             </div>

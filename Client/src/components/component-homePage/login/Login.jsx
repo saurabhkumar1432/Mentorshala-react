@@ -37,28 +37,29 @@ const Login = (props) => {
   }, [handleChange]);
   return (
     <div className="auth-form-container">
-      <img class="wave" src={Wave} alt="wave"/>
-      <div className="formContainer">
-        <div className="img">
+      {/* <img class="wave" src={Wave} alt="wave"/> */}
+      <div className="formContainer1">
+        <div className="img1">
           <img src={Bg} alt="bg" />
         </div>
         <div className="login-content">
           <form method="GET" action="/main">
-            <img src={Avatar} alt="avatar" />
+            <img src={Avatar} alt="avatar" class='avkgp' />
             <h2 className="title">Welcome</h2>
             <div className="input-div one">
               <div className="i">
                 <i className="fas fa-user"></i>
               </div>
               <div className="div">
-                <label for="exampleInputEmail1">Email address </label>
+                {/* <label for="exampleInputEmail1">Email address </label> */}
+                <h5>Email Address</h5>
                 <input
                   type="email"
                   value={email}
                   className="input"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter email"
+                  // placeholder="Enter email"
                   onChange={(e) => setEmail(e.target.value)}
                 ></input>
               </div>
@@ -68,19 +69,20 @@ const Login = (props) => {
                 <i className="fas fa-lock"></i>
               </div>
               <div className="div">
-                <label for="exampleInputPassword1" className="input">Password </label>
+                {/* <label for="exampleInputPassword1" className="input">Password </label> */}
+                <h5>Password</h5>
                 <input
                   type="password"
                   className="input"
                   id="exampleInputPassword1"
-                  placeholder="Password"
+                  // placeholder="Password"
                 ></input>
               </div>
             </div>
             <a href='#'>Forgot Password</a>
             <button
               type="submit"
-              className="btn btn-primary loginBTN"
+              className="btn1 btn-primary loginBTN"
               onSubmit={handleChange}
             >
               Log In
