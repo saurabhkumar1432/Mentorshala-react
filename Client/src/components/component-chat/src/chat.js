@@ -1,7 +1,9 @@
+import React from 'react';
 import './chat.css'
 import Contact from '../../component-contact/Contact'
 import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import SendIcon from '@mui/icons-material/Send';
+import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
 // import hachiman from '../../../images/hachiman.png'
 import chatData from '../data/chatData.js'
 import { useState } from 'react'
@@ -11,6 +13,9 @@ const ChatSec=({})=>{
     const contactList=chatData
     let [msgBox,SetMsgBox]=useState(0)
     let [msgObj,SetmsgObj]=useState(contactList[0])
+    let [newMsg,setNewMsg] =useState('')
+    console.log('this is the beginning')
+    console.log(msgObj)
     const handler=(props)=>{
         if(msgBox===0){
             SetmsgObj(props)
@@ -32,9 +37,19 @@ const ChatSec=({})=>{
         )
     }
     else{
-        console.log(msgObj);
-        function sendMessage(){
-            console.log("something submitted");
+        console.log("hello")
+        console.log(msgObj.message);
+        function sendMessage(newMsg){
+            console.log(newMsg);
+            msgObj.message.push({content:newMsg,fromMe:true})
+            console.log(msgObj.message);
+            return (
+                React.createElement(
+                  "div",
+                  {className: "newMsgBlock"},
+                  "NewDiv",
+                )
+              )
         }
         return(
             <div id="chatContainer">
@@ -43,10 +58,11 @@ const ChatSec=({})=>{
                 }}><BsFillArrowLeftCircleFill id="goBack"/></button>
                 <div id="msgbox"><MessageBox class="d-flex mx-md-n8" msgObj={msgObj}/></div>
                 <div id="inputBox">
-                    <div  id="newMsgInput"><input type="text"/></div>
+                    <button id="msgImage"><AddAPhotoOutlinedIcon style={{ color: 'white',height:'2.7vh',width:'2.7vh' }}/></button>
+                    <div id="newMsgInput"><input type="text" placeholder="Type message" onChange={(e)=>{setNewMsg(e.target.value)}}/></div>
                     <div id="newMsgSubmit" >
                         <button onClick={()=>{
-                            sendMessage()
+                            sendMessage(newMsg);
                         }}><SendIcon/></button>
 
                     </div>
