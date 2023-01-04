@@ -40,7 +40,7 @@ const Register = (props) => {
             "specialization":specialization
         }
         console.log(obj);
-        await axios.post("http://localhost:5000/api/v1/mentorshala/createUser",obj).then((res)=>{
+        await axios.post("https://mentorshala-backend.up.railway.app/api/v1/mentorshala/createUser",obj).then((res)=>{
             console.log(res.data);
         }).catch((err)=>{
             console.log(err);

@@ -64,7 +64,7 @@ router.post('/createUser',upload.single('media'),async(req,res)=>{
     catch{
         console.log("can't register");
     }
-    res.redirect('http://localhost:3000/main')
+    res.redirect('https://mentorshala.netlify.app/main')
 })
 router.post("/postFeeds",upload.single('media'),async(req,res)=>{
 

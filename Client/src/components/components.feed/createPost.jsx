@@ -26,7 +26,7 @@ const CreatePost=()=>{
         formData.append('media',media)
         formData.append('caption',caption)
         console.log(formData);
-        await axios.post('http://localhost:5000/api/v1/mentorshala/postFeeds',formData).then((res)=>{
+        await axios.post('https://mentorshala-backend.up.railway.app/api/v1/mentorshala/postFeeds',formData).then((res)=>{
             console.log(res.data);
         }).catch((err)=>{
             console.log("error");
