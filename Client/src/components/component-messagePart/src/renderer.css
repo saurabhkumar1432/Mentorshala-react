@@ -34,11 +34,12 @@ div.scroll {
     margin-left: 0;
 }
 #radio2:checked ~ .first{
-    margin-left: -103%;
+    margin-left: -120%;
 }
 .chatSec{
-    background: linear-gradient(180deg,#fff,#088);
+    background: #FFF;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-right: 5vw;
 }

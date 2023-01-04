@@ -53,28 +53,31 @@
     color:black;
     width:100%;
     border:none;
-    color:white;
+    
     /* border: 1px solid red; */
 }
 #goBack{
     background: white;
     border:none;
-    height:5vh;
-    width:5vh;
+    height:3vw;
+    width:3vw;
     border-radius: 50%;
-    margin-top: 3vh;
-    justify-self: left;
-    margin-bottom: 1vh;
     left: 1vw;
-    position: fixed;
     display: flex;
 }
 .goBack{
-    justify-self: left;
     width:100%;
     border:none;
     background: transparent;
     display: flex;
+}
+#chatNavbar{
+    background-color: blue;
+    display: flex;
+    position: fixed;
+    width:34vw;
+    margin:1% 1% 1% 0%;
+    padding:1vh;
 }
 #chatContainer{
     height: 100vh;
@@ -92,11 +95,11 @@
 #msgbox{
     position:fixed;
     height:67vh;
-    margin-top: 7vh;
+    margin-top: 8.1vh;
     margin-left: -1vw;
     overflow-x: hidden;
     overflow-y:scroll;
-    scrollbar-width: none;
+    /* scrollbar-width: none; */
     width:33%;
 }
 #newMsgSubmit{

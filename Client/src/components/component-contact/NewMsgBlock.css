@@ -1,0 +1,25 @@
+#toBeSentMessage{
+    float:right;
+    clear:both;
+    width: auto;
+    max-width:inherit;
+    height:fit-content;
+    margin-bottom: 20px;
+    border-radius: 10px 10px 0 10px;
+    background: linear-gradient(#3496f1,#007);
+    padding:1vh;
+    color:white;
+    font-family: lobster;
+    font-size: large;
+    animation-name: example;
+    animation-duration: 4s;
+    position:fixed;
+    bottom:4vh;
+    left:2vh;
+}
+@keyframes example{
+    0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}
