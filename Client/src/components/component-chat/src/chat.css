@@ -59,8 +59,8 @@
 #goBack{
     background: white;
     border:none;
-    height:3vw;
-    width:3vw;
+    height:2vw;
+    width:2vw;
     border-radius: 50%;
     left: 1vw;
     display: flex;
@@ -72,7 +72,7 @@
     display: flex;
 }
 #chatNavbar{
-    background-color: blue;
+    background: linear-gradient(#034a9b,#095ebe);
     display: flex;
     position: fixed;
     width:34vw;
@@ -95,7 +95,7 @@
 #msgbox{
     position:fixed;
     height:67vh;
-    margin-top: 8.1vh;
+    margin-top: 12vh;
     margin-left: -1vw;
     overflow-x: hidden;
     overflow-y:scroll;
@@ -132,4 +132,15 @@
     background:linear-gradient(#3496f1,#00a);
     border-radius: 50%;
     /* border: 1px solid red; */
+}
+#searchInput{
+    min-height:0.5;
+    height:1vh; 
+    font-size:0.5vh;
+}
+#searchChat{
+    background:transparent;
+}
+.searchChat{
+    background:transparent;
 }

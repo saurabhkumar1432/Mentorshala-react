@@ -3,7 +3,7 @@
     clear:both;
     margin-bottom: 20px;
     border-radius: 10px 10px 0 10px;
-    background: linear-gradient(#3496f1,#007);
+    background: linear-gradient(#034a9b,#095ebe);
     padding:1vh;
     color:white;
     font-family: lobster;
@@ -18,7 +18,7 @@
     margin-bottom: 20px;
     border-radius: 10px 10px 10px 0;
     
-    background: rgb(110, 196, 230);
+    background: linear-gradient(#034a9b,#095ebe);
     padding:1vh; 
     color:white;
     font-family: lobster;

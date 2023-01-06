@@ -2,6 +2,7 @@ import React,{useRef,useEffect} from 'react';
 import './chat.css'
 import Contact from '../../component-contact/Contact'
 import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
+import SearchIcon from '@mui/icons-material/Search';
 import SendIcon from '@mui/icons-material/Send';
 import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
 // import hachiman from '../../../images/hachiman.png'
@@ -85,11 +86,17 @@ const ChatSec=({})=>{
                     <button className="goBack" onClick={()=>{setMsgBox(0);}}>
                         <BsFillArrowLeftCircleFill id="goBack"/>
                     </button>
-                    {search ? <input type="text" onChange={(e)=>{setSearchValue(e.target.value);console.log(searchValue);}}/> : null}
-                    {!search ? <button className="searchChat" onClick={searchChatHandler}>
-                        search
-                        <div id="searchChat"/>
-                    </button>:null}
+                    {!search ? <input type="text" id="searchInput" onChange={(e)=>{setSearchValue(e.target.value);console.log(searchValue);}}/> : null}
+                    {search ? <button className="searchChat" onClick={searchChatHandler}>
+                        
+                        <div id="searchChat">
+                            <SearchIcon style={{color:'white'}}/>
+                        </div>
+                    </button>:<button className="searchChat" onClick={searchChatHandler}>
+                        <div id="searchChat">
+                            <SearchIcon style={{color:'white'}}/>
+                        </div>
+                    </button>}
 
                 </div>
                 <div id="msgbox">
@@ -98,7 +105,7 @@ const ChatSec=({})=>{
                 </div>
                 
                 
-                <div id="inputBox">
+                {msgBox===1?<div id="inputBox">
                     <button id="msgImage"><AddAPhotoOutlinedIcon style={{ color: 'white',height:'2.7vh',width:'2.7vh' }}/></button>
                     <div id="newMsgInput"><input className="newMsgInput" type="text" placeholder="Type message" onChange={(e)=>{setTimeout(()=>{setNewMsg(e.target.value)},2000)}}/></div>
                     <div id="newMsgSubmit">
@@ -107,7 +114,7 @@ const ChatSec=({})=>{
                         }}><SendIcon/></button>
 
                     </div>
-                </div>
+                </div>:null}
                 
             </div>
         )
