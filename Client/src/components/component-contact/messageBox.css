@@ -1,26 +1,40 @@
 #sentMessage{
     float:right;
     clear:both;
-    margin-bottom: 20px;
+    margin-right:1.4%;
     border-radius: 10px 10px 0 10px;
     background: linear-gradient(#034a9b,#095ebe);
     padding:1vh;
-    color:white;
+    /* color:white; */
     font-family: lobster;
     font-size: large;
+    margin-top:1%;
+    background: rgba(14, 15, 25, 0.21);
+    
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(12.1px);
+-webkit-backdrop-filter: blur(12.1px);
+border: 1px solid rgba(255, 255, 255, 0.77);
 
 }
 #receivedMessage{
 
     float:left;
-    margin-left:2.7vw;
+    margin-left:2.6%;
     clear: both;
-    margin-bottom: 20px;
+    margin-top: 1%;
     border-radius: 10px 10px 10px 0;
     
     background: linear-gradient(#034a9b,#095ebe);
     padding:1vh; 
-    color:white;
+    /* color:white; */
     font-family: lobster;
     font-size: large;
+    /* From https://css.glass */
+background: rgba(87, 90, 126, 0.21);
+
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(12.1px);
+-webkit-backdrop-filter: blur(12.1px);
+border: 1px solid rgba(255, 255, 255, 0.77);
 }

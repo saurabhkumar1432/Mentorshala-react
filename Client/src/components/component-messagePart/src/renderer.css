@@ -18,6 +18,8 @@ div.scroll {
     flex-wrap: wrap;
     white-space: wrap;
     overflow-x: hidden;
+    scrollbar-width:none;
+    overflow-y: hidden;
 }
 .modeCards{
     display: inline-block;
