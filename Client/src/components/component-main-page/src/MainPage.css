@@ -7,7 +7,7 @@
 #cardpart{
     /* border: 1px solid red; */
     /* background-color: #1F305E; */
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     background: linear-gradient(#002D62,#095ebe);
     width: 65%;
@@ -24,7 +24,7 @@
     /* border: 1px solid red; */
     height: 100%;
     width: 100%;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     background: #F0F8FF;
     /* border: 1px solid red; */
@@ -44,7 +44,7 @@
     justify-content: center; */
 }
 .displayer{
-    display: block;
+    display: flex;
 }
 .remover{
     display: none;
