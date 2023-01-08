@@ -4,6 +4,8 @@ import Contact from '../../component-contact/Contact'
 import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import SearchIcon from '@mui/icons-material/Search';
 import SendIcon from '@mui/icons-material/Send';
+import CallIcon from '@mui/icons-material/Call';
+import VideoCallIcon from '@mui/icons-material/VideoCall';
 import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
 // import hachiman from '../../../images/hachiman.png'
 import chatData from '../data/chatData.js'
@@ -11,6 +13,7 @@ import { useState } from 'react'
 import { Contrast } from '@mui/icons-material'
 import MessageBox from '../../component-contact/messageBox'
 import NewMsgBlock from '../../component-contact/NewMsgBlock';
+import Particle from '../particles';
 const ChatSec=({})=>{
     const contactList=chatData
     let [msgBox,setMsgBox] = useState(0)
@@ -80,11 +83,27 @@ const ChatSec=({})=>{
 
             console.log("search")
         }
+        function videoCallHandler(){
+            
+        }
+        function voiceCallHandler(){
+            
+        }
         return(
+            <>
+            
+            <Particle style="position:fixed;"/>
             <div id="chatContainer">
+                
                 <div id="chatNavbar">
                     <button className="goBack" onClick={()=>{setMsgBox(0);}}>
                         <BsFillArrowLeftCircleFill id="goBack"/>
+                    </button>
+                    <button className="voiceCall" onClick={()=>{voiceCallHandler()}}>
+                        <CallIcon id="voiceCall"/>
+                    </button>
+                    <button className="videoCall" onClick={()=>{videoCallHandler()}}>
+                        <VideoCallIcon id="videoCall"/>
                     </button>
                     {!search ? <input type="text" id="searchInput" onChange={(e)=>{setSearchValue(e.target.value);console.log(searchValue);}}/> : null}
                     {search ? <button className="searchChat" onClick={searchChatHandler}>
@@ -116,7 +135,7 @@ const ChatSec=({})=>{
                     </div>
                 </div>:null}
                 
-            </div>
+            </div></>
         )
     }
 }

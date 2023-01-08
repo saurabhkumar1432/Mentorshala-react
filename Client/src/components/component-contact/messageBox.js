@@ -1,5 +1,6 @@
 import React,{useForceUpdate} from 'react'
 import '../component-contact/messageBox.css'
+import Particle from '../component-chat/particles'
 export default function MessageBox(props) {
   console.log(props.msgObj.firstName)
   
@@ -40,5 +41,6 @@ export default function MessageBox(props) {
       }
   )}
   </div>
+  
   )
 }

@@ -61,7 +61,7 @@
     /* border: 1px solid red; */
 }
 #goBack{
-    background: white;
+    background: black;
     border:none;
     height:2vw;
     width:2vw;
@@ -70,11 +70,13 @@
     display: flex;
 }
 .goBack{
-    width:100%;
+    
     border:none;
     background: transparent;
     display: flex;
     margin-left:2%;
+    color:white;
+    margin-right:2%;
 }
 #chatNavbar{
     background: linear-gradient(#034a9b,#095ebe);
@@ -98,6 +100,7 @@
     scrollbar-width:none;
     /* background:url("https://img.rawpixel.com/private/static/images/website/2022-05/rm458-pattern-026d-x.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=e40321206b2c83966e966f6dfe490f62")   */
     background:url('../../../images/cool-background.png');
+    background:transparent;
     background-repeat:no-repeat;
     background-position:center;
     background-size:cover;
@@ -150,7 +153,20 @@
 }
 #searchChat{
     background:transparent;
+
 }
 .searchChat{
     background:transparent;
+}
+.voiceCall{
+    background: transparent;
+    margin:1%;
+    color:white;
+    margin-left:auto
+}
+.videoCall{
+    background: transparent;
+    margin:1%;
+    color:white;
+    
 }
