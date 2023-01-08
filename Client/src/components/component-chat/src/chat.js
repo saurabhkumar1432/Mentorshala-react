@@ -120,7 +120,7 @@ const ChatSec=({})=>{
                 </div>
                 <div id="msgbox">
                     {submitMsg >= 0? <MessageBox id="messageBox" class="d-flex mx-md-n8" msgObj={msgObj} newMsg={newMsg} searchValue={searchValue}/>:null}
-                    {!submitMsg ? <div ref={newMsgRef}><NewMsgBlock newMsg={newMsg}/></div>: null}
+                    {/* {!submitMsg ? <div ref={newMsgRef}><NewMsgBlock newMsg={newMsg}/></div>: null} */}
                 </div>
                 
                 

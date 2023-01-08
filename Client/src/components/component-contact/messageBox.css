@@ -6,13 +6,13 @@
     background: linear-gradient(#034a9b,#095ebe);
     padding:1vh;
     /* color:white; */
-    font-family: lobster;
-    font-size: large;
+    font-family: "Quicksand";
+    font-size: calc(1.5vh+1.5vw);
     margin-top:1%;
     background: rgba(5, 10, 66, 0.163);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(12.1px);
-    -webkit-backdrop-filter: blur(12.1px);
+    backdrop-filter: blur(6.1px);
+    -webkit-backdrop-filter: blur(6.1px);
     border: 1px solid rgba(255, 255, 255, 0.77);
     max-width: 50%;
     overflow:hidden;
@@ -29,8 +29,8 @@
     background: linear-gradient(#034a9b,#095ebe);
     padding:1vh; 
     /* color:white; */
-    font-family: lobster;
-    font-size: large;
+    font-family: "Quicksand";
+    font-size: calc(1.5vh+1.5vw);
     /* From https://css.glass */
     background: rgba(41, 41, 41, 0.027);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
