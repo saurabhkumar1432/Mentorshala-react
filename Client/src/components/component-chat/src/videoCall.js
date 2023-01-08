@@ -1,20 +1,20 @@
 import Button from "@material-ui/core/Button"
 import IconButton from "@material-ui/core/IconButton"
 import TextField from "@material-ui/core/TextField"
-import AssignmentIcon from "@material-ui/Icons/AssignmentIcon"
-import PhoneIcon from "@material-ui/core/Phone"
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import PhoneIcon from "@mui/icons-material/Phone"
 import React,{useEffect,useState,useRef} from "react"
 import {CopyToClipboard} from "react-copy-to-clipboard"
 import Peer from "simple-peer"
 import io from "socket.io-client"
-import "./videoCall.css"
+
 
 const socket = io.connect("http://localhost:5000")
 
 function VideoCall(){
     const [me, setMe] = useState("")
     const [stream, setStream] = useState()
-    const [recievingCall, setRecievingCall] = useState(false)
+    const [receivingCall, setReceivingCall] = useState(false)
     const [caller,setCaller] = useState("")
     const [callerSignal,setCallerSignal] = useState()
     const [callAccepted,setCallAccepted] = useState(false)
@@ -151,3 +151,4 @@ function VideoCall(){
 		</>
     )
 }
+export default VideoCall
