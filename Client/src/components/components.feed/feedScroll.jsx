@@ -57,7 +57,7 @@ const FeedScroll=()=>{
                             <div className="feed-cardMedia">
                                 <img src={`https://mentorshala-backend.up.railway.app/${feed.media}`}>
                                 </img>
-                                {/* {console.log(`http://localhost:5000/${feed.media}`)} */}
+                                
                             </div>
                             <div className='feed-cardContent'>
                                 {feed.caption}
