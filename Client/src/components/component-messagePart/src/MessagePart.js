@@ -37,13 +37,13 @@ const MessagePart=(props)=>{
     }
     const Community=()=>{
         // console.log(props.props);
-        console.log(props.active);
+        console.log(props.activeParts);
         // props.setActive(true)
-        if(props.active==false){
-            props.setActive(true);
+        if(props.activeParts==false){
+            props.setActivePart(true);
         }
         else{
-            props.setActive(false)
+            props.setActivePart(false)
         }
     }
     return(
@@ -55,8 +55,8 @@ const MessagePart=(props)=>{
                 <div className="col-sm-6 messagePart-profile-name"><a href='#'>{data.firstName}</a></div>
                 <div className="col-sm-4 messagePart-profil-explore">
                     <a href='/setting'><button id="setting-btn" onClick={settingHandler}><SettingsIcon /></button></a>
-                    {/* <button id="community-btn"><ForumIcon/></button> */}
-                    <a id="community-btn" href='/community'><ForumIcon /></a>
+                    <button id="community-btn" onClick={Community}><ForumIcon/></button>
+                    {/* <a id="community-btn" href='/community'><ForumIcon /></a> */}
                 </div>
             </div>
             <div className='row modeChanger'>

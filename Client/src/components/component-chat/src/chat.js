@@ -1,29 +1,46 @@
-import React from 'react';
+import React,{useRef,useEffect} from 'react';
 import './chat.css'
 import Contact from '../../component-contact/Contact'
 import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
+import SearchIcon from '@mui/icons-material/Search';
 import SendIcon from '@mui/icons-material/Send';
+import CallIcon from '@mui/icons-material/Call';
+import VideoCallIcon from '@mui/icons-material/VideoCall';
 import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
 // import hachiman from '../../../images/hachiman.png'
 import chatData from '../data/chatData.js'
 import { useState } from 'react'
 import { Contrast } from '@mui/icons-material'
 import MessageBox from '../../component-contact/messageBox'
+import NewMsgBlock from '../../component-contact/NewMsgBlock';
+import Particle from '../particles';
 const ChatSec=({})=>{
     const contactList=chatData
-    let [msgBox,SetMsgBox]=useState(0)
-    let [msgObj,SetmsgObj]=useState(contactList[0])
-    let [newMsg,setNewMsg] =useState('')
-    console.log('this is the beginning')
-    console.log(msgObj)
+    let [msgBox,setMsgBox] = useState(0)
+    let [msgObj,setMsgObj] = useState(contactList[0])
+    let [newMsg,setNewMsg] = useState('')
+    let [search,setSearch] = useState(true)
+    let [searchValue,setSearchValue] = useState('')
+    let [submitMsg,setSubmitMsg] = useState(0)
     const handler=(props)=>{
         if(msgBox===0){
-            SetmsgObj(props)
-            SetMsgBox(1)
+            setMsgObj(props)
+            setMsgBox(1)
         }
         else
-            SetMsgBox(0)
+            setMsgBox(0)
     }
+    
+    
+    const newMsgRef = useRef()
+    useEffect(()=>{
+        if(newMsgRef.current!==undefined){
+            console.log("this happened",newMsgRef)
+            newMsgRef.current.scrollIntoView()
+        }
+        
+        
+    },[])   
     if(msgBox===0){
 
         return(
@@ -37,12 +54,22 @@ const ChatSec=({})=>{
         )
     }
     else{
+        
         console.log("hello")
         console.log(msgObj.message);
+        
+        function submitMsgHandler(e){
+            e.target.value=''
+        }
         function sendMessage(newMsg){
             console.log(newMsg);
-            msgObj.message.push({content:newMsg,fromMe:true})
-            console.log(msgObj.message);
+            setNewMsg(newMsg)
+            setSubmitMsg(!submitMsg)
+            msgObj.message.push({content:newMsg,sender:true})
+            document.querySelector(".newMsgInput").value=''
+            
+            
+
             return (
                 React.createElement(
                   "div",
@@ -51,24 +78,64 @@ const ChatSec=({})=>{
                 )
               )
         }
+        function searchChatHandler(e){
+            setSearch(!search)
+
+            console.log("search")
+        }
+        function videoCallHandler(){
+            
+        }
+        function voiceCallHandler(){
+            
+        }
         return(
+            <>
+            
+            <Particle style="position:fixed;"/>
             <div id="chatContainer">
-                <button className="goBack" onClick={()=>{
-                    SetMsgBox(0);
-                }}><BsFillArrowLeftCircleFill id="goBack"/></button>
-                <div id="msgbox"><MessageBox class="d-flex mx-md-n8" msgObj={msgObj}/></div>
-                <div id="inputBox">
+                
+                <div id="chatNavbar">
+                    <button className="goBack" onClick={()=>{setMsgBox(0);}}>
+                        <BsFillArrowLeftCircleFill id="goBack"/>
+                    </button>
+                    <button className="voiceCall" onClick={()=>{voiceCallHandler()}}>
+                        <CallIcon id="voiceCall"/>
+                    </button>
+                    <button className="videoCall" onClick={()=>{videoCallHandler()}}>
+                        <VideoCallIcon id="videoCall"/>
+                    </button>
+                    {!search ? <input type="text" id="searchInput" onChange={(e)=>{setSearchValue(e.target.value);console.log(searchValue);}}/> : null}
+                    {search ? <button className="searchChat" onClick={searchChatHandler}>
+                        
+                        <div id="searchChat">
+                            <SearchIcon style={{color:'white'}}/>
+                        </div>
+                    </button>:<button className="searchChat" onClick={searchChatHandler}>
+                        <div id="searchChat">
+                            <SearchIcon style={{color:'white'}}/>
+                        </div>
+                    </button>}
+
+                </div>
+                <div id="msgbox">
+                    {submitMsg >= 0? <MessageBox id="messageBox" class="d-flex mx-md-n8" msgObj={msgObj} newMsg={newMsg} searchValue={searchValue}/>:null}
+                    {/* {!submitMsg ? <div ref={newMsgRef}><NewMsgBlock newMsg={newMsg}/></div>: null} */}
+                </div>
+                
+                
+                {msgBox===1?<div id="inputBox">
                     <button id="msgImage"><AddAPhotoOutlinedIcon style={{ color: 'white',height:'2.7vh',width:'2.7vh' }}/></button>
-                    <div id="newMsgInput"><input type="text" placeholder="Type message" onChange={(e)=>{setNewMsg(e.target.value)}}/></div>
-                    <div id="newMsgSubmit" >
+                    <div id="newMsgInput"><input className="newMsgInput" type="text" placeholder="Type message" onChange={(e)=>{setTimeout(()=>{setNewMsg(e.target.value)},2000)}}/></div>
+                    <div id="newMsgSubmit">
                         <button onClick={()=>{
                             sendMessage(newMsg);
                         }}><SendIcon/></button>
 
                     </div>
-                </div>
+                </div>:null}
                 
-            </div>
+            </div></>
         )
     }
 }

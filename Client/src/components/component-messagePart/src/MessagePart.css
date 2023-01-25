@@ -10,8 +10,8 @@
     box-shadow: 0px 0px 2px rgb(118, 118, 118);
 }
 .messagePart-profile{
-    height: 10%;
-    padding: 5px;
+    
+    padding: 1%;
     /* border: 2px solid green; */
     /* background: linear-gradient(
         to right, #e394f1,#8d8dfa); */
@@ -25,7 +25,6 @@
 .messagePart-profile div{
     /* border: 2px solid red; */
     display: flex;
-    align-items: center;
 }
 .messagePart-profile .col-sm-4{
     /* border: #e394f1 solid 1px; */
@@ -42,15 +41,20 @@
     width: 30%;
 }
 .messagePart-profile-pic  img{
-    width: 100%;
+    
     border-radius: 50%;
+    width:calc((3vh) + (2vw));
 }
+
 .messagePart-profile-name a{
     text-decoration: none;
     color: aliceblue;
-    font-size: large;
+    font-size: calc((1vh) + (1vw));
     font-weight: 600;
+    font-family:"Space Grotesk";
+    align-self: center;
 }
+
 .modeChanger{
     height: 6%;
     display: flex;
@@ -65,7 +69,7 @@
 }
 .modeChanger .d-flex .p-2 button{
     display: flex;
-    border-style: none;
+    border-style: solid;
     background: transparent;
     /* border:1px solid red; */
     align-items: center;

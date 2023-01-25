@@ -7,15 +7,15 @@ import Community from '../../components.feed/main'
 import { useState } from 'react'
 import Waves from '../../component-cardPart/src/Waves'
 const MainPage=()=>{
-    const [active,setActive]=useState(false)
-    console.log(active);
+    const [activeParts,setActivePart]=useState(false)
+    console.log(activeParts);
     return(
         <div className="row mainPage-container">
-            <MessagePart setActive={setActive} active={active}/>
-            <div id='cardpart' className={active?'remover':''}>
+            <MessagePart setActivePart={setActivePart} activeParts={activeParts}/>
+            <div id='cardpart' className={activeParts?'remover':'displayer'}>
                 <CardPart/>
             </div>
-            <div id='community' className={active?'':'remover'}>
+            <div id='community' className={activeParts?'displayer':'remover'}>
                 <Waves/>
                 <Community/>
             </div>
