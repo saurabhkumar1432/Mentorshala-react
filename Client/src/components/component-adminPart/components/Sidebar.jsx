@@ -29,10 +29,7 @@ function Sidebar() {
               Home
             </li>
             </Link>
-            <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Analytics
-            </li>
+           
             {/* <li className="sidebarListItem">
               <TrendingUp className="sidebarIcon" />
               Sales
@@ -47,6 +44,12 @@ function Sidebar() {
                 <PermIdentity className="sidebarIcon" />
                 Users
               </li>
+            </Link>
+            <Link to="/admin/analytics" className="link">
+            <li className="sidebarListItem">
+              <PermIdentity className="sidebarIcon" />
+              Analytics
+            </li>
             </Link>
             {/* <Link to="/admin/products" className="link">
               <li className="sidebarListItem">

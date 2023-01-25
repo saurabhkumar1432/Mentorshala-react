@@ -8,6 +8,7 @@ import NewUser from "./pages/NewUser";
 import ProductList from "./pages/ProductList";
 import Product from "./pages/Product";
 import NewProduct from "./pages/NewProduct";
+import Analytics from "./pages/Analytics";
 import './admin.css'
 function Admin() {
   return (
@@ -19,6 +20,7 @@ function Admin() {
       <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/users" element={<UserList />} />
+          <Route path="/analytics" element={<Analytics />} />
           <Route path="/user/:userId" element={<User />} />
           <Route path="/newUser" element={<NewUser />} />
           <Route path="/products" element={<ProductList />} />
