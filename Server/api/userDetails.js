@@ -24,7 +24,7 @@ router.post('/createUser',upload.single('media'),async(req,res)=>{
         "firstName":req.body.firstName,
         "lastName":req.body.lastName,
         "profilePic":"https://i.pinimg.com/originals/36/fa/7b/36fa7b46c58c94ab0e5251ccd768d669.jpg",
-        "banner":"https://images.unsplash.com/photo-1581882897974-fca44f329313?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
+        "banner":"https://images.unsplash.com/photo-15  81882897974-fca44f329313?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
         "from":req.body.from,
         "country":req.body.country,
         "college":req.body.college,

@@ -348,7 +348,7 @@ const chatData=[
         ]
     },
     {
-        id:5,
+        id:6,
         firstName:"Rachel",
         lastName:"Greene",
         profilePic: SamLawrence,
@@ -405,7 +405,178 @@ const chatData=[
         ]
     },
     {
-        id:5,
+        id:7,
+        firstName:"Suzane",
+        lastName:"Washington",
+        profilePic: SamLawrence,
+        message:[
+            {
+                content:"hi, how r u?",
+                sender:true
+            },
+            {
+                content:"i'm fine, i'm always fine",
+                sender:false
+            },
+            {
+                content:"how bout u?",
+                sender:false
+            },
+            {
+                content:"I'm also fine",
+                sender:true
+            },
+            {
+                content:"What are you Doing these days?",
+                sender:true
+            },
+            {
+                content:"Nothing Special, doing FSD project",
+                sender:false
+            },
+            {
+                content:"Oh.",
+                sender:true
+            },
+            {
+                content:"whats your Project name?",
+                sender:false
+            },
+            {
+                content:"Mentorshala",
+                sender:true
+            },
+            {
+                content:"Idea is great and your team also works hard.",
+                sender:false
+            },
+            {
+                content:"Specially, Abhishek Singh",
+                sender:true
+            },
+            {
+                content:"yes. He is great man",
+                sender:false
+            }
+
+        ]
+    },
+    {
+        id:8,
+        firstName:"Suzane",
+        lastName:"Washington",
+        profilePic: SamLawrence,
+        message:[
+            {
+                content:"hi, how r u?",
+                sender:true
+            },
+            {
+                content:"i'm fine, i'm always fine",
+                sender:false
+            },
+            {
+                content:"how bout u?",
+                sender:false
+            },
+            {
+                content:"I'm also fine",
+                sender:true
+            },
+            {
+                content:"What are you Doing these days?",
+                sender:true
+            },
+            {
+                content:"Nothing Special, doing FSD project",
+                sender:false
+            },
+            {
+                content:"Oh.",
+                sender:true
+            },
+            {
+                content:"whats your Project name?",
+                sender:false
+            },
+            {
+                content:"Mentorshala",
+                sender:true
+            },
+            {
+                content:"Idea is great and your team also works hard.",
+                sender:false
+            },
+            {
+                content:"Specially, Abhishek Singh",
+                sender:true
+            },
+            {
+                content:"yes. He is great man",
+                sender:false
+            }
+
+        ]
+    },
+    {
+        id:9,
+        firstName:"Suzane",
+        lastName:"Washington",
+        profilePic: SamLawrence,
+        message:[
+            {
+                content:"hi, how r u?",
+                sender:true
+            },
+            {
+                content:"i'm fine, i'm always fine",
+                sender:false
+            },
+            {
+                content:"how bout u?",
+                sender:false
+            },
+            {
+                content:"I'm also fine",
+                sender:true
+            },
+            {
+                content:"What are you Doing these days?",
+                sender:true
+            },
+            {
+                content:"Nothing Special, doing FSD project",
+                sender:false
+            },
+            {
+                content:"Oh.",
+                sender:true
+            },
+            {
+                content:"whats your Project name?",
+                sender:false
+            },
+            {
+                content:"Mentorshala",
+                sender:true
+            },
+            {
+                content:"Idea is great and your team also works hard.",
+                sender:false
+            },
+            {
+                content:"Specially, Abhishek Singh",
+                sender:true
+            },
+            {
+                content:"yes. He is great man",
+                sender:false
+            }
+
+        ]
+    },
+    {
+        id:10,
         firstName:"Suzane",
         lastName:"Washington",
         profilePic: SamLawrence,

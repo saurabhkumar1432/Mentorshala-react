@@ -1,16 +1,46 @@
 .mainPage-container{
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    /* height: 100%;     */
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
+    /* border: 1px solid #ff0000; */
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
-
+.mainPage-header{
+    padding: clamp(0.2rem,0.5rem,1rem);
+    /* border: 1px solid blue; */
+    display: flex;
+    height: 7%;
+    background:#3457D5;
+    color: white;
+    gap: 1rem;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.contentDiv{
+    /* border: 1px solid green; */
+    height: 93%;
+    display: flex;
+    /* position: relative; */
+}
+.menuBtn{
+    background: transparent;
+    color: #F0F8FF;
+}
+@media (min-width:750px) {
+    .menuBtn{
+        display: none;
+    }
+}
 #cardpart{
     /* border: 1px solid red; */
     /* background-color: #1F305E; */
     /* display: flex; */
     justify-content: center;
     background: linear-gradient(#002D62,#095ebe);
-    width: 65%;
+    /* width: 65%; */
     /* height: ; */
     /* display: flex;
     align-items: center;
@@ -23,14 +53,14 @@
 #community{
     /* border: 1px solid red; */
     height: 100%;
-    width: 100%;
+    width: 65%;
     /* display: flex; */
     justify-content: center;
     background: #F0F8FF;
     /* border: 1px solid red; */
     /* background-color: #1F305E; */
     background: linear-gradient(#002D62,#095ebe);
-    width: 65%;
+    width:100%;
     /* height: ; */
     /* display: flex;
     align-items: center;

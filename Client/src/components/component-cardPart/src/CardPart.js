@@ -79,7 +79,6 @@ const CardPart=()=>{
 
   return (
     <div className="cardPart col-6">
-      <Waves/>
             <link
         href='https://fonts.googleapis.com/css?family=Damion&display=swap'
         rel='stylesheet'

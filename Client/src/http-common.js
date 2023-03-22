@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL:"https://mentorshala-backend.onrender.com/api/v1/mentorshala",
+    baseURL:"http://localhost:5000/api/v1/mentorshala",
     headers:{
         "Content-type":"application/json"
     }

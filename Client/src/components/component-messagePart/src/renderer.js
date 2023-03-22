@@ -21,7 +21,7 @@ const X=(props)=>{
                 <ChatSec/>
             </div>
             <div className="modeCards">
-                <Matches/>
+                <Matches/> 
             </div>
         </div>
     )

@@ -3,9 +3,10 @@ import './MessagePart.css'
 import {BsSearch,BsFillQuestionCircleFill,BsTools} from "react-icons/bs";
 import SettingsIcon from '@mui/icons-material/Settings';
 import ForumIcon from '@mui/icons-material/Forum';
+import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import X from './renderer.js';
-const MessagePart=(props)=>{
+const MessagePart=()=>{
     const modes=[
         {
             id:0,
@@ -21,7 +22,7 @@ const MessagePart=(props)=>{
         },
     ]
     const [mode,Setmode]=useState(modes[0])
-    let array=[true,false,false]
+    let array=[true,false]
     const [isactive,Setisactive]=useState(array)
     const settingHandler=()=>{
 
@@ -35,31 +36,23 @@ const MessagePart=(props)=>{
         }
         return Setmode(modes[id]);
     }
-    const Community=()=>{
-        // console.log(props.props);
-        console.log(props.activeParts);
-        // props.setActive(true)
-        if(props.activeParts==false){
-            props.setActivePart(true);
-        }
-        else{
-            props.setActivePart(false)
-        }
+    // const Community=()=>{
+    //     // console.log(props.props);
+    //     console.log(props.activeParts);
+    //     // props.setActive(true)
+    //     if(props.activeParts==false){
+    //         props.setActivePart(true);
+    //     }
+    //     else{
+    //         props.setActivePart(false)
+    //     }
+    // }
+    const SideBardisappear=()=>{
+        document.getElementById('message-container').classList.remove('slideWindow')
     }
     return(
-        <div className="col-4 messagePart">
-            <div className="row messagePart-profile">
-                <div className="col-sm-2 messagePart-profile-pic">
-                    <img src={data.profilePic} alt="profilePic"></img>
-                </div>
-                <div className="col-sm-6 messagePart-profile-name"><a href='#'>{data.firstName}</a></div>
-                <div className="col-sm-4 messagePart-profil-explore">
-                    <a href='/setting'><button id="setting-btn" onClick={settingHandler}><SettingsIcon /></button></a>
-                    <button id="community-btn" onClick={Community}><ForumIcon/></button>
-                    {/* <a id="community-btn" href='/community'><ForumIcon /></a> */}
-                </div>
-            </div>
-            <div className='row modeChanger'>
+        <div className="messagePart" id='message-container'>
+            {/* <div className='row modeChanger'>
                 <div class="col-sm-2 d-flex">
                     <div class="p-2"><button id='messageBtn' className={isactive[0]? 'active': ''} onClick={()=>{handler(0)}}>Messages</button></div>
                     <div class="p-2"><button id='matchesBtn' className={isactive[1]? 'active': ''} onClick={()=>{handler(1)}}>Matches</button></div>
@@ -67,7 +60,13 @@ const MessagePart=(props)=>{
             </div>
             <div className='row chatMessageSection'>
                     <X mode={mode}/>
+            </div> */}
+            <div className='mode-changer'>
+                <button onClick={()=>{handler(0)}} className={isactive[0]? 'active': 'non-active'}>Messages</button>
+                <button onClick={()=>{handler(1)}} className={isactive[1]? 'active': 'non-active'}>Matches</button>
             </div>
+            <X mode={mode}/>
+            <button onClick={SideBardisappear} className="closeSideBar"><CloseIcon/></button>
         </div>
 
     )
