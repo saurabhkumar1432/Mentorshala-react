@@ -18,6 +18,7 @@
         /* display: none; */
         transition: all 0.65s;
         -webkit-transition: all 0.65s;
+        z-index: 9;
     }
     .slideWindow{
         left: 0;

@@ -25,6 +25,7 @@ const MainPage=()=>{
                 {/* <MessagePart setActivePart={setActivePart} activeParts={activeParts}/> */}
                 {/* <CardPart/> */}
                 <MessagePart/>
+                <CardPart/>
             </div>
         </div>
     )

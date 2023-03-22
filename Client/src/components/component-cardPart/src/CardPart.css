@@ -11,14 +11,18 @@
     /* position:relative; */
     /* background-image: url(../../../images/bg-texture.png); */
     /* background-color: var(--color-bg); */
-    width: 100%;
+    width: 75%;
     /* height: 100%; */
     /* border: 1px solid red; */
 }
-
+@media (max-width:750px) {
+    .cardPart{
+        width: 100%;
+    }
+}
 .card-container{
     overflow-y: hidden;
-    height: 90%;
+    height: 100%;
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
@@ -47,7 +51,7 @@
     position: absolute;
     /* border: 1px solid red; */
     height: 90%;
-    width: 65%;
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;

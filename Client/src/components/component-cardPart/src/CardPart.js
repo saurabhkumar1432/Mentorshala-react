@@ -106,11 +106,10 @@ const CardPart=()=>{
             )
         })}
         </div>
-      <div className='card-buttons'>
+      {/* <div className='card-buttons'>
         <button id='rejected' style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}><ThumbDownOffAltIcon/></button>
-        {/* <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}><UndoIcon/></button> */}
         <button id='accepted' style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}><ThumbUpOffAltIcon/></button>
-      </div>
+      </div> */}
       {/* {lastDirection ? (
         <h2 key={lastDirection} className='infoText'>
           You swiped {lastDirection}
