@@ -13,10 +13,17 @@ export default class mentorShalaDb{
             console.error("error")
         }
     }
-    static async getUser(){
+    static async getUser(role){
         let cursor
         try{
-            cursor=await mentorshalaUsers.collection("usersDetails").find()
+            let query;
+            if(role=="Mentor"){
+                query={"role":"Mentee"}
+            }
+            else{
+                query={"role":"Mentor"}
+            }
+            cursor=await mentorshalaUsers.collection("usersDetails").find(query)
             // console.log(cursor);
         }
         catch{
@@ -62,6 +69,31 @@ export default class mentorShalaDb{
             }
         };
         await mentorshalaUsers.updateOne(query,newvalues,(err,res)=>{
+            if (err) throw err;
+            console.log("1 document updated");
+        })
+    }
+    static async updateLikeArray(username,data){
+        const query={username:username}
+        const newItem={
+            $push:{
+                profile_match_list:data
+            }
+        }
+        await mentorshalaUsers.collection("usersDetails").updateOne(query,newItem,(err,res)=>{
+            if (err) throw err;
+            console.log("1 document updated");
+        })
+    }
+    static async update_Dont_show_again_Array(username,data){
+        // console.log(data);
+        const query={username:username}
+        const newItem={
+            $push:{
+                dont_show_again:data.item
+            }
+        }
+        await mentorshalaUsers.collection("usersDetails").updateOne(query,newItem,(err,res)=>{
             if (err) throw err;
             console.log("1 document updated");
         })
