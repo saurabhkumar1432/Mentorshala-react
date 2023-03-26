@@ -61,10 +61,12 @@ function Sidebar() {
               <AttachMoney className="sidebarIcon" />
               Transactions
             </li> */}
-            <li className="sidebarListItem">
-              <BarChart className="sidebarIcon" />
-              Reports
-            </li>
+             <Link to="/admin/reports" className="link">
+              <li className="sidebarListItem">
+                <PermIdentity className="sidebarIcon" />
+                Reports
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
