@@ -134,7 +134,19 @@ const CardPart=()=>{
       await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
     }
   }
-
+  const [reportFormActive,setReportFormActive]=useState(false);
+  const reportHandler=async()=>{
+    const obj={
+      "username":document.getElementById('reportedUsername').value,
+      " description":document.getElementById('reasonToReport').value
+    }
+    await axios.post('http://localhost:5000/api/v1/mentorshala/postReport',obj).then((res)=>{
+            console.log(res.data);
+    }).catch((err)=>{
+            console.log("error");
+    })
+    setReportFormActive(false)
+  }
   return (
     <div className="cardPart col-6">
             <link
@@ -145,7 +157,19 @@ const CardPart=()=>{
         href='https://fonts.googleapis.com/css?family=Alatsi&display=swap'
         rel='stylesheet'
       />
-      
+      <button onClick={()=>{setReportFormActive(true)}} className='reportBtn'>Report</button>
+      <div className={reportFormActive?'reportForm':'deactivateReportForm'}>
+        <div className='reportForm-container'>
+          <div className='form-report'>
+            <input id='reportedUsername' required type="text" placeholder='Enter Username'></input>
+            <input id='reasonToReport' required type="text" placeholder='Description'></input>
+            <div className='report-btn-in-form'>
+              <button onClick={reportHandler}>Report</button>
+              <button onClick={()=>{setReportFormActive(false)}}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
         <div className='card-container'>
         {dbData.map((character, index) => {
             return (
