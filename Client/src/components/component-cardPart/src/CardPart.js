@@ -11,15 +11,55 @@ import TinderCard from 'react-tinder-card'
 import UndoIcon from '@mui/icons-material/Undo';
 import { ReactDOM } from 'react';
 import http from "../../../http-common.js"
+// import httpPost from '../../../http-posting.js'
+import axios from 'axios'
 let likedPeople=[]
 let dislikedPeople=[]
 const CardPart=()=>{
   const [dbData,setdbData]=useState([])
+  const userDetail=
+  {
+    "firstName": "Abhay",
+    "lastName": "Pratap",
+    "role":"Mentor",
+    "profilePic": "https://i.pinimg.com/originals/36/fa/7b/36fa7b46c58c94ab0e5251ccd768d669.jpg",
+    "banner": "https://images.unsplash.com/photo-1502230831726-fe5549140034?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    "from": "Delhi",
+    "country": "India",
+    "college": "IIIT Delhi",
+    "specialization": "Web Development",
+    "description": "Avid book reader, always ready to learn new things.",
+    "experience": [
+      "Worked as front-end developer",
+      "Working in IBM design department."
+    ],
+    "Linkedin": "https://www.linkedin.com/in/abhay-pratap-singh-878457203/",
+    "Email": "abhaypratap.s20@iiits.in",
+    "Password": "123",
+    "report": {
+      "$numberLong": "0"
+    },
+    "username":"abhay258",
+    // "dont_show_again": [
+    //   "himanshuk789"
+    // ]
+  }
   useEffect(()=>{
-    http.get('/getUsers')
+    http.get(`/get/${userDetail.role}/details`)
     .then(res=>{
-      console.log(res);
-      setdbData(res.data)
+      const fetchedData=res.data;
+      // console.log(res);
+      const never_to_show=userDetail.dont_show_again
+      if(never_to_show!=undefined){
+        // console.log(never_to_show);
+        // console.log(fetchedData);
+        const show_data=fetchedData.filter((element) => !never_to_show.includes(element.username  ));
+        console.log(show_data);
+        setdbData(show_data)
+      }
+      else{
+        setdbData(fetchedData)
+      }
     })
     .catch(err=>{
       console.log(err);
@@ -40,7 +80,28 @@ const CardPart=()=>{
     setCurrentIndex(val)
     currentIndexRef.current = val
   }
-
+  const updateLikedProfile=async(profile)=>{
+    // console.log(profile);
+    // const formData=new FormData()
+    // formData.append('profile',profile)
+      await axios.post(`http://localhost:5000/api/v1/mentorshala/post/liked-profile/${profile.username}`,userDetail)
+      .then(res=>{
+        console.log(res);
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+  }
+  const never_again=async(profile)=>{
+    // console.log(profile.username);
+    await axios.post(`http://localhost:5000/api/v1/mentorshala/post/dont_show/${userDetail.username}`,{"item":profile.username})
+    .then(res=>{
+        console.log(res);
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+  }
   const canGoBack = currentIndex < dbData.length - 1
 
   const canSwipe = currentIndex >= 0
@@ -50,22 +111,19 @@ const CardPart=()=>{
     updateCurrentIndex(index - 1)
     if(direction==='right'){
       document.getElementsByClassName('cardPart')[0].classList.add('bgGreen')
+      updateLikedProfile(dbData[currentIndexRef.current+1])
     }
     else{
         document.getElementsByClassName('cardPart')[0].classList.add('bgRed')
+        dislikedPeople.push(dbData[currentIndexRef.current+1])
     }
-    console.log(dbData[currentIndexRef.current+1]);
-    if( direction==='right'){
-      likedPeople.push(dbData[currentIndexRef.current+1])
-    }
-    else{
-      dislikedPeople.push(dbData[currentIndexRef.current+1])
-    }
-    
+    // console.log(dbData[currentIndexRef.current+1]);
+    // console.log(likedPeople);
+    never_again(dbData[currentIndexRef.current+1])
   }
 
   const outOfFrame = (name, idx) => {
-    console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current)
+    // console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current)
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
     document.getElementsByClassName('cardPart')[0].classList.remove('bgGreen')
     document.getElementsByClassName('cardPart')[0].classList.remove('bgRed')

@@ -8,9 +8,11 @@ import multer from 'multer'
 const upload = multer({ dest: './imgUpload/' })
 const router=express.Router()
 
-router.route("/getUsers").get(async(req,res)=>{
-    const data=await fetchDetailsCtrl.getapiUsers()
-    console.log(data);
+router.route(`/get/:role/details`).get(async(req,res)=>{
+    const role=req.params.role
+    // console.log(role);
+    const data=await fetchDetailsCtrl.getapiUsers(role)
+    // console.log(data);
     res.send(data)
 })
 router.route("/getFeeds").get(async(req,res)=>{
@@ -103,4 +105,16 @@ router.route("/getFeeds").get(async(req,res)=>{
     console.log(data);
     res.send(data)
 })
+
+router.route('/post/liked-profile/:username').post(async(req,res)=>{
+    const username=req.params.username
+    const profilelike=req.body;
+    await updateDetailsCtrl.updateprofile_liked(username,profilelike)
+})
+router.route('/post/dont_show/:username').post(async(req,res)=>{
+    const username=req.params.username
+    const data=req.body;
+    await updateDetailsCtrl.update_Dont_show_again(username,data)
+})
+
 export default router

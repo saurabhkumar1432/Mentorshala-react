@@ -1,9 +1,9 @@
 import MentorShalaDAO from '../dao/MentorShalaDAO.js'
 
 export default class usersDetailsCtrl{
-    static async getapiUsers(){
+    static async getapiUsers(role){
         try{
-            const userlists=await MentorShalaDAO.getUser()
+            const userlists=await MentorShalaDAO.getUser(role)
             // console.log(userlists);
             return userlists
         }

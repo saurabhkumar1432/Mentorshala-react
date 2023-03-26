@@ -31,6 +31,7 @@ div.scroll {
     padding: 2%;
     /* border: 1px solid green; */
     overflow-y: auto;
+    background: #fff;
 }
 .radioBtn{
     display: none;

@@ -15,7 +15,7 @@
     /* height: 100%; */
     /* border: 1px solid red; */
 }
-@media (max-width:750px) {
+@media (max-width:850px) {
     .cardPart{
         width: 100%;
     }
