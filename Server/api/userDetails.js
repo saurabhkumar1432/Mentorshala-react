@@ -106,8 +106,13 @@ router.route('/getReports').get(async(req,res)=>{
     res.send(data)
 })
 
-router.route("/deleteUser").delete(async(req,res)=>{
+router.route("/deleteReport").delete(async(req,res)=>{
     await MentorShalaDAO.deleteReport(req.body)
+
+})
+
+router.route("/deleteUser").delete(async(req,res)=>{
+    await MentorShalaDAO.deleteUser(req.body)
 
 })
 

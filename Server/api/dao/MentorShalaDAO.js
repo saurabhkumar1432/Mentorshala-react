@@ -173,7 +173,21 @@ export default class mentorShalaDb{
            
         }
         catch{
-            console.log("cant delete the data");
+            console.log("cant delete the report");
+        }
+
+    }
+
+    static async deleteUser(obj){
+        try{
+            await mentorshalaUsers.collection("usersDetails").deleteOne(obj,(err,res)=>{
+                if (err) throw err;
+                console.log("user deleted");
+            })
+           
+        }
+        catch{
+            console.log("cant delete the user");
         }
 
     }
