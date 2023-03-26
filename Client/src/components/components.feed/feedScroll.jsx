@@ -55,7 +55,7 @@ const FeedScroll=()=>{
                                 </div>
                             </div>
                             <div className="feed-cardMedia">
-                                <img src={`https://mentorshala-backend.onrender.com/${feed.media}`}>
+                                <img src={`http://localhost:5000/${feed.media}`}>
                                 </img>
                                 
                             </div>
