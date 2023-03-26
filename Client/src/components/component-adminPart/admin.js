@@ -10,6 +10,7 @@ import Product from "./pages/Product";
 import NewProduct from "./pages/NewProduct";
 import Analytics from "./pages/Analytics";
 import './admin.css'
+import ReportList from './pages/Reports';
 function Admin() {
   return (
     <>
@@ -26,6 +27,7 @@ function Admin() {
           <Route path="/products" element={<ProductList />} />
           <Route path="/product/:productId" element={<Product />} />
           <Route path="/newproduct" element={<NewProduct />} />
+          <Route path="/reports" element={<ReportList />} />
         </Routes>
         </div>
       </>
