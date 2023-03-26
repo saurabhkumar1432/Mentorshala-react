@@ -190,5 +190,19 @@ export default class mentorShalaDb{
             console.log("cant delete the user");
         }
 
+
+    }
+    static async postreport(obj){
+        // let cursor
+        try{
+            await mentorshalaUsers.collection("report").insertOne(obj,(err,res)=>{
+                if (err) throw err;
+                console.log("1 document inserted");
+            })
+            // console.log(cursor);
+        }
+        catch{
+            console.log("cant post the data");
+        }
     }
 }

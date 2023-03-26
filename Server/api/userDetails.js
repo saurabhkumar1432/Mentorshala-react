@@ -96,9 +96,9 @@ router.post("/postFeeds",upload.single('media'),async(req,res)=>{
     }
     
 })
-router.route("/reportUser").post(async(req,res)=>{
+router.route("/postReport").post(async(req,res)=>{
     // console.log(req.body);
-    await updateDetailsCtrl.updateApiUsers(req.body)
+    await postFeedCtrl.postReportedUser(req.body)
 })
 
 router.route('/getReports').get(async(req,res)=>{

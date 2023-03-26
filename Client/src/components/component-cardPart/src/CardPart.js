@@ -136,6 +136,7 @@ const CardPart=()=>{
   }
   const [reportFormActive,setReportFormActive]=useState(false);
   const reportHandler=async()=>{
+    setReportFormActive(false)
     const obj={
       "username":document.getElementById('reportedUsername').value,
       " description":document.getElementById('reasonToReport').value
@@ -145,7 +146,6 @@ const CardPart=()=>{
     }).catch((err)=>{
             console.log("error");
     })
-    setReportFormActive(false)
   }
   return (
     <div className="cardPart col-6">
