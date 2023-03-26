@@ -23,4 +23,16 @@ export default class usersDetailsCtrl{
             return []
         }
     }
+
+    static async getapiReports(){
+        try{
+            const reportlists=await MentorShalaDAO.getReports()
+            // console.log(userlists);
+            return reportlists
+        }
+        catch{
+            console.log("Can't fetch data");
+            return []
+        }
+    }
 }

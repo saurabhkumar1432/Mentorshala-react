@@ -100,6 +100,22 @@ router.route("/reportUser").post(async(req,res)=>{
     // console.log(req.body);
     await updateDetailsCtrl.updateApiUsers(req.body)
 })
+
+router.route('/getReports').get(async(req,res)=>{
+    const data=await fetchDetailsCtrl.getapiReports()
+    res.send(data)
+})
+
+router.route("/deleteReport").delete(async(req,res)=>{
+    await MentorShalaDAO.deleteReport(req.body)
+
+})
+
+router.route("/deleteUser").delete(async(req,res)=>{
+    await MentorShalaDAO.deleteUser(req.body)
+
+})
+
 router.route("/getFeeds").get(async(req,res)=>{
     const data=await usersDetailsCtrl.getapiFeeds()
     console.log(data);
