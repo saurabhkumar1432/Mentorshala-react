@@ -1,5 +1,7 @@
 import { useState,useEffect } from "react";
 import http from '../../../http-common'
+import '../css/page/report.css'
+
 function ReportList() {
   const [data, setData] = useState([]);
   useEffect(()=>{

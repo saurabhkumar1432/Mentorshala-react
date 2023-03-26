@@ -116,6 +116,27 @@ export default class mentorShalaDb{
             console.log("cant make it an array");
         }
     }
+
+    static async getReports(){
+        let cursor
+        try{
+            cursor=await mentorshalaUsers.collection("report").find()
+            // console.log(cursor);
+        }
+        catch{
+            console.log("cant get the data");
+            return []
+        }
+        try{
+            const reportsList=await cursor.toArray()
+            return reportsList
+        }
+        catch{
+            console.log("cant make it an array");
+        }
+    }
+
+
     static async postFeed(obj){
         // let cursor
         try{
@@ -141,5 +162,19 @@ export default class mentorShalaDb{
         catch{
             console.log("cant post the data");
         }
+    }
+
+    static async deleteReport(obj){
+        try{
+            await mentorshalaUsers.collection("report").deleteOne(obj,(err,res)=>{
+                if (err) throw err;
+                console.log("report deleted");
+            })
+           
+        }
+        catch{
+            console.log("cant delete the data");
+        }
+
     }
 }
