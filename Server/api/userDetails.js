@@ -70,8 +70,8 @@ router.post('/createUser',upload.single('media'),async(req,res)=>{
 })
 router.post("/postFeeds",upload.single('media'),async(req,res)=>{
 
-    console.log(req.body);
-    console.log(req.file);
+    // console.log(req.body);
+    // console.log(req.file);
     if(req.file!=undefined){
 
         const obj={
