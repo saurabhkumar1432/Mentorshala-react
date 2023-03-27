@@ -39,7 +39,7 @@ const MainPage=()=>{
                 {/* hello */}
                 <div className='mainPage-header'>
                     <button className='menuBtn' onClick={slidingMessageWindow}><MenuIcon/></button><h4>MentoShala</h4>
-                    <div>
+                    <div className='headerBtn'>
                     <button className='cardToCommunity' onClick={handleToggle}><ModeCommentIcon/></button>
                     <a  href="/setting"> <button className='cardTosetting'><SettingsIcon/></button></a>
                    

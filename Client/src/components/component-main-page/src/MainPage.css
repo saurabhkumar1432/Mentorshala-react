@@ -25,6 +25,10 @@
     color: #fff;
     background: transparent;
 }
+.cardTosetting{
+    color: #fff;
+    background: transparent;
+}
 .contentDiv{
     /* border: 1px solid green; */
     height: 93%;
@@ -102,3 +106,7 @@
     left: 0;
     background: #0000007d;
 }    */
+.headerBtn{
+    display: flex;
+    justify-content: space-between;
+}
