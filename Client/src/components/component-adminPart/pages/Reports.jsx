@@ -1,6 +1,8 @@
 import { useState,useEffect } from "react";
 import http from '../../../http-common'
 import '../css/page/report.css'
+import { FaCheckCircle } from "react-icons/fa";
+import { ImCross } from "react-icons/im";
 
 function ReportList() {
   const [data, setData] = useState([]);
@@ -23,6 +25,8 @@ function ReportList() {
             <tr>
                 <th>Username</th>
                 <th>description</th>
+                <th>delete Report</th>
+                <th>delete User</th>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +36,12 @@ function ReportList() {
                 <tr>
                   <td>{item.username}</td>
                   <td>{item.description}</td>
+                  <td className="reportbtns">
+                    <button className="deleteReport"><ImCross /></button>
+                  </td>
+                  <td>
+                  <button className="deleteUser"><FaCheckCircle /></button>
+                  </td>
                 </tr>
               )
             } )

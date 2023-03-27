@@ -13,7 +13,11 @@ import {
   ChatBubbleOutline,
   WorkOutline,
   Report,
+  
 } from "@material-ui/icons";
+import ReportIcon from '@mui/icons-material/Report';
+import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+
 import { Link } from "react-router-dom";
 
 function Sidebar() {
@@ -47,7 +51,7 @@ function Sidebar() {
             </Link>
             <Link to="/admin/analytics" className="link">
             <li className="sidebarListItem">
-              <PermIdentity className="sidebarIcon" />
+              <AutoGraphIcon className="sidebarIcon" />
               Analytics
             </li>
             </Link>
@@ -63,28 +67,29 @@ function Sidebar() {
             </li> */}
              <Link to="/admin/reports" className="link">
               <li className="sidebarListItem">
-                <PermIdentity className="sidebarIcon" />
+                <ReportIcon className="sidebarIcon" />
                 Reports
               </li>
             </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Notifications</h3>
-          <ul className="sidebarList">
-            <li className="sidebarListItem">
+          {/* <h3 className="sidebarTitle">Notifications</h3>
+          <ul className="sidebarList"> */}
+            {/* <li className="sidebarListItem">
               <MailOutline className="sidebarIcon" />
               Mail
-            </li>
-            <li className="sidebarListItem">
+            </li> */}
+            {/* promotional mail will be sent from here to all users */}
+            {/* <li className="sidebarListItem">
               <DynamicFeed className="sidebarIcon" />
               Feedback
-            </li>
+            </li> */}
             {/* <li className="sidebarListItem">
               <ChatBubbleOutline className="sidebarIcon" />
               Messages
             </li> */}
-          </ul>
+          {/* </ul> */}
         </div>
         <div className="sidebarMenu">
           {/* <h3 className="sidebarTitle">Staff</h3>

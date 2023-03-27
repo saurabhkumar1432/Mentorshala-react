@@ -8,6 +8,7 @@ import { useState } from 'react'
 import Waves from '../../component-cardPart/src/Waves'
 import { RiCommunityFill } from 'react-icons/ri';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
+import SettingsIcon from '@mui/icons-material/Settings';
 // import {useDispatch} from "react-redux";
 // import {addToSet} from "../../../actions/action1";
 
@@ -38,7 +39,13 @@ const MainPage=()=>{
                 {/* hello */}
                 <div className='mainPage-header'>
                     <button className='menuBtn' onClick={slidingMessageWindow}><MenuIcon/></button><h4>MentoShala</h4>
+                    <div>
                     <button className='cardToCommunity' onClick={handleToggle}><ModeCommentIcon/></button>
+                    <a  href="/setting"> <button className='cardTosetting'><SettingsIcon/></button></a>
+                   
+                    </div>
+                   
+
                 </div>
                 <div className='contentDiv'>
                     {/* <MessagePart setActivePart={setActivePart} activeParts={activeParts}/> */}
