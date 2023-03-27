@@ -2,6 +2,7 @@ import './matches.css'
 import chatData from '../../component-chat/data/chatData'
 // import Contact from '../../component-contact/Contact'
 import MatchItem from './matchItem'
+import { useState } from 'react'
 const Matches=()=>{
     const userDetail=
     {
@@ -53,20 +54,15 @@ const Matches=()=>{
         
       ]
     }
-    let matchList;
-    if(userDetail.profile_match_list!=undefined){
-        matchList=userDetail.profile_match_list
-    }
-    else{
-        matchList=[]
-    }
+    const [matchList,setMatchList]=useState(userDetail.profile_match_list);
+    
     return(
         <div id="matchesContainer">
             {
-                matchList.map(
-                    contact => {
+                matchList.map((
+                  contact ,index)=> {
                         // console.log(contact.Name);
-                        return <MatchItem contact={contact}/>
+                        return <MatchItem contact={contact} index={index}/>
                     }
                 ) 
             }

@@ -132,5 +132,10 @@ router.route('/post/dont_show/:username').post(async(req,res)=>{
     const data=req.body;
     await updateDetailsCtrl.update_Dont_show_again(username,data)
 })
-
+router.route('/post/matchListUpdate/:username').post(async(req,res)=>{
+    const username=req.params.username
+    const data=req.body;
+    // console.log(data);
+    await updateDetailsCtrl.matchListUpdate(username,data)
+})
 export default router

@@ -139,7 +139,7 @@ const CardPart=()=>{
     setReportFormActive(false)
     const obj={
       "username":document.getElementById('reportedUsername').value,
-      " description":document.getElementById('reasonToReport').value
+      "description":document.getElementById('reasonToReport').value
     }
     await axios.post('http://localhost:5000/api/v1/mentorshala/postReport',obj).then((res)=>{
             console.log(res.data);
