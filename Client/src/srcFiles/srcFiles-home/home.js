@@ -11,7 +11,9 @@ import Form from '../../components/component-homePage/login/Form'
 import Community from '../../components/components.feed/main';
 import Admin from '../../components/component-adminPart/admin'
 import Settings1 from '../../components/component-setting/Settings.js';
+import AdminLogin from '../../components/component-homePage/login/LoginAdmin';
 function App() {
+
   return (
     // <div id='bodyConatiner'>
     //   <Home/>
@@ -31,6 +33,7 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/setting" element={<Settings1 />} />
       <Route path="/community" element={<Community />} />
+      <Route path="/loginAdmin" element={<AdminLogin />} />
       
       <Route path="/admin/*" element={<Admin />} />
     </Routes>
