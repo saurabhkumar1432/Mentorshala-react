@@ -98,6 +98,19 @@ export default class mentorShalaDb{
             console.log("1 document updated");
         })
     }
+    static async matchArrayUpdate(username,data){
+        // console.log(data);
+        const query={username:username}
+        const newItem={
+            $push:{
+                match_list:data
+            }
+        }
+        await mentorshalaUsers.collection("usersDetails").updateOne(query,newItem,(err,res)=>{
+            if (err) throw err;
+            console.log("1 document updated");
+        })
+    }
     static async getFeed(){
         let cursor
         try{
@@ -190,5 +203,19 @@ export default class mentorShalaDb{
             console.log("cant delete the user");
         }
 
+
+    }
+    static async postreport(obj){
+        // let cursor
+        try{
+            await mentorshalaUsers.collection("report").insertOne(obj,(err,res)=>{
+                if (err) throw err;
+                console.log("1 document inserted");
+            })
+            // console.log(cursor);
+        }
+        catch{
+            console.log("cant post the data");
+        }
     }
 }
