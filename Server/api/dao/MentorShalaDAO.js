@@ -1,5 +1,5 @@
 import { query } from "express"
-
+import bcrypt from "bcryptjs";
 let mentorshalaUsers
 
 export default class mentorShalaDb{
@@ -11,6 +11,39 @@ export default class mentorShalaDb{
         }
         catch(e){
             console.error("error")
+        }
+    }
+    static async getEmail(email){
+        let cursor
+        try{
+            // console.log(email);
+            cursor=await mentorshalaUsers.collection("usersDetails").find({Email:email})
+        }
+        catch(e){
+            console.log(e);
+        }
+        try{
+            const user2=await cursor.toArray();
+            console.log(user2);
+            return user2;
+        }catch(e){
+            console.log(e);
+        }
+    }
+    static async getPassword(password){
+        let cursor
+        try{
+            password = await bcrypt.hash(password, 10);
+            cursor=await mentorshalaUsers.collection("usersDetails").find({Password:password})
+        }
+        catch(e){
+            console.log(e);
+        }
+        try{
+            const user2=await cursor.toArray();
+            return user2;
+        }catch(e){
+            console.log(e);
         }
     }
     static async getUser(role){

@@ -8,14 +8,24 @@ import { useState } from 'react'
 import Waves from '../../component-cardPart/src/Waves'
 import { RiCommunityFill } from 'react-icons/ri';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
+import { useSelector } from 'react-redux';
 // import {useDispatch} from "react-redux";
 // import {addToSet} from "../../../actions/action1";
 
 const MainPage=()=>{
     // const dispatch = useDispatch();
 
+    const { user, isAuthenticated } = useSelector(
+        (state) => state.user
+      );
+
+      console.log(user);
+
+      console.log(isAuthenticated);
+
+
     const [activeParts,setActivePart]=useState(false)
-    console.log(activeParts);
+    // console.log(activeParts);
     const slidingMessageWindow=()=>{
         document.getElementById('message-container').classList.add('slideWindow')
         // console.log("1");
