@@ -23,6 +23,7 @@ const X=(props)=>{
             <div className="modeCards">
                 <Matches/> 
             </div>
+            
         </div>
     )
 }

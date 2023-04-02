@@ -32,6 +32,15 @@ const MainPage=()=>{
             setToggleCardMode(true)
         }
     }
+    const [activeSetting,setActiveSetting]=useState(false);
+    const changeSettingState=(currentState)=>{
+        if(currentState){
+            setActiveSetting(false);
+        }
+        else{
+            setActiveSetting(true);
+        }
+    }
     return(
             <div className="mainPage-container">
                 {/* <MessagePart setActivePart={setActivePart} activeParts={activeParts}/>
@@ -41,7 +50,7 @@ const MainPage=()=>{
                     <button className='menuBtn' onClick={slidingMessageWindow}><MenuIcon/></button><h4>MentoShala</h4>
                     <div className='headerBtn'>
                     <button className='cardToCommunity' onClick={handleToggle}><ModeCommentIcon/></button>
-                    <a  href="/setting"> <button className='cardTosetting'><SettingsIcon/></button></a>
+                    <button className='cardTosetting' onClick={()=>{changeSettingState(activeSetting)}}><SettingsIcon/></button>
                    
                     </div>
                    
@@ -50,7 +59,7 @@ const MainPage=()=>{
                 <div className='contentDiv'>
                     {/* <MessagePart setActivePart={setActivePart} activeParts={activeParts}/> */}
                     {/* <CardPart/> */}
-                    <MessagePart/>
+                    <MessagePart settingState={activeSetting}/>
                     {toggleCardMode?<CardPart/>:<Community/>}
                     
                 </div>
