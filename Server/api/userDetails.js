@@ -32,14 +32,16 @@ router.post('/createUser',upload.single('media'),async(req,res)=>{
         "college":req.body.college,
         "specialization":req.body.specialization,
         "description":req.body.description,
-        "experience": [
-            "Worked in flipkart for 6 years.",
-            "Working in Google."
-          ],
-          "Linkedin":"https://www.linkedin.com/in/abhishek-singh-4233b8201/",
+        "experience": req.body.experience.split(","),
+          "Linkedin":req.body.Linkedin,
           "Email":req.body.Email,
           "Password":"123",
-          "report":0
+          "report":0,
+          "match_list":[],
+          "profile_match_list":[],
+          "dont_show_again":[],
+          "username":req.body.username,
+
     }
     // const {email,firstname,lastname,specialization,country,from,college,description}=req.body;
     // if(!email||!firstname||!lastname||!specialization||!country||!from||!college||!description){
@@ -106,12 +108,13 @@ router.route('/getReports').get(async(req,res)=>{
     res.send(data)
 })
 
-router.route("/deleteReport").delete(async(req,res)=>{
+router.route("/deleteReport").post(async(req,res)=>{
     await MentorShalaDAO.deleteReport(req.body)
 
 })
 
-router.route("/deleteUser").delete(async(req,res)=>{
+router.route("/deleteUser").post(async(req,res)=>{
+    console.log(req.body);
     await MentorShalaDAO.deleteUser(req.body)
 
 })
