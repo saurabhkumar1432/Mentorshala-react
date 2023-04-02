@@ -3,6 +3,7 @@ import http from '../../../http-common'
 import '../css/page/report.css'
 import { FaCheckCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
+import axios from 'axios'
 
 function ReportList() {
   const [data, setData] = useState([]);
@@ -17,6 +18,22 @@ function ReportList() {
     })
   },[])
   console.log(data);
+
+  const deleteReport=async(obj)=>{
+    const reportObj={"username":obj};
+    
+    await axios.delete('http://localhost:5000/api/v1/mentorshala/deleteReport',reportObj).catch((err)=>{
+            console.log("error");
+    })
+  }
+
+  const deleteUser=async(obj)=>{
+    const userObj={"username":obj};
+    console.log(userObj);
+    await axios.post('http://localhost:5000/api/v1/mentorshala/deleteUser',userObj).catch((err)=>{
+            console.log("error");
+    })
+  }
 
   return (
     <div className="reportList">
@@ -37,10 +54,10 @@ function ReportList() {
                   <td>{item.username}</td>
                   <td>{item.description}</td>
                   <td className="reportbtns">
-                    <button className="deleteReport"><ImCross /></button>
+                    <button className="deleteReport" onClick={()=>{deleteReport(item.username)}}><ImCross /></button>
                   </td>
                   <td>
-                  <button className="deleteUser"><FaCheckCircle /></button>
+                  <button className="deleteUser" onClick={()=>{deleteUser(item.username)}}><FaCheckCircle /></button>
                   </td>
                 </tr>
               )

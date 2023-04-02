@@ -161,6 +161,8 @@ function generateToken(user) {
     expiresIn: process.env.JWT_EXPIRE,
   });
 }
+router.route("/deleteReport").post(async(req,res)=>{
+    await MentorShalaDAO.deleteReport(req.body)
 
 // Verify the JWT token
 function verifyToken(token) {
@@ -175,6 +177,10 @@ function verifyToken(token) {
 // router.route("/login").post(
 //   catchAsyncErrors(async (req, res, next) => {
 //     const { email, password } = req.body;
+router.route("/deleteUser").post(async(req,res)=>{
+    console.log(req.body);
+    await MentorShalaDAO.deleteUser(req.body)
+})
 
 //     // Find the user by email
 //     const user = await getUserByEmail(email);
@@ -334,5 +340,7 @@ router.route('/post/matchListUpdate/:username').post(async(req,res)=>{
     const data=req.body;
     // console.log(data);
     await updateDetailsCtrl.matchListUpdate(username,data)
-})
+});
+
 export default router;
+
