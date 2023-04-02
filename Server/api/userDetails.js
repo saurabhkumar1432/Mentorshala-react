@@ -161,4 +161,18 @@ router.route('/post/matchListUpdate/:username').post(async(req,res)=>{
     // console.log(data);
     await updateDetailsCtrl.matchListUpdate(username,data)
 })
+
+router.route('/adminAuth').post(async(req,res)=>{
+    const username=req.body.username;
+    const password=req.body.password;
+    const adminUserName = "adminMentorshala";
+    const adminPassword = "admin@123";
+    if(username===adminUserName && password===adminPassword){
+        res.send(200)
+    }
+    else{
+        res.send(201)
+    }
+})
+
 export default router

@@ -5,40 +5,35 @@ import Wave from "../../../images/wave.png";
 import Bg from "../../../images/bg.svg";
 import Avatar from "../../../images/avatar.svg";
 import logInimg from "../../../images/22866003-removebg-preview.png";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 const AdminLogin = (props) => {
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isAuth, setIsAuth] = useState(false);
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-  
-  // const adminAuth = useCallback(async () => {
-  //   try {
-  //     setLoading(true);
-  //     const response = await fetch("http://localhost:5000/api/v1/mentorshala/adminLogin", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         email,
-  //         password,
-  //       }),
-  //     });
-  //     const responseData = await response.json();
-  //     console.log(responseData);
-  //     if (!response.ok) {
-  //       throw new Error(responseData.message);
-  //     }
-  //     setLoading(false);
-  //     setIsAuth(true);
-  //     props.history.push("/admin");
-  //   } catch (err) {
-  //     setLoading(false);
-  //     setError(err.message);
-  //   }
-  // }, [email, password, props.history]);
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    try {
+      const cred = { username, password };
+
+      const response = await axios.post('http://localhost:5000/api/v1/mentorshala/adminAuth',cred).catch((err)=>{
+        console.log("error");
+})
+
+      if (response.status === 200) {
+        // Authentication successful, redirect to dashboard
+        window.location.href = '/admin';
+      } else {
+        // Authentication failed, display error message
+        console.error('Authentication failed');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="auth-form-container">
@@ -47,7 +42,7 @@ const AdminLogin = (props) => {
           <img src={Bg} alt="bg" />
         </div>
         <div className="login-content">
-          <form method="GET" action="/admin">
+        <form onSubmit={handleLogin}>
             <img src={Avatar} alt="avatar" class='avkgp' />
             <h2 className="title">Admin Login Panel</h2>
             <div className="input-div one">
@@ -56,12 +51,14 @@ const AdminLogin = (props) => {
               </div>
               <div className="div">
                 <input
-                  type="email"
+                  type="username"
                  
                   className="input"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter email"
+                  placeholder="Enter username"
+                  value={username}
+                  onChange={(event) => setUsername(event.target.value)}
                 required
                 
                 ></input>
@@ -77,6 +74,8 @@ const AdminLogin = (props) => {
                   className="input"
                   id="exampleInputPassword1"
                   placeholder="Password"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
                  required></input>
               </div>
             </div>
