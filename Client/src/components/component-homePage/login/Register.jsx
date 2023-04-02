@@ -83,7 +83,7 @@ const Register = (props) => {
     // myForm.set("banner", banner);
     myForm.set("role", role);
     dispatch(register(myForm));
-    navigate("/main");
+    navigate("/login");
   };
 
   const registerDataChange = (e) => {
