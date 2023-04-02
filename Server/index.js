@@ -2,7 +2,7 @@ import app from './server.js'
 import mongodb from "mongodb"
 import dotenv from 'dotenv'
 import MentorShalaDAO from './api/dao/MentorShalaDAO.js'
-dotenv.config()
+dotenv.config({path:"config.env"})
 const MongoClient=mongodb.MongoClient
 
 const port=process.env.PORT || 8000
