@@ -7,7 +7,7 @@ import multer from "multer";
 import ErrorHandler from "../utils/errorhandler.js";
 // import sendToken from "../utils/jwtToken.js";
 // import sendEmail from "../utils/sendEmail.js";
-import crypto from "crypto";
+// import crypto from "crypto";
 import cloudinary from "cloudinary";
 
 import bcrypt from "bcryptjs";
@@ -163,7 +163,7 @@ function generateToken(user) {
 }
 router.route("/deleteReport").post(async(req,res)=>{
     await MentorShalaDAO.deleteReport(req.body)
-
+})
 // Verify the JWT token
 function verifyToken(token) {
   try {
@@ -257,20 +257,20 @@ router.route("/logout").get(catchAsyncErrors(async (req, res, next) => {
 }));
 
 // Generate a password reset token
-export function generateResetToken() {
-  const token = crypto.randomBytes(20).toString("hex");
-  const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
-  return { token, hashedToken };
-}
+// export function generateResetToken() {
+//   const token = crypto.randomBytes(20).toString("hex");
+//   const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
+//   return { token, hashedToken };
+// }
 
 // Verify a password reset token
-export function verifyResetToken(token, hashedToken) {
-  const verified = crypto.timingSafeEqual(
-    Buffer.from(hashedToken),
-    Buffer.from(crypto.createHash("sha256").update(token).digest("hex"))
-  );
-  return verified;
-}
+// export function verifyResetToken(token, hashedToken) {
+//   const verified = crypto.timingSafeEqual(
+//     Buffer.from(hashedToken),
+//     Buffer.from(crypto.createHash("sha256").update(token).digest("hex"))
+//   );
+//   return verified;
+// }
 
 
 router.post("/postFeeds", upload.single("media"), async (req, res) => {
