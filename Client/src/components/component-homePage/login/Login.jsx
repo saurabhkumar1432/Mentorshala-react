@@ -5,9 +5,49 @@ import Wave from "../../../images/wave.png";
 import Bg from "../../../images/bg.svg";
 import Avatar from "../../../images/avatar.svg";
 import logInimg from "../../../images/22866003-removebg-preview.png";
+import { useNavigate } from "react-router-dom";
+// import { useAlert } from "react-alert";
+import { useDispatch, useSelector } from "react-redux";
+import { clearErrors, login } from "../../../actions/userAction";
+
+
 const Login = (props) => {
-  const [email, setEmail] = useState("");
-  const [found, setFound] = useState(false);
+  // const [email, setEmail] = useState("");
+  // const [found, setFound] = useState(false);
+
+  const dispatch = useDispatch();
+
+  // const alert = useAlert();
+
+  const { error, loading, isAuthenticated } = useSelector(
+    (state) => state.user
+  );
+
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  const loginSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(loginEmail, loginPassword));
+    navigate("/main");
+  };  
+
+  const navigate = useNavigate();
+
+  const [flag, setFlag] = useState(false);
+
+  useEffect(() => {
+    if (error) {
+      // return alert.error(error);
+      dispatch(clearErrors());
+    }
+
+    if (isAuthenticated && flag) {
+      navigate("/main");
+      setFlag(false);
+    }
+  }, [dispatch, alert, error, isAuthenticated, navigate]);
+
   // const handleChange = useCallback(async () => {
   //   try {
   //     const response = await fetch(
@@ -43,7 +83,7 @@ const Login = (props) => {
           <img src={Bg} alt="bg" />
         </div>
         <div className="login-content">
-          <form method="GET" action="/main">
+          <form onSubmit={loginSubmit}>
             <img src={Avatar} alt="avatar" class='avkgp' />
             <h2 className="title">Welcome</h2>
             <div className="input-div one">
@@ -55,13 +95,13 @@ const Login = (props) => {
                 {/* <h5>Email Address</h5> */}
                 <input
                   type="email"
-                  value={email}
+                  value={loginEmail}
                   className="input"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
-                  onChange={(e) => setEmail(e.target.value)
-                  }
+                  onChange={(e) => setLoginEmail(e.target.value)}
+                  
                 required></input>
               </div>
             </div>
@@ -74,17 +114,20 @@ const Login = (props) => {
                 {/* <h5>Password</h5> */}
                 <input
                   type="password"
+                  value={loginPassword}
                   className="input"
                   id="exampleInputPassword1"
                   placeholder="Password"
+                  onChange={(e) => setLoginPassword(e.target.value)}
                  required></input>
               </div>
             </div>
-            <a href='#'>Forgot Password</a>
+            <a href="/password/forgot">Forget password?</a>
             <button
               type="submit"
               className="btn1 btn-primary loginBTN"
               // onSubmit={handleChange}
+              value="Login"
             >
               Log In
             </button>
@@ -96,4 +139,5 @@ const Login = (props) => {
     </div>
   );
 };
+
 export default Login;
