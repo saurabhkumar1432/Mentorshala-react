@@ -14,13 +14,71 @@
     width: 75%;
     /* height: 100%; */
     /* border: 1px solid red; */
+    overflow-y: auto;
+    position: relative;
 }
-@media (max-width:850px) {
-    .cardPart{
-        width: 100%;
-    }
+.reportBtn{
+    color: #fff;
+    background: #f66262;
+    padding: clamp(0.2rem,0.5rem,1rem);
+    position: absolute;
+    right: 0%;
+    top: 0%;
 }
-
+.deactivateReportForm{
+    display: none;
+}
+.reportForm{
+    /* border:1px solid red; */
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    background: #00000063;
+}
+.reportForm-container{
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    /* border: 1px solid red; */
+}
+.form-report{
+    padding:clamp(0.5rem,1rem,2rem);
+    background: #fff;
+    
+}
+.form-report input{
+    border-style: none;
+    border-radius: 0%;
+    border-bottom: 1px solid red;
+    /* background: #0000004a; */
+    height: 5px;
+    margin: 1% 0%;
+    color: #000;
+}
+.report-btn-in-form{
+    display: flex;
+    justify-content: space-around;
+    margin: 2% 0%;
+}
+.report-btn-in-form button{
+    width: 30%;
+    padding: clamp(0.2rem,0.4rem,1rem);
+    color: #fff;
+}
+.report-btn-in-form button:nth-child(1){
+    background: #f66262;
+}
+.report-btn-in-form button:nth-child(2){
+    background: #eec834;
+}
 .card-container{
     overflow-y: hidden;
     height: 100%;
@@ -93,3 +151,11 @@
 #community-btn{
     
 }
+    @media (max-width:850px) {
+        .cardPart{
+            width: 100%;
+        }
+    	.reportForm-container{
+            width: 90%;
+        }
+    }

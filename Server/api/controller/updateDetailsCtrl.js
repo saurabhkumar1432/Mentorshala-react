@@ -28,4 +28,12 @@ export default class updateDetailsCtrl{
             console.log("can't update the array");
         }
     }
+    static async matchListUpdate(username,data){
+        try{
+            await MentorShalaDAO.matchArrayUpdate(username,data)
+        }
+        catch{
+            console.log("can't update the array");
+        }
+    }
 }

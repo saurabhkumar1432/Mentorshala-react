@@ -17,7 +17,7 @@ const Header = () => {
               <div className='nav-item'><a href='#'><h5>Contacts</h5></a></div>
               <div className='nav-item'><a href='#'><h5>Partners</h5></a></div>
             </div>
-            <button><a href='/admin'>Admin</a></button>
+            <button><a href='/loginAdmin'>Admin</a></button>
             <button><a href='/login'>Login</a></button>
         </Grid>
       </Grid>

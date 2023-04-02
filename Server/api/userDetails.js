@@ -5,8 +5,8 @@ import updateDetailsCtrl from "./controller/updateDetailsCtrl.js";
 import postFeedCtrl from "./controller/postDetailCtrl.js";
 import multer from "multer";
 import ErrorHandler from "../utils/errorhandler.js";
-import sendToken from "../utils/jwtToken.js";
-import sendEmail from "../utils/sendEmail.js";
+// import sendToken from "../utils/jwtToken.js";
+// import sendEmail from "../utils/sendEmail.js";
 import crypto from "crypto";
 import cloudinary from "cloudinary";
 
@@ -147,10 +147,13 @@ router.route("/register").post(
       console.log("can't register");
     }
     // res.redirect("http://localhost:3000/main");
+    
+}));
+router.route("/postReport").post(async(req,res)=>{
+    // console.log(req.body);
+    await postFeedCtrl.postReportedUser(req.body)
+})
 
-    // sendToken(user, 201, res);
-  })
-);
 
 // Generate a JWT token
 function generateToken(user) {
@@ -326,4 +329,10 @@ router.route("/post/dont_show/:username").post(async (req, res) => {
   await updateDetailsCtrl.update_Dont_show_again(username, data);
 });
 
+router.route('/post/matchListUpdate/:username').post(async(req,res)=>{
+    const username=req.params.username
+    const data=req.body;
+    // console.log(data);
+    await updateDetailsCtrl.matchListUpdate(username,data)
+})
 export default router;

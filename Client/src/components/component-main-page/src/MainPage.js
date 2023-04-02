@@ -8,20 +8,21 @@ import { useState } from 'react'
 import Waves from '../../component-cardPart/src/Waves'
 import { RiCommunityFill } from 'react-icons/ri';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
+import SettingsIcon from '@mui/icons-material/Settings';
 // import {useDispatch} from "react-redux";
 // import {addToSet} from "../../../actions/action1";
 
 const MainPage=()=>{
     // const dispatch = useDispatch();
 
-    const { user, isAuthenticated } = useSelector(
-        (state) => state.user
-      );
+    // const { user, isAuthenticated } = useSelector(
+    //     (state) => state.user
+    //   );
 
-      console.log(user);
+    //   console.log(user);
 
-      console.log(isAuthenticated);
+    //   console.log(isAuthenticated);
 
 
     const [activeParts,setActivePart]=useState(false)
@@ -48,7 +49,13 @@ const MainPage=()=>{
                 {/* hello */}
                 <div className='mainPage-header'>
                     <button className='menuBtn' onClick={slidingMessageWindow}><MenuIcon/></button><h4>MentoShala</h4>
+                    <div className='headerBtn'>
                     <button className='cardToCommunity' onClick={handleToggle}><ModeCommentIcon/></button>
+                    <a  href="/setting"> <button className='cardTosetting'><SettingsIcon/></button></a>
+                   
+                    </div>
+                   
+
                 </div>
                 <div className='contentDiv'>
                     {/* <MessagePart setActivePart={setActivePart} activeParts={activeParts}/> */}

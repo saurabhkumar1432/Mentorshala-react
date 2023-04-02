@@ -5,9 +5,9 @@ import userDetails from './api/userDetails.js'
 const app=express();
 
 import cookieParser from "cookie-parser";
-import bodyParser from "body-parser";
+// import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
-import path from "path";
+// import path from "path";
 import errorMiddleware from "./middleware/error.js";
 import multer from "multer";
 import fs from "fs";
@@ -76,12 +76,6 @@ app.post("/register1",upload.single('avatar'),async (req, res, next) => {
     if (!req.file) {
       return res.status(400).send({ error: "Please select an image to upload" });
     }
-  // req.file.path will have path of image
-  // stored in uploads folder
-  var locaFilePath = req.file.path;
-  console.log(locaFilePath);
-  return res.send(myCloud.secure_url);
-
 }
 );
 

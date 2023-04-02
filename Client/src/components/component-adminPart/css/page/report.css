@@ -2,3 +2,12 @@
     width: 80%
     
 }
+
+.deleteReport:hover{
+    color: green;
+    scale: 1.5;
+}
+.deleteUser:hover{
+    color: red;
+    scale: 1.5;
+}

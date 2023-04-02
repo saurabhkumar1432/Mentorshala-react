@@ -21,4 +21,14 @@ export default class postFeedCtrl{
             console.log("Can't post data");
         }
     }
+    static async postReportedUser(obj){
+        try{
+            await mentorShalaDb.postreport(obj)
+            // console.log(userlists);
+            
+        }
+        catch{
+            console.log("Can't post data");
+        }
+    }
 }
