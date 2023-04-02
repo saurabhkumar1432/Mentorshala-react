@@ -44,35 +44,50 @@ export default class mentorShalaDb{
     //         cursor=await mentorshalaUsers.find({})
     //     }
     // }
-    static async updateUser(obj){
-        const query={Email:obj.Email}
-        // console.log("hello");
-            // console.log(query);
-        let reportValue;
-        let cursor;
-        try{
-            cursor=await mentorshalaUsers.collection("usersDetails").find({Email:obj.Email})
-        }
-        catch{
-            console.log("can't find");
-        }
-        try{
-            const usersList=await cursor.toArray()
-            reportValue=usersList[0].report
-        }
-        catch{
-            console.log("cant make it an array");
-        }
-        const newvalues = {
-            $set: {
-                report:reportValue+1
+    static async updatePassword(obj){
+        const hashedPassword=await bcrypt.hash(obj.password,10)
+        const query={username:username}
+        const newItem={
+            $set:{
+                password:hashedPassword
             }
-        };
-        await mentorshalaUsers.updateOne(query,newvalues,(err,res)=>{
+        }
+        await mentorshalaUsers.collection("usersDetails").updateOne(query,newItem,(err,res)=>{
             if (err) throw err;
             console.log("1 document updated");
         })
+       
     }
+
+    static async updateProfilePhoto(obj){
+
+        const query={username:username}
+        const newItem={
+            $set:{
+                profilePic:obj.profilePic
+            }
+        }
+        await mentorshalaUsers.collection("usersDetails").updateOne(query,newItem,(err,res)=>{
+            if (err) throw err;
+            console.log("1 document updated");
+        })
+       
+    }
+    static async updateProfileBanner(obj){
+
+        const query={username:username}
+        const newItem={
+            $set:{
+                banner:obj.banner
+            }
+        }
+        await mentorshalaUsers.collection("usersDetails").updateOne(query,newItem,(err,res)=>{
+            if (err) throw err;
+            console.log("1 document updated");
+        })
+       
+    }
+
     static async updateLikeArray(username,data){
         const query={username:username}
         const newItem={
@@ -179,6 +194,7 @@ export default class mentorShalaDb{
 
     static async deleteReport(obj){
         try{
+            console.log(obj);
             await mentorshalaUsers.collection("report").deleteOne(obj,(err,res)=>{
                 if (err) throw err;
                 console.log("report deleted");

@@ -22,7 +22,7 @@ function ReportList() {
   const deleteReport=async(obj)=>{
     const reportObj={"username":obj};
     
-    await axios.delete('http://localhost:5000/api/v1/mentorshala/deleteReport',reportObj).catch((err)=>{
+    await axios.post('http://localhost:5000/api/v1/mentorshala/deleteReport',reportObj).catch((err)=>{
             console.log("error");
     })
   }
@@ -30,7 +30,7 @@ function ReportList() {
   const deleteUser=async(obj)=>{
     const userObj={"username":obj};
     console.log(userObj);
-    await axios.post('http://localhost:5000/api/v1/mentorshala/deleteUser',userObj).catch((err)=>{
+    await axios.post('http://localhost:5000/api/v1/mentorshala/deleteUser',userObj).then(await axios.post('http://localhost:5000/api/v1/mentorshala/deleteReport',userObj)).catch((err)=>{
             console.log("error");
     })
   }
@@ -54,7 +54,8 @@ function ReportList() {
                   <td>{item.username}</td>
                   <td>{item.description}</td>
                   <td className="reportbtns">
-                    <button className="deleteReport" onClick={()=>{deleteReport(item.username)}}><ImCross /></button>
+                    <button className="deleteReport" onClick={()=>{console.log(item.username);
+                      deleteReport(item.username)}}><ImCross /></button>
                   </td>
                   <td>
                   <button className="deleteUser" onClick={()=>{deleteUser(item.username)}}><FaCheckCircle /></button>

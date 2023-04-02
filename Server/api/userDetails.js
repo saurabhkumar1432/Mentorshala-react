@@ -110,6 +110,7 @@ router.route('/getReports').get(async(req,res)=>{
 })
 
 router.route("/deleteReport").post(async(req,res)=>{
+    console.log(req.body);
     await MentorShalaDAO.deleteReport(req.body)
 
 })
@@ -117,6 +118,24 @@ router.route("/deleteReport").post(async(req,res)=>{
 router.route("/deleteUser").post(async(req,res)=>{
     console.log(req.body);
     await MentorShalaDAO.deleteUser(req.body)
+
+})
+
+router.route("/updatePassword").post(async(req,res)=>{
+    console.log(req.body);
+    await MentorShalaDAO.updatePassword(req.body)
+
+})
+
+router.route("/updateProfilePhoto").post(async(req,res)=>{
+    console.log(req.body);
+    await MentorShalaDAO.updateProfilePhoto(req.body)
+
+})
+
+router.route("/updateProfileBanner").post(async(req,res)=>{
+    console.log(req.body);
+    await MentorShalaDAO.updateProfileBanner(req.body)
 
 })
 
