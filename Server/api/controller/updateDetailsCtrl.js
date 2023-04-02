@@ -1,15 +1,35 @@
 import MentorShalaDAO from '../dao/MentorShalaDAO.js'
 
 export default class updateDetailsCtrl{
-    static async updateApiUsers(obj){
+    static async updatePassword(obj){
         try{
-            await MentorShalaDAO.updateUser(obj)
+            await MentorShalaDAO.updatePassword(obj)
             // console.log(userlists);
             // return userlists
         }
         catch{
-            console.log("Can't update data");
+            console.log("Can't update password");
             // return []
+        }
+    }
+    static async updateProfilePhoto(obj){
+        try{
+            await MentorShalaDAO.updateProfilePhoto(obj)
+          
+        }
+        catch{
+            console.log("Can't update profile pic");
+    
+        }
+    }
+    static async updateProfileBanner(obj){
+        try{
+            await MentorShalaDAO.updateProfileBanner(obj)
+     
+        }
+        catch{
+            console.log("Can't update banner");
+      
         }
     }
     static async updateprofile_liked(username,data){
