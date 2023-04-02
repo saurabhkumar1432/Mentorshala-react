@@ -41,6 +41,7 @@ router.post('/createUser',upload.single('media'),async(req,res)=>{
           "profile_match_list":[],
           "dont_show_again":[],
           "username":req.body.username,
+          "role":req.body.role,
 
     }
     // const {email,firstname,lastname,specialization,country,from,college,description}=req.body;
