@@ -11,9 +11,9 @@ export default class postFeedCtrl{
             console.log("Can't post data");
         }
     }
-    static async postapiUsers(obj){
+    static async postapiUsers(user){
         try{
-            await mentorShalaDb.postUser(obj)
+            await mentorShalaDb.postUser(user)
             // console.log(userlists);
             
         }
