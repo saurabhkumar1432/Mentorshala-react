@@ -102,4 +102,4 @@ process.on("unhandledRejection", (err) => {
 //Middleware for errors
 app.use(errorMiddleware);
 
-export default app
+export default app;
