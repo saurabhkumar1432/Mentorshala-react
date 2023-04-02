@@ -52,10 +52,10 @@
 .deactiveSettingDiv{
     /* border: 1px solid red; */
     position: absolute;
-    top: 100%;
-    left: 0%;
-    width: 0%;
-    height: 0%;
+    top: 0%;
+    left: -100%;
+    width: 100%;
+    height: 100%;
     overflow-y: auto;
     background: #fff;
     z-index: 9;
