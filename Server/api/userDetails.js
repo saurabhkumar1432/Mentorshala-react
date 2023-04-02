@@ -168,10 +168,10 @@ router.route('/adminAuth').post(async(req,res)=>{
     const adminUserName = "adminMentorshala";
     const adminPassword = "admin@123";
     if(username===adminUserName && password===adminPassword){
-        res.send(200)
+        res.sendStatus(200)
     }
     else{
-        res.send(201)
+        res.sendStatus(201)
     }
 })
 
