@@ -6,6 +6,7 @@ import ForumIcon from '@mui/icons-material/Forum';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import X from './renderer.js';
+import UserSetting from '../../component-main-page/src/userSetting.jsx';
 const MessagePart=(props)=>{
 
     const modes=[
@@ -69,7 +70,7 @@ const MessagePart=(props)=>{
             <X mode={mode}/>
             <button onClick={SideBardisappear} className="closeSideBar"><CloseIcon/></button>
             <div className={props.settingState?'activeSetting':'deactiveSettingDiv'}>
-                
+                <UserSetting />
             </div>
         </div>
 

@@ -165,6 +165,7 @@ function generateToken(user) {
   });
 }
 router.route("/deleteReport").post(async(req,res)=>{
+    console.log(req.body);
     await MentorShalaDAO.deleteReport(req.body)
 })
 // Verify the JWT token
@@ -187,6 +188,29 @@ router.route("/deleteUser").post(async(req,res)=>{
 
 //     // Find the user by email
 //     const user = await getUserByEmail(email);
+router.route("/updatePassword").post(async(req,res)=>{
+    console.log(req.body);
+    await MentorShalaDAO.updatePassword(req.body)
+
+})
+
+router.route("/updateProfilePhoto").post(async(req,res)=>{
+    console.log(req.body);
+    await MentorShalaDAO.updateProfilePhoto(req.body)
+
+})
+
+router.route("/updateProfileBanner").post(async(req,res)=>{
+    console.log(req.body);
+    await MentorShalaDAO.updateProfileBanner(req.body)
+
+})
+
+router.route("/getFeeds").get(async(req,res)=>{
+    const data=await usersDetailsCtrl.getapiFeeds()
+    console.log(data);
+    res.send(data)
+})
 
 //     if (!user) {
 //       return res.status(401).json({ message: "Invalid email or password" });
@@ -345,5 +369,18 @@ router.route('/post/matchListUpdate/:username').post(async(req,res)=>{
     await updateDetailsCtrl.matchListUpdate(username,data)
 });
 
-export default router;
 
+router.route('/adminAuth').post(async(req,res)=>{
+    const username=req.body.username;
+    const password=req.body.password;
+    const adminUserName = "adminMentorshala";
+    const adminPassword = "admin@123";
+    if(username===adminUserName && password===adminPassword){
+        res.send(200)
+    }
+    else{
+        res.send(201)
+    }
+})
+
+export default router
