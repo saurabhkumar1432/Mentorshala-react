@@ -90,18 +90,17 @@ router.route("/getFeeds").get(
 //     res.redirect('https://mentorshala.netlify.app/main')
 // })
 
-router.post("/register",upload.single("avatar")),(
-  catchAsyncErrors(async (req, res, next) => {
+router.route("/register").post(catchAsyncErrors(async (req, res, next) => {
     // if(req.file)
     // console.log(req.file.path);
     // else
     // console.log("no file uploaded");
     
-    // const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-    //   folder: "avatars",
-    //   width: 150,
-    //   crop: "scale",
-    // });
+    const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+      folder: "avatars",
+      width: 150,
+      crop: "scale",
+    });
 
     // const myCloud1 = await cloudinary.v2.uploader.upload(req.body.banner, {
     //   folder: "banners",
@@ -113,7 +112,6 @@ router.post("/register",upload.single("avatar")),(
       firstName: req.body.firstname,
       lastName: req.body.lastname,
       Email: req.body.email,
-      username: req.body.username,
       Password: req.body.password,
       from: req.body.from,
       country: req.body.country,
@@ -126,7 +124,10 @@ router.post("/register",upload.single("avatar")),(
       role: req.body.role,
       resetPasswordToken: "",
       resetPasswordExpire: "",
-      avatar: req.file.path,
+      profilePic: {
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
+      },
       match_list:"",
       profile_match_list:"",
       dont_show_again:"",

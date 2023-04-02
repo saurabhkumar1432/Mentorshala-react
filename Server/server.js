@@ -7,6 +7,8 @@ const app=express();
 import cookieParser from "cookie-parser";
 // import bodyParser from "body-parser";
 // import fileUpload from "express-fileupload";
+// app.use(fileUpload());
+
 // import path from "path";
 import errorMiddleware from "./middleware/error.js";
 import multer from "multer";
