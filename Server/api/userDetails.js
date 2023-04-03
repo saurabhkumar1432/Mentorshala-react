@@ -369,6 +369,60 @@ router.route('/post/matchListUpdate/:username').post(async(req,res)=>{
     await updateDetailsCtrl.matchListUpdate(username,data)
 });
 
+//swagger documentation
+/**
+ * @swagger
+ * /api/mentorshala/getFeeds:
+ *  get:
+ *   description: Use to request all feeds
+ *  responses:
+ *  '200':
+ *  description: A successful response
+ * content:
+ * application/json:
+ * schema:
+ * type: array
+ * items:
+ * $ref: '#/components/schemas/Feeds'
+ * components:
+ * schemas:
+ * Feeds:
+ * type: object
+ * required:
+ * - username
+ * - profile_image
+ * - work
+ * - media
+ * - caption
+ * - like
+ * properties:
+ * username:
+ * type: string
+ * description: The username of the user
+ * profile_image:
+ * type: string
+ * description: The profile image of the user
+ * work:
+ * type: string
+ * description: The work of the user
+ * media:
+ * type: string
+ * description: The media of the user
+ * caption:
+ * type: string
+ * description: The caption of the user
+ * like:
+ * type: number
+ * description: The like of the user
+ * example:
+ * username: "sai"
+ * profile_image: "https://res.cloudinary.com/mentorshala/image/upload/v1/629e6c0c-1b1f-4b1f-8b1f-1b1f4b1f8b1f"
+ * work: "student"
+ * media: "https://res.cloudinary.com/mentorshala/image/upload/v1/629e6c0c-1b1f-4b1f-8b1f-1b1f4b1f8b1f"
+ * caption: "hello"
+ * like: 0 
+ **/
+
 
 router.route('/adminAuth').post(async(req,res)=>{
     const username=req.body.username;
@@ -385,6 +439,7 @@ router.route('/adminAuth').post(async(req,res)=>{
 
 router.route("/menteeCount").get(async (req, res) => {
   const data = await fetchDetailsCtrl.getMenteeCount();
+  console.log(data);
   res.send(data);
 });
 
