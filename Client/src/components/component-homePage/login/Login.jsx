@@ -28,8 +28,11 @@ const Login = (props) => {
 
   const loginSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(loginEmail, loginPassword));
+    // dispatch(login(loginEmail, loginPassword));
     navigate("/main");
+    // localStorage.setItem()
+    localStorage.setItem("emailData",loginEmail);
+    
   };  
 
   const navigate = useNavigate();
