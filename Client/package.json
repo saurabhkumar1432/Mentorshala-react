@@ -38,6 +38,7 @@
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",
+    "sass": "^1.60.0",
     "simple-peer": "^9.11.1",
     "socket.io-client": "^4.5.4",
     "tsparticles": "^2.7.1",

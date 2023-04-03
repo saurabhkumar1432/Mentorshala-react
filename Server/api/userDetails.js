@@ -128,9 +128,9 @@ router.route("/register").post(catchAsyncErrors(async (req, res, next) => {
         public_id: myCloud.public_id,
         url: myCloud.secure_url,
       },
-      match_list:"",
-      profile_match_list:"",
-      dont_show_again:"",
+      match_list:[],
+      profile_match_list:[],
+      dont_show_again:[],
 
       // avatar:req.file.path,
       // banner: {
