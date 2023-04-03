@@ -376,11 +376,21 @@ router.route('/adminAuth').post(async(req,res)=>{
     const adminUserName = "adminMentorshala";
     const adminPassword = "admin@123";
     if(username===adminUserName && password===adminPassword){
-        res.send(200)
+        res.sendStatus(200)
     }
     else{
-        res.send(201)
+        res.sendStatus(201)
     }
 })
 
+router.route("/menteeCount").get(async (req, res) => {
+  const data = await fetchDetailsCtrl.getMenteeCount();
+  res.send(data);
+});
+
+router.route('/mentorCount').get(async(req,res)=>{
+    const data=await MentorShalaDAO.mentorCount()
+    console.log(data);
+    res.send(data)
+})
 export default router

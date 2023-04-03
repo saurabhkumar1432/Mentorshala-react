@@ -119,6 +119,7 @@ function UserList() {
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Username</th>
                 <th>Email</th>
                 <th>College</th>
                 <th>Specialization</th>
@@ -131,10 +132,13 @@ function UserList() {
               return(
                 <tr>
                   <td>{item.firstName} {item.lastName}</td>
+                  <td>{item.username}</td>
                   <td>{item.Email}</td>
                   <td>{item.college}</td>
                   <td>{item.specialization}</td>
                   <td>{item.from}</td>
+                  
+
                 </tr>
               )
             } )

@@ -267,4 +267,29 @@ export default class mentorShalaDb{
             console.log("cant post the data");
         }
     }
+    static async menteeCount(){
+        let cursor
+        try{
+            cursor=await mentorshalaUsers.collection("usersDetails").find({role:"Mentee"})
+           const menteeArray=cursor.toArray()
+           return menteeArray.length
+        }
+        catch{
+            console.log("cant get them data");
+            return []
+        }
+       
+    }
+    static async mentorCount(){
+        let cursor
+        try{
+            cursor =  await mentorshalaUsers.collection("usersDetails").countDocuments({role:"Mentor"})
+           return cursor
+        }
+        catch{
+            console.log("cant get the count");
+            return []
+        }
+       
+    }
 }
