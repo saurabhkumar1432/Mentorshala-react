@@ -7,7 +7,6 @@ import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import EmailIcon from '@mui/icons-material/Email';
-import ReportIcon from '@mui/icons-material/Report';
 import { useState } from 'react';
 import axios from 'axios';
 const Card=(props)=>{
@@ -22,14 +21,7 @@ const Card=(props)=>{
             setRadioCheck([false,true])
         }
     }
-    const reportHandler=async()=>{
-        console.log(Email);
-        await axios.post('https://mentorshala-backend.onrender.com/api/v1/mentorshala/reportUser',{'Email':Email}).then((res)=>{
-            console.log(res.data);
-        }).catch((err)=>{
-            console.log("error");
-        })
-    }
+   
     return(
         <div class="card">
             <img id="card-img-banner" src={banner} alt="Card image cap"></img>
@@ -38,9 +30,7 @@ const Card=(props)=>{
                 <input id='radioBtnCard1' type="radio" checked={radioCheck[0]}></input>
                 <input id='radioBtnCard2' type="radio" checked={radioCheck[1]}></input>
                 <div className='card-body-div first-card-body-div'>
-                    <div id='report-div'>
-                        <button onClick={reportHandler}><ReportIcon/></button>
-                    </div>
+                    
                     <div id='name-div' className='div-firstPage'>
                         <h1>{firstName} {lastName}</h1>
                     </div>

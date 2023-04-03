@@ -35,7 +35,7 @@ function WidgetSm() {
           </div>
           <button className="widgetSmButton">
             <Visibility className="widgetSmIcon" />
-            Display
+            Active
           </button>
         </li>
        )

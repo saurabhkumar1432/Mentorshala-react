@@ -12,11 +12,7 @@ const Header = () => {
           <img src={mlogo} alt="Logo" id="mlogo"></img><h4>MentorShala</h4>
         </Grid>
         <Grid item xs={10} className="coloumns-grid">
-            <div id='header-nav-items'>
-              <div className='nav-item'><a href='#'><h5>About</h5></a></div>
-              <div className='nav-item'><a href='#'><h5>Contacts</h5></a></div>
-              <div className='nav-item'><a href='#'><h5>Partners</h5></a></div>
-            </div>
+          
             <button><a href='/loginAdmin'>Admin</a></button>
             <button><a href='/login'>Login</a></button>
         </Grid>
