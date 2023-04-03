@@ -12,6 +12,9 @@ import errorMiddleware from "./middleware/error.js";
 import multer from "multer";
 import fs from "fs";
 
+import fileupload from 'express-fileupload'; 
+app.use(fileupload({useTempFiles: true}))
+
 
 app.use(express.json({limit:"50mb"}))
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
