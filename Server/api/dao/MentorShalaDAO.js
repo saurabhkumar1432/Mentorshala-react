@@ -13,6 +13,11 @@ export default class mentorShalaDb{
             console.error("error")
         }
     }
+    static async getAllUsers(){
+        if(mentorshalaUsers) return mentorshalaUsers
+        else 
+        return [];
+    }
     static async getEmail(email){
         let cursor
         try{
@@ -24,7 +29,7 @@ export default class mentorShalaDb{
         }
         try{
             const user2=await cursor.toArray();
-            console.log(user2);
+            // console.log(user2);
             return user2;
         }catch(e){
             console.log(e);
@@ -35,12 +40,15 @@ export default class mentorShalaDb{
         try{
             password = await bcrypt.hash(password, 10);
             cursor=await mentorshalaUsers.collection("usersDetails").find({Password:password})
+            console.log(password);
         }
         catch(e){
             console.log(e);
         }
         try{
             const user2=await cursor.toArray();
+            console.log(user2);
+            
             return user2;
         }catch(e){
             console.log(e);

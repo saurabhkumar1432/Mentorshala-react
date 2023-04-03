@@ -6,18 +6,18 @@ import Bg from "../../../images/bg.svg";
 import Avatar from "../../../images/avatar.svg";
 import logInimg from "../../../images/22866003-removebg-preview.png";
 import { useNavigate } from "react-router-dom";
-// import { useAlert } from "react-alert";
+import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login } from "../../../actions/userAction";
 
 
-const Login = (props) => {
+const Login = () => {
   // const [email, setEmail] = useState("");
   // const [found, setFound] = useState(false);
 
   const dispatch = useDispatch();
 
-  // const alert = useAlert();
+  const alert = useAlert();
 
   const { error, loading, isAuthenticated } = useSelector(
     (state) => state.user
@@ -26,13 +26,14 @@ const Login = (props) => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
+  const navigate = useNavigate();
+
   const loginSubmit = (e) => {
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
     navigate("/main");
   };  
 
-  const navigate = useNavigate();
 
   const [flag, setFlag] = useState(false);
 

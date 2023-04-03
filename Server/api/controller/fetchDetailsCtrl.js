@@ -1,10 +1,21 @@
 import MentorShalaDAO from '../dao/MentorShalaDAO.js'
 
 export default class usersDetailsCtrl{
+    static async apiGetUsers(){
+        try{
+            const userlists=await MentorShalaDAO.getAllUsers()
+            // console.log(userlists);
+            return "userlists"
+        }
+        catch{
+            console.log("Can't fetch data");
+            return []
+        }
+    }
     static async getUserByEmail(email){
         try{
             const user3=await MentorShalaDAO.getEmail(email);
-            console.log(user3);
+            // console.log(user3);
             return user3;
         }
         catch{

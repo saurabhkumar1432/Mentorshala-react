@@ -5,8 +5,10 @@ import updateDetailsCtrl from "./controller/updateDetailsCtrl.js";
 import postFeedCtrl from "./controller/postDetailCtrl.js";
 import multer from "multer";
 import ErrorHandler from "../utils/errorhandler.js";
-// import sendToken from "../utils/jwtToken.js";
+import sendToken from "../utils/jwtToken.js";
 // import sendEmail from "../utils/sendEmail.js";
+// import {isAuthenticatedUser, authorizeRoles} from "../middleware/auth.js";
+
 // import crypto from "crypto";
 import cloudinary from "cloudinary";
 
@@ -32,13 +34,13 @@ router.route(`/get/:role/details`).get(async (req, res) => {
   // console.log(role);
   const data = await fetchDetailsCtrl.getapiUsers(role);
   // console.log(data);
-  res.send(data);
+  res.sendStatus(data);
 });
 router.route("/getFeeds").get(
   catchAsyncErrors(async (req, res, next) => {
     const data = await fetchDetailsCtrl.getapiFeeds();
     // console.log(data);
-    res.send(data);
+    res.sendStatus(data);
   })
 );
 // router.post('/createUser',upload.single('media'),async(req,res)=>{
@@ -150,6 +152,7 @@ router.route("/register").post(catchAsyncErrors(async (req, res, next) => {
       console.log("can't register");
     }
     // res.redirect("http://localhost:3000/main");
+    sendToken(user, 201, res);
     
 }));
 router.route("/postReport").post(async(req,res)=>{
@@ -159,24 +162,24 @@ router.route("/postReport").post(async(req,res)=>{
 
 
 // Generate a JWT token
-function generateToken(user) {
-  return jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRE,
-  });
-}
+// function generateToken(user) {
+//   return jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+//     expiresIn: process.env.JWT_EXPIRE,
+//   });
+// }
 router.route("/deleteReport").post(async(req,res)=>{
     console.log(req.body);
     await MentorShalaDAO.deleteReport(req.body)
 })
 // Verify the JWT token
-function verifyToken(token) {
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    return decoded.id;
-  } catch (err) {
-    return null;
-  }
-}
+// function verifyToken(token) {
+//   try {
+//     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+//     return decoded.id;
+//   } catch (err) {
+//     return null;
+//   }
+// }
 
 // router.route("/login").post(
 //   catchAsyncErrors(async (req, res, next) => {
@@ -209,7 +212,7 @@ router.route("/updateProfileBanner").post(async(req,res)=>{
 router.route("/getFeeds").get(async(req,res)=>{
     const data=await usersDetailsCtrl.getapiFeeds()
     console.log(data);
-    res.send(data)
+    res.sendStatus(data)
 })
 
 //     if (!user) {
@@ -242,33 +245,33 @@ router.route("/login").post(catchAsyncErrors(async (req, res, next) => {
   const { email, password } = req.body;
 
   //checking if user has given password and email both
-  const user1={
-    username:email,
-    password:password
-  };
-  
   if (!email || !password) {
-    return next(new ErrorHandler("Please Enter Email & Password", 400));
+    throw new ErrorHandler("Please Enter Email & Password", 400);
   }
+
+
+  const user1={
+    Email:email,
+    Password:password
+  };
 
   const user = await fetchDetailsCtrl.getUserByEmail( email );
   console.log(user);
   if (!user) {
-    return next(new ErrorHandler("Invalid email ", 401));
+    throw new ErrorHandler("Invalid email ", 401);
   }
 
   const isPasswordMatched = await fetchDetailsCtrl.comparePassword(password);
 
   if (!isPasswordMatched) {
-    return next(new ErrorHandler("Invalid Password", 401));
+    throw new ErrorHandler("Invalid Password", 401);
   }
-  if(user && isPasswordMatched){
-    const token = generateToken(user1);
-  console.log(token);
-  }
-  // sendToken(user, 200, res);
-})
-);
+  // if(user && isPasswordMatched){
+  //   const token = generateToken(user1);
+  //   console.log(token);
+  // }
+  sendToken(user1, 200, res);
+}));
 
 //Logout User
 router.route("/logout").get(catchAsyncErrors(async (req, res, next) => {
@@ -334,7 +337,7 @@ router.route("/reportUser").post(async (req, res) => {
 
 router.route("/getReports").get(async (req, res) => {
   const data = await fetchDetailsCtrl.getapiReports();
-  res.send(data);
+  res.sendStatus(data);
 });
 
 router.route("/deleteReport").delete(async (req, res) => {
@@ -348,7 +351,7 @@ router.route("/deleteUser").delete(async (req, res) => {
 router.route("/getFeeds").get(async (req, res) => {
   const data = await usersDetailsCtrl.getapiFeeds();
   console.log(data);
-  res.send(data);
+  res.sendStatus(data);
 });
 
 router.route("/post/liked-profile/:username").post(async (req, res) => {
@@ -376,10 +379,10 @@ router.route('/adminAuth').post(async(req,res)=>{
     const adminUserName = "adminMentorshala";
     const adminPassword = "admin@123";
     if(username===adminUserName && password===adminPassword){
-        res.send(200)
+      res.sendStatus(200)
     }
     else{
-        res.send(201)
+      res.sendStatus(201)
     }
 })
 

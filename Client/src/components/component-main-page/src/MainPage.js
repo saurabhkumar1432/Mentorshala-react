@@ -8,17 +8,17 @@ import { useState } from 'react'
 import Waves from '../../component-cardPart/src/Waves'
 import { RiCommunityFill } from 'react-icons/ri';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import SettingsIcon from '@mui/icons-material/Settings';
-// import {useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 // import {addToSet} from "../../../actions/action1";
 
 const MainPage=()=>{
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    // const { user, isAuthenticated } = useSelector(
-    //     (state) => state.user
-    //   );
+    const { user } = useSelector(
+        (state) => state.user
+      );
 
     //   console.log(user);
 

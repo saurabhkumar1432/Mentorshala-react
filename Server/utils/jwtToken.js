@@ -1,8 +1,11 @@
 //Creating token and saving in cookie
 
-const sendToken = (user,statusCode,res)=>{
+import getJWTToken from "./jwtT.js";
 
-    const token = user.getJWTToken();
+const sendToken = (user,statusCode,res)=>{
+    user.getJWTToken = getJWTToken; // Define the getJWTToken function in the user object
+
+    const token = user.getJWTToken(user);
 
     //options for cookie
     const options = {
@@ -17,6 +20,8 @@ const sendToken = (user,statusCode,res)=>{
         user,
         token
     });
+    // console.log(user);
+    console.log(token);
 };
 
 export default sendToken;
