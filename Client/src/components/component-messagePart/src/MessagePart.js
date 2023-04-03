@@ -71,7 +71,7 @@ const MessagePart=(props)=>{
             <X mode={mode} userDetail={userDetail}/>
             <button onClick={SideBardisappear} className="closeSideBar"><CloseIcon/></button>
             <div className={props.settingState?'activeSetting':'deactiveSettingDiv'}>
-                <UserSetting />
+                <UserSetting userDetail={userDetail} />
             </div>
         </div>
 
