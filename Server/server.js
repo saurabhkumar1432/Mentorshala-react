@@ -19,7 +19,7 @@ import swaggerJsDoc from 'swagger-jsdoc'
 //       },
 //       servers: [
 //         {
-//           url: "localhost:3000"
+//           url: "http://localhost:5000"
 //         }
 //       ]
 //     },
@@ -35,7 +35,6 @@ const app=express();
 
 // app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
-// app.use(morgan("dev"));
 
 import cookieParser from "cookie-parser";
 // import bodyParser from "body-parser";
