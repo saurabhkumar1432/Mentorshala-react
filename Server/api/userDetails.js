@@ -427,7 +427,7 @@ router.route('/post/matchListUpdate/:username').post(async(req,res)=>{
 router.route('/adminAuth').post(async(req,res)=>{
     const username=req.body.username;
     const password=req.body.password;
-    const adminUserName = "adminMentorshala";
+    const adminUserName = "admin@Mentorshala";
     const adminPassword = "admin@123";
     if(username===adminUserName && password===adminPassword){
         res.sendStatus(200)
