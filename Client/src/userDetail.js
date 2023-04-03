@@ -12,7 +12,7 @@ async function fetchUserData() {
       console.log(error);
     }
   }
-  export default async function() {
+  export default async function UserData() {
     const data = await fetchUserData();
     return data[0];
   };    

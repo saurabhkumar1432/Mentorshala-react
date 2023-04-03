@@ -8,7 +8,8 @@ import { useState } from 'react';
 import X from './renderer.js';
 import UserSetting from '../../component-main-page/src/userSetting.jsx';
 const MessagePart=(props)=>{
-
+    const userDetail=props.userData
+    // console.log(userDetail);
     const modes=[
         {
             id:0,
@@ -67,7 +68,7 @@ const MessagePart=(props)=>{
                 <button onClick={()=>{handler(0)}} className={isactive[0]? 'active': 'non-active'}>Messages</button>
                 <button onClick={()=>{handler(1)}} className={isactive[1]? 'active': 'non-active'}>Matches</button>
             </div>
-            <X mode={mode}/>
+            <X mode={mode} userDetail={userDetail}/>
             <button onClick={SideBardisappear} className="closeSideBar"><CloseIcon/></button>
             <div className={props.settingState?'activeSetting':'deactiveSettingDiv'}>
                 <UserSetting />

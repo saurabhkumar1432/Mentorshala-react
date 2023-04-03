@@ -15,34 +15,9 @@ import http from "../../../http-common.js"
 import axios from 'axios'
 let likedPeople=[]
 let dislikedPeople=[]
-const CardPart=()=>{
+const CardPart=(props)=>{
   const [dbData,setdbData]=useState([])
-  const userDetail=
-  {
-    "firstName": "Abhishek",
-    "lastName": "Singh",
-    "profilePic": "https://i.pinimg.com/originals/36/fa/7b/36fa7b46c58c94ab0e5251ccd768d669.jpg",
-    "banner": "https://images.unsplash.com/photo-1502230831726-fe5549140034?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-    "from": "Delhi",
-    "country": "India",
-    "college": "IIIT Sri City",
-    "specialization": "Web Development",
-    "description": "Love to travel. Professional Vlogger. Been Places",
-    "experience": [
-      "Worked as front-end developer",
-      "Working in IBM design department."
-    ],
-    "Linkedin": "https://www.linkedin.com/in/abhay-pratap-singh-878457203/",
-    "Email": "abhishek.k20@iiits.in",
-    "Password": "1234",
-    "report": {
-      "$numberLong": "0"
-    },
-    "role": "Mentee",
-    "username": "abhishek_singh581",
-    "profile_match_list": [
-    ]
-  }
+  const userDetail=props.userData
   useEffect(()=>{
     http.get(`/get/${userDetail.role}/details`)
     .then(res=>{
