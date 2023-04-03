@@ -62,8 +62,17 @@ export default class usersDetailsCtrl{
     static async getMenteeCount(){
         try{
             const menteeCount=await MentorShalaDAO.menteeCount()
-            // console.log(userlists);
             return menteeCount
+        }
+        catch{
+            console.log("Can't fetch data");
+            return []
+        }
+    }
+    static async getMentorCount(){
+        try{
+            const mentorCount=await MentorShalaDAO.mentorCount()
+            return mentorCount
         }
         catch{
             console.log("Can't fetch data");

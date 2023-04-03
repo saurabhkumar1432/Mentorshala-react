@@ -2,7 +2,40 @@ import express from 'express'
 import cors from 'cors'
 import userDetails from './api/userDetails.js'
 // import bodyParser from 'body-parser'
+import morgan from 'morgan'
+import swaggerUI from 'swagger-ui-express'
+import swaggerJsDoc from 'swagger-jsdoc'
+
+
+//swagger documentation
+
+// const options = {
+//     definition: {
+//       openapi: "3.0.0",
+//       info: {
+//         title: "mentorshala API",
+//         version: "1.0.0",
+//         description: "multiple mentorshala API"
+//       },
+//       servers: [
+//         {
+//           url: "localhost:3000"
+//         }
+//       ]
+//     },
+//     apis: ["./api/userDetails.js"]
+//   };
+  
+//   const specs = swaggerJsDoc(options);
+  
+
 const app=express();
+
+
+
+// app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
+
+// app.use(morgan("dev"));
 
 import cookieParser from "cookie-parser";
 // import bodyParser from "body-parser";
@@ -11,6 +44,9 @@ import fileUpload from "express-fileupload";
 import errorMiddleware from "./middleware/error.js";
 import multer from "multer";
 import fs from "fs";
+
+import fileupload from 'express-fileupload'; 
+app.use(fileupload({useTempFiles: true}))
 
 
 app.use(express.json({limit:"50mb"}))

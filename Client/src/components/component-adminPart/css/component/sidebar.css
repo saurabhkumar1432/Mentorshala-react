@@ -1,6 +1,6 @@
 .sidebar {
     flex: 1;
-    height: calc(100vh - 50px);
+    height: calc(100vh);
     background-image: linear-gradient(to right, #3984f5, #a289e8);
     position: sticky;
     top: 50px;

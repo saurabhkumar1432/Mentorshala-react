@@ -7,7 +7,7 @@ import WidgetLg from '../components/WidgetLg';
 
 function Home() {
   return (
-    <div className="home">
+    <div className="home-admin">
       <FeaturedInfo />
       <Chart data={userData} title="User Analytics" grid dataKey="Active User"/>
       <div className="homeWidgets">

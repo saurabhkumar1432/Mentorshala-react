@@ -97,7 +97,7 @@ function UserSetting() {
           <h6>{userDetail.specialization}</h6>
       </div>
       {/* //update password */}
-      <div className="formContainer">
+      <div className="formContainerSetting">
         <h6>Change Name:</h6>
         <form className="updatingForm" onSubmit={handlePasswordSubmit}>
           <input type="text"  onChange={handlePasswordChange} placeholder='Change First Name'/>
@@ -109,7 +109,7 @@ function UserSetting() {
           <button type="submit">Save</button> 
         </form>
       </div>
-      <div className="formContainer">
+      <div className="formContainerSetting">
         <h6>Change Password:</h6>
         <form className="updatingForm" onSubmit={handlePasswordSubmit}>
           <input type="password"  onChange={handlePasswordChange} placeholder='New Password'/>
@@ -121,7 +121,7 @@ function UserSetting() {
           <button type="submit">Save</button> 
         </form>
       </div>
-      <div className="formContainer">
+      <div className="formContainerSetting">
         <h6>Change Location:</h6>
         <form className="updatingForm" onSubmit={handlePasswordSubmit}>
           <input type="text"  onChange={handlePasswordChange} placeholder='Change City'/>
@@ -134,7 +134,7 @@ function UserSetting() {
         </form>
       </div>
 
-      <div className="formContainer">
+      <div className="formContainerSetting">
         <h6>Change Work:</h6>
         <form className="updatingForm" onSubmit={handlePasswordSubmit}>
           <input type="text"  onChange={handlePasswordChange} placeholder='Change College Name'/>

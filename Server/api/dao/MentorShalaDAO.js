@@ -268,28 +268,25 @@ export default class mentorShalaDb{
         }
     }
     static async menteeCount(){
-        let cursor
         try{
-            cursor=await mentorshalaUsers.collection("usersDetails").find({role:"Mentee"})
-           const menteeArray=cursor.toArray()
-           return menteeArray.length
+       const mentee= await this.getUser("Mentee")
+       return mentee.length
         }
         catch{
-            console.log("cant get them data");
+            console.log("cant get the mentee count");
             return []
         }
        
     }
     static async mentorCount(){
-        let cursor
         try{
-            cursor =  await mentorshalaUsers.collection("usersDetails").countDocuments({role:"Mentor"})
-           return cursor
-        }
-        catch{
-            console.log("cant get the count");
-            return []
-        }
+            const mentor= await this.getUser("Mentor")
+            return mentor.length
+             }
+             catch{
+                 console.log("cant get the mentor count");
+                 return []
+             }
        
     }
 }
