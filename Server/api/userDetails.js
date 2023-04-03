@@ -27,6 +27,13 @@ import catchAsyncErrors from "../middleware/catchAsyncErrors.js";
 const upload = multer({ dest: "./imgUpload/" });
 const router = express.Router();
 
+
+router.route('/getUserDetail/:email').get(async(req,res)=>{
+  const data=await fetchDetailsCtrl.getUserByEmail(req.params.email)
+  // console.log(data);
+  res.send(data)
+})
+
 router.route(`/get/:role/details`).get(async (req, res) => {
   const role = req.params.role;
   // console.log(role);
