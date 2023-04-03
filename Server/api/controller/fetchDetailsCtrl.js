@@ -59,4 +59,16 @@ export default class usersDetailsCtrl{
             return []
         }
     }
+    static async getMenteeCount(){
+        try{
+            const menteeCount=await MentorShalaDAO.menteeCount()
+            // console.log(userlists);
+            return menteeCount
+        }
+        catch{
+            console.log("Can't fetch data");
+            return []
+        }
+    }
+
 }

@@ -383,4 +383,14 @@ router.route('/adminAuth').post(async(req,res)=>{
     }
 })
 
+router.route("/menteeCount").get(async (req, res) => {
+  const data = await fetchDetailsCtrl.getMenteeCount();
+  res.send(data);
+});
+
+router.route('/mentorCount').get(async(req,res)=>{
+    const data=await MentorShalaDAO.mentorCount()
+    console.log(data);
+    res.send(data)
+})
 export default router

@@ -1,39 +1,48 @@
 import '../css/component/featuredInfo.css'
-
-import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
+import { useState,useEffect } from "react";
+import http from '../../../http-common'
 
 function FeaturedInfo() {
+
+  const [menteeCount, setMenteeCount] = useState(0);
+  const [mentorCount, seMentorCount] = useState();
+
+  useEffect(()=>{
+    http.get('/menteeCount')
+    .then(res=>{
+      // console.log(res);
+      setMenteeCount(res.data)
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+   
+  },[])
+
   return (
     <div className="featured">
       <div className="featuredItem">
         <span className="featuredTitle">Mentor Registerd</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">2,415</span>
-          <span className="featuredMoneyRate">
-            +11.4 <ArrowDownward  className="featuredIcon negative"/>
-          </span>
+          <span className="featuredMoney">{mentorCount}</span>
+          
         </div>
-        <span className="featuredSub">Compared to last month</span>
+       
       </div>
       <div className="featuredItem">
         <span className="featuredTitle">Mentee Registerd</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">4,415</span>
-          <span className="featuredMoneyRate">
-            +31.4 <ArrowDownward className="featuredIcon negative"/>
-          </span>
+          <span className="featuredMoney">{menteeCount}</span>
+         
         </div>
-        <span className="featuredSub">Compared to last month</span>
+       
       </div>
       <div className="featuredItem">
-        <span className="featuredTitle">Toatl Matches</span>
+        <span className="featuredTitle">total Matches</span>
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">500</span>
-          <span className="featuredMoneyRate">
-            +2.4 <ArrowUpward className="featuredIcon"/>
-          </span>
+         
         </div>
-        <span className="featuredSub">Compared to last month</span>
       </div>
     </div>
   );

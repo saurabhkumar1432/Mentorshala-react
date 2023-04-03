@@ -54,8 +54,7 @@ function ReportList() {
                   <td>{item.username}</td>
                   <td>{item.description}</td>
                   <td className="reportbtns">
-                    <button className="deleteReport" onClick={()=>{console.log(item.username);
-                      deleteReport(item.username)}}><ImCross /></button>
+                    <button className="deleteReport" onClick={()=>{deleteReport(item.username)}}><ImCross /></button>
                   </td>
                   <td>
                   <button className="deleteUser" onClick={()=>{deleteUser(item.username)}}><FaCheckCircle /></button>
