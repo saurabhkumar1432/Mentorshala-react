@@ -12,7 +12,7 @@ import cloudinary from "cloudinary";
 
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-
+import { validateToken} from "../middleware/validateToken.js"
 import fs from "fs";
 
 // Creating uploads folder if not already present
@@ -271,11 +271,29 @@ router.route("/login").post(catchAsyncErrors(async (req, res, next) => {
   }
   if(user && isPasswordMatched){
     const token = generateToken(user1);
-  console.log(token);
+  res.status(200).json({token})
   }
-  // sendToken(user, 200, res);
+  else{
+    res.status(401);
+    throw new Error("authentication failed")
+  }
+  
 })
 );
+
+//current user
+router.route("/current", validateToken).get(catchAsyncErrors(async (req, res, next) => {
+  try {
+    // Get user information from the request object (set in validateToken middleware)
+    const { user } = req;
+
+    // Return user information as JSON response
+    res.json({ user });
+  } catch (err) {
+    next(err);
+  }
+
+}));
 
 //Logout User
 router.route("/logout").get(catchAsyncErrors(async (req, res, next) => {
