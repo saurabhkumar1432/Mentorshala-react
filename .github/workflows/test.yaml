@@ -42,9 +42,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker image
-        run: docker build -t your-image-name .
+        run: docker build -t mentorshalabackend .
       - name: Push Docker image
-        run: docker push your-image-name
+        run: docker push mentorshalabackend
       - name: Render Deploy
         uses: renderapp/github-action@1.4.1
         with:
