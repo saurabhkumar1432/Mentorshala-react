@@ -19,7 +19,7 @@ const AdminLogin = (props) => {
     try {
       const cred = { username, password };
 
-      const response = await axios.post('http://localhost:5000/api/v1/mentorshala/adminAuth',cred).catch((err)=>{
+      const response = await axios.post('https://mentorshala-backend.onrender.com/api/v1/mentorshala/adminAuth',cred).catch((err)=>{
         console.log("error");
 })
 

@@ -21,7 +21,7 @@ function UserSetting(props) {
     // console.log(props.userDetail.username);
 
     await axios
-      .post("http://localhost:5000/api/v1/mentorshala/updateName", userObj)
+      .post("https://mentorshala-backend.onrender.com/api/v1/mentorshala/updateName", userObj)
       .catch((err) => {
         console.log("error");
       });
@@ -41,7 +41,7 @@ function UserSetting(props) {
     // console.log(props.userDetail.username);
 
     await axios
-      .post("http://localhost:5000/api/v1/mentorshala/updateEmailPass", userObj)
+      .post("https://mentorshala-backend.onrender.com/api/v1/mentorshala/updateEmailPass", userObj)
       .catch((err) => {
         console.log("error");
       });
@@ -64,7 +64,7 @@ function UserSetting(props) {
     // console.log(props.userDetail.username);
 
     await axios
-      .post("http://localhost:5000/api/v1/mentorshala/updateCityCountry", userObj)
+      .post("https://mentorshala-backend.onrender.com/api/v1/mentorshala/updateCityCountry", userObj)
       .catch((err) => {
         console.log("error");
       });
@@ -87,7 +87,7 @@ function UserSetting(props) {
     // console.log(props.userDetail.username);
 
     await axios
-      .post("http://localhost:5000/api/v1/mentorshala/updateCollegeSpecialization", userObj)
+      .post("https://mentorshala-backend.onrender.com/api/v1/mentorshala/updateCollegeSpecialization", userObj)
       .catch((err) => {
         console.log("error");
       });
@@ -107,7 +107,7 @@ function UserSetting(props) {
     // console.log(props.userDetail.username);
 
     await axios
-      .post("http://localhost:5000/api/v1/mentorshala/updateProfilePic", userObj)
+      .post("https://mentorshala-backend.onrender.com/api/v1/mentorshala/updateProfilePic", userObj)
       .catch((err) => {
         console.log("error");
       });
@@ -126,7 +126,7 @@ function UserSetting(props) {
     // console.log(props.userDetail.username);
 
     await axios
-      .post("http://localhost:5000/api/v1/mentorshala/updateBannerPic", userObj)
+      .post("https://mentorshala-backend.onrender.com/api/v1/mentorshala/updateBannerPic", userObj)
       .catch((err) => {
         console.log("error");
       });
@@ -165,7 +165,7 @@ function UserSetting(props) {
   const handleDeleteAccount = async(obj)=>{
     const userObj={"username":obj};
     console.log(userObj);
-    await axios.post('http://localhost:5000/api/v1/mentorshala/deleteUser',userObj).catch((err)=>{
+    await axios.post('https://mentorshala-backend.onrender.com/api/v1/mentorshala/deleteUser',userObj).catch((err)=>{
             console.log("error");
     })
   }

@@ -68,7 +68,7 @@ const Register = () => {
     const postUserData=async()=>{
       await axios({
         method: 'post',
-        url: 'http://localhost:5000/api/v1/mentorshala/register',
+        url: 'https://mentorshala-backend.onrender.com/api/v1/mentorshala/register',
         data: finalData
       })
       .then((res)=>{
