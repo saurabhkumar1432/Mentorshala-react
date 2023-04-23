@@ -1,11 +1,12 @@
 import Feed from "./feed"
 import './main.css'
 import Waves from "../component-cardPart/src/Waves"
-const MainPage=()=>{
+const MainPage=(props)=>{
+    const userData=props.userData
     return(
         <div id="mainPage-container">
             
-            <Feed/>
+            <Feed userData={userData}/>
         </div>
     )
 }

@@ -80,7 +80,7 @@ const MainPage=()=>{
                     {/* <MessagePart setActivePart={setActivePart} activeParts={activeParts}/> */}
                     {/* <CardPart/> */}
                     <MessagePart settingState={activeSetting} userData={userData}/>
-                    {toggleCardMode?<CardPart userData={userData}/>:<Community/>}
+                    {toggleCardMode?<CardPart userData={userData}/>:<Community userData={userData}/>}
                     
                 </div>
             </div>
