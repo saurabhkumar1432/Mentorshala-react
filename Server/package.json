@@ -39,5 +39,8 @@
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.2",
     "validator": "^13.9.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0"
   }
 }
