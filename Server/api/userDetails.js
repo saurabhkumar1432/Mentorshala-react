@@ -135,9 +135,28 @@ router.route("/deleteUser").post(async(req,res)=>{
 
 //     // Find the user by email
 //     const user = await getUserByEmail(email);
-router.route("/updatePassword").post(async(req,res)=>{
+router.route("/updateName").post(async(req,res)=>{
+  console.log(req.body);
+  await MentorShalaDAO.updateName(req.body)
+
+})
+
+
+router.route("/updateEmailPass").post(async(req,res)=>{
     console.log(req.body);
-    await MentorShalaDAO.updatePassword(req.body)
+    await MentorShalaDAO.updateEmailPass(req.body)
+
+})
+
+router.route("/updateCityCountry").post(async(req,res)=>{
+  console.log(req.body);
+  await MentorShalaDAO.updateCityCountry(req.body)
+
+})
+
+router.route("/updateCollegeSpecialization").post(async(req,res)=>{
+  console.log(req.body);
+  await MentorShalaDAO.updateCollegeSpecialization(req.body)
 
 })
 
