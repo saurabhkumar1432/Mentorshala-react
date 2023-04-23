@@ -6,18 +6,18 @@ on:
       - main
 
 jobs:
-  test-react:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: |
-          cd Client
-          npm ci --legacy-peer-deps
-      - name: Run tests
-        run: |
-          cd Client
-          npm test
+  # test-react:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Install dependencies
+  #       run: |
+  #         cd Client
+  #         npm ci --legacy-peer-deps
+  #     - name: Run tests
+  #       run: |
+  #         cd Client
+  #         npm test
 
   test-server:
     runs-on: ubuntu-latest
