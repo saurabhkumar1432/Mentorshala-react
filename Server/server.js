@@ -127,10 +127,6 @@ app.post("/register1",upload.single('avatar'),async (req, res, next) => {
 //     console.log("Server is working on : ", process.env.PORT);
 // })
 
-const server = app.listen(process.env.PORT, () => {
-  console.log(`Server is working on http://localhost:${process.env.PORT}`);
-});
-
 //Unhandled Promise Rejection
 process.on("unhandledRejection", (err) => {
   console.log(`Error: ${err.message}`);
