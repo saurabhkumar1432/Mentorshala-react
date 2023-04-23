@@ -10,7 +10,8 @@ export default class mentorShalaDb{
             console.log("connected to collection");
         }
         catch(e){
-            console.error("error")
+            console.log("error4")
+            console.error(e)
         }
     }
     static async getEmail(email){
