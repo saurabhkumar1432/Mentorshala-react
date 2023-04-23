@@ -1,0 +1,33 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-react:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          cd Client
+          npm ci
+      - name: Run tests
+        run: |
+          cd client
+          npm test
+
+  test-server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          cd Server
+          npm ci
+      - name: Run tests
+        run: |
+          cd server
+          npm test
