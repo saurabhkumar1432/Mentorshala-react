@@ -6,12 +6,13 @@ import MainPage from '../../components/component-main-page/src/MainPage'
 // import Setting from '../../components/component-setting/Settings.js'
 import Home from '../../components/component-homePage/App'
 import Login from '../../components/component-homePage/login/Login';
-import Register from '../../components/component-homePage/login/Register';
+import Register from '../../components/component-homePage/Registration/Register';
 import Form from '../../components/component-homePage/login/Form'
 import Community from '../../components/components.feed/main';
 import Admin from '../../components/component-adminPart/admin'
 import Settings1 from '../../components/component-setting/Settings.js';
 import AdminLogin from '../../components/component-homePage/login/LoginAdmin';
+import StepContext from '../../components/component-homePage/Registration/StepContext';
 function App() {
 
   return (
@@ -30,7 +31,7 @@ function App() {
       </Route>
       <Route path="/main" element={<MainPage />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      <Route path="/register" element={<StepContext />} />
       <Route path="/setting" element={<Settings1 />} />
       <Route path="/community" element={<Community />} />
       <Route path="/loginAdmin" element={<AdminLogin />} />

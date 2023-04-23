@@ -23,6 +23,7 @@ if (!fs.existsSync("./imgUpload")) {
 }
 
 import catchAsyncErrors from "../middleware/catchAsyncErrors.js";
+import { log } from "console";
 
 const upload = multer({ dest: "./imgUpload/" });
 const router = express.Router();
@@ -97,68 +98,7 @@ router.route("/getFeeds").get(
 //     res.redirect('https://mentorshala.netlify.app/main')
 // })
 
-router.route("/register").post(catchAsyncErrors(async (req, res, next) => {
-    // if(req.file)
-    // console.log(req.file.path);
-    // else
-    // console.log("no file uploaded");
-    
-    const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-      folder: "avatars",
-      width: 150,
-      crop: "scale",
-    });
 
-    // const myCloud1 = await cloudinary.v2.uploader.upload(req.body.banner, {
-    //   folder: "banners",
-    //   width: 150,
-    //   crop: "scale",
-    // });
-
-    const user = {
-      firstName: req.body.firstname,
-      lastName: req.body.lastname,
-      Email: req.body.email,
-      Password: req.body.password,
-      from: req.body.from,
-      country: req.body.country,
-      college: req.body.college,
-      specialization: req.body.specialization,
-      experience: req.body.experience,
-      Linkedin: req.body.linkedin,
-      description: req.body.description,
-      report: 0,
-      role: req.body.role,
-      resetPasswordToken: "",
-      resetPasswordExpire: "",
-      profilePic: {
-        public_id: myCloud.public_id,
-        url: myCloud.secure_url,
-      },
-      match_list:[],
-      profile_match_list:[],
-      dont_show_again:[],
-
-      // avatar:req.file.path,
-      // banner: {
-      //   public_id: myCloud1.public_id,
-      //   url: myCloud1.secure_url,
-      // },
-    };
-
-    if (user.Password && user.Password !== user.Password) {
-      next();
-    }
-    user.Password = await bcrypt.hash(user.Password, 10);
-
-    try {
-      await postFeedCtrl.postapiUsers(user);
-    } catch {
-      console.log("can't register");
-    }
-    // res.redirect("http://localhost:3000/main");
-    
-}));
 router.route("/postReport").post(async(req,res)=>{
     // console.log(req.body);
     await postFeedCtrl.postReportedUser(req.body)
@@ -324,6 +264,28 @@ router.route("/logout").get(catchAsyncErrors(async (req, res, next) => {
 //   return verified;
 // }
 
+router.post("/register", async (req, res) =>{
+  const obj={
+    'firstName':req.body.firstName,
+    'lastName':req.body.lastName,
+    'Email':req.body.Email,
+    'from':req.body.from,
+    'country':req.body.country,
+    'college':req.body.college,
+    'specialization':req.body.specialization,
+    'description':req.body.description,
+    'role':req.body.role,
+    'experience':req.body.experience,
+    'Linkedin':req.body.Linkedin,
+    'username':req.body.username,
+    'Password':req.body.Password,
+    'profilePic':'https://i.pinimg.com/originals/36/fa/7b/36fa7b46c58c94ab0e5251ccd768d669.jpg',
+    'banner':'https://images.unsplash.com/photo-1581882897974-fca44f329313?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80'
+  }
+  await postFeedCtrl.postapiUsers(obj)
+  // console.log(obj);
+  
+})
 
 router.post("/postFeeds", upload.single("media"), async (req, res) => {
   // console.log(req.body);
