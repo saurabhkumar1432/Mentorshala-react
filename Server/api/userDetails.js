@@ -307,8 +307,8 @@ router.post("/register", async (req, res) =>{
 })
 
 router.post("/postFeeds", upload.single("media"), async (req, res) => {
-  // console.log(req.body);
-  // console.log(req.file);
+  console.log(req.body);
+  console.log(req.file);
   if (req.file != undefined) {
     const obj = {
       username: req.body.username,
@@ -444,7 +444,7 @@ router.route('/adminAuth').post(async(req,res)=>{
 })
 
 router.route("/menteeCount").get(async (req, res) => {
-  const data = await fetchDetailsCtrl.getMenteeCount();
+  const data = await fetchDetailsCtrl.gementeeCount();
   console.log(data);
   res.send(data);
 });
