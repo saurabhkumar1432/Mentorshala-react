@@ -1,7 +1,7 @@
-#sentMessage{
+.sentMessage{
     float:right;
     clear:both;
-    margin-right:1.4%;
+    margin-right:5%;
     border-radius: 10px 10px 0 10px;
     background: linear-gradient(#034a9b,#095ebe);
     padding:1vh;
@@ -18,7 +18,7 @@
     overflow:hidden;
 
 }
-#receivedMessage{
+.receivedMessage{
 
     float:left;
     margin-left:2.6%;
@@ -37,4 +37,56 @@
     backdrop-filter: blur(12.1px);
     -webkit-backdrop-filter: blur(12.1px);
     border: 1px solid rgba(255, 255, 255, 0.77);
+}
+.msgForm{
+    display: flex;
+    margin-top: auto;
+    border:1px solid black;
+    border-radius: 10px;
+    /* position: fixed; */
+    bottom:0.5vh;
+    /* left:1.7vw; */
+    justify-self: center;
+    margin:0% 1%;
+    background: white;
+    font: 300;
+    clear:both; 
+    justify-content: space-between;
+    /* border:2px solid black; */
+    /* width:20vw; */
+    display: flex;
+    align-items: top;
+    justify-items: right;
+    margin-bottom:2vh;
+    margin-top:2vh;
+    padding:0.5vh;
+    position:fixed;
+}
+#newMsgInput{
+    width: auto;
+
+    /* border: 1px solid blue; */
+}
+#newMsgInput input{
+    justify-self: top;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height:100%;
+    padding:0px;
+    color:black;
+    width:100%;
+    border:none;
+    
+    /* border: 1px solid red; */
+}
+main{
+    height:80vh;
+}
+.inpSection{
+    background: white;
+    height:8%;
+    width:24.5%;
+    position:fixed;
+    bottom:0.1vh;
 }

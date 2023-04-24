@@ -79,5 +79,16 @@ export default class usersDetailsCtrl{
             return []
         }
     }
+    static async getMatches(email){
+        try{
+            const user3=await MentorShalaDAO.getMatch(email);
+            console.log(user3);
+            return user3;
+        }
+        catch{
+            console.log("User don't exist");
+            return [];
+        }
+    }
 
 }

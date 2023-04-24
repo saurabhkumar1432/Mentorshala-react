@@ -31,6 +31,22 @@ export default class mentorShalaDb{
             console.log(e);
         }
     }
+    static async getMatch(email){
+        let cursor
+        try{
+            cursor=await mentorshalaUsers.collection("usersDetails").find({Email:email})
+        }
+        catch(e){
+            console.log(e);
+        }
+        try{
+            const user2=await cursor.toArray();
+            console.log(user2);
+            return user2.match_list;
+        }catch(e){
+            console.log(e);
+        }
+    }
     static async getPassword(password){
         let cursor
         try{

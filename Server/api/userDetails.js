@@ -126,6 +126,7 @@ const DEFAULT_EXPIRATION=3600
 
 
 router.route('/getUserDetail/:email').get(async(req,res)=>{
+  // console.log(" hello");
   const data=await fetchDetailsCtrl.getUserByEmail(req.params.email)
   // console.log(data);
   res.send(data)
@@ -146,6 +147,8 @@ router.route("/getFeeds").get(
     res.send(data);
   })
 );
+
+
 // router.post('/createUser',upload.single('media'),async(req,res)=>{
 //     console.log(req.body);
 //     const obj={
@@ -238,6 +241,12 @@ router.route("/updateName").post(async(req,res)=>{
 
 })
 
+router.route("/getMatches/:email").get(async(req,res)=>{
+  console.log(req.params.email);
+  const matches = await fetchDetailsCtrl.getMatches(req.params.email);
+  console.log(matches);
+  res.send(matches)
+})
 
 router.route("/updateEmailPass").post(async(req,res)=>{
     console.log(req.body);

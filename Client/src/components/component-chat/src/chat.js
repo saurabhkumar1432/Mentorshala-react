@@ -14,8 +14,26 @@ import { Contrast } from '@mui/icons-material'
 import MessageBox from '../../component-contact/messageBox'
 import NewMsgBlock from '../../component-contact/NewMsgBlock';
 import Particle from '../particles';
+import {Search} from './Search';
+import {Chats} from "./Chats"
+import {Chat} from "./Chat.jsx"
+import Axios from 'axios'
 const ChatSec=({})=>{
-    const contactList=chatData
+    const contactList2 = async (email)=> {
+        try{
+            console.log(email);
+        const Contacts = await Axios.get(`https://mentorshala-backend.onrender.com/api/v1/mentorshala/getMatches?email=${email}`);
+        console.log("these are the contacts",Contacts)
+        return Contacts.data;
+    }
+        catch(err){
+            console.log(err);
+            console.log("Siddharth");
+        }
+    }
+    // const contactList=contactList2("siddian17.7@gmail.com")
+    const contactList = chatData
+    console.log("this is the array: ",contactList)
     let [msgBox,setMsgBox] = useState(0)
     let [msgObj,setMsgObj] = useState(contactList[0])
     let [newMsg,setNewMsg] = useState('')
@@ -44,13 +62,19 @@ const ChatSec=({})=>{
     if(msgBox===0){
 
         return(
+            <>
+            {/* <Search/> */}
+            {/* <Chats/>*/}
             
-            contactList.map(
+            {contactList.map(
                 contact => {
                     // console.log(contact.Name);
                     return <button id="contactContainer" class="d-flex" onClick={()=>{handler(contact)}}><Contact contact={contact}/></button>
                 }
-            ) 
+            )}
+            
+            </>
+             
         )
     }
     else{
@@ -124,16 +148,16 @@ const ChatSec=({})=>{
                 </div>
                 
                 
-                {msgBox===1?<div id="inputBox">
+                {/* {msgBox===1?<div id="inputBox">
                     <button id="msgImage"><AddAPhotoOutlinedIcon style={{ color: 'white',height:'2.7vh',width:'2.7vh' }}/></button>
                     <div id="newMsgInput"><input className="newMsgInput" type="text" placeholder="Type message" onChange={(e)=>{setTimeout(()=>{setNewMsg(e.target.value)},2000)}}/></div>
                     <div id="newMsgSubmit">
                         <button onClick={()=>{
-                            sendMessage(newMsg);
+                            // sendMessage(newMsg);
                         }}><SendIcon/></button>
 
                     </div>
-                </div>:null}
+                </div>:null} */}
                 
             </div></>
         )

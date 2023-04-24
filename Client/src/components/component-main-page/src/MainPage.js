@@ -13,6 +13,8 @@ import SettingsIcon from '@mui/icons-material/Settings';
 // import {useDispatch} from "react-redux";
 // import {addToSet} from "../../../actions/action1";
 import UserData from '../../../userDetail';
+import {AuthContextProvider} from "../../../context/AuthContext"
+import { ChatContextProvider } from '../../../context/ChatContext';
 const MainPage=()=>{
     // const dispatch = useDispatch();
 
@@ -62,6 +64,8 @@ const MainPage=()=>{
     }
     console.log(userData);
     return(
+        <AuthContextProvider>
+            <ChatContextProvider>
             <div className="mainPage-container">
                 {/* <MessagePart setActivePart={setActivePart} activeParts={activeParts}/>
                 <CardPart/> */}
@@ -84,6 +88,8 @@ const MainPage=()=>{
                     
                 </div>
             </div>
+            </ChatContextProvider>
+        </AuthContextProvider>
     )
 }
 export default MainPage
