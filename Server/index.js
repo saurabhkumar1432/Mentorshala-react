@@ -14,14 +14,14 @@ console.log(port);
 MongoClient.connect(
     process.env.MENTORSHALA_DB_URI,
 ).catch(e=>{
-    console.log("error1")
+    // console.log("error1")
     console.error(e)
     process.exit(1)
 }).then(async client=>{
     await MentorShalaDAO.injectDB(client)
-    console.log("error2")
+    // console.log("error2")
     app.listen(port,()=>{
-        console.log("error3")
+        // console.log("error3")
         console.log("listening");
     })
 })
