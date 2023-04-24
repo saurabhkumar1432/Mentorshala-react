@@ -9,7 +9,15 @@ import { useNavigate } from "react-router-dom";
 // import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login } from "../../../actions/userAction";
-
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+import {auth,firestore} from '../../../firebase';
+import firebase from 'firebase/compat/app';
+import { signInWithEmailAndPassword } from "firebase/auth"; 
+const signInWithGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  auth.signInWithPopup(provider);
+}
 
 const Login = (props) => {
   // const [email, setEmail] = useState("");
@@ -25,14 +33,22 @@ const Login = (props) => {
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-
-  const loginSubmit = (e) => {
+  const [err, setErr] = useState(false);
+  const [user] = useAuthState(auth);
+  const loginSubmit = async (e) => {
     e.preventDefault();
     // dispatch(login(loginEmail, loginPassword));
     navigate("/main");
     // localStorage.setItem()
     localStorage.setItem("emailData",loginEmail);
-    
+    console.log(loginEmail,loginPassword);
+    try {
+      await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
+      navigate("/main")
+    } catch (err) {
+      console.log("this is the error: " + err);
+      setErr(true);
+    }
   };  
 
   const navigate = useNavigate();
