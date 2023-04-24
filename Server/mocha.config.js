@@ -1,6 +1,6 @@
 module.exports = {
     require: 'chai/register-should',
-    spec: './test/**/*.js',
+    spec: './test/*.js',
     recursive: true
   };
   
