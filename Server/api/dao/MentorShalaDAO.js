@@ -8,6 +8,8 @@ export default class mentorShalaDb{
         try{
             mentorshalaUsers=conn.db(process.env.MENTORSHAL_NS)
             console.log("connected to collection");
+            await mentorshalaUsers.collection("usersDetails").createIndex({ Email: 1 });
+            console.log("index created on Email field");
         }
         catch(e){
             console.log("error4")
