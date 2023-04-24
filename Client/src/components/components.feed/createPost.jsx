@@ -27,7 +27,7 @@ const CreatePost=()=>{
             profile_image:profile_image
         }
         console.log(formData);
-        await axios.post('http://localhost:5000/api/v1/mentorshala/postFeeds',formData).then((res)=>{
+        await axios.post('https://mentorshala-backend.onrender.com/api/v1/mentorshala/login',formData).then((res)=>{
             console.log(res.data);
         }).catch((err)=>{
             console.log("error");
