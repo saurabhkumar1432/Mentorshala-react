@@ -1,0 +1,42 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # test-react:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Install dependencies
+  #       run: |
+  #         cd Client
+  #         npm ci --legacy-peer-deps
+  #     - name: Run tests
+  #       run: |
+  #         cd Client
+  #         npm test
+
+  test-server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          cd Server
+          npm ci --legacy-peer-deps
+      - name: Run tests
+        run: |
+          cd Server
+          npm test
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }} 
+

@@ -26,7 +26,7 @@ const FeedScroll=()=>{
     //     formData.append('like',parseInt(noOflike)+1);
     //     formData.append('caption',caption);
     //     console.log(formData);
-    //     await axios.post('http://localhost:5000/api/v1/mentorshala/feedliked',formData).then((res)=>{
+    //     await axios.post('https://mentorshala-backend.onrender.com/api/v1/mentorshala/feedliked',formData).then((res)=>{
     //         console.log(res.data);
     //     }).catch((err)=>{
     //         console.log("error");
@@ -55,7 +55,7 @@ const FeedScroll=()=>{
                                 </div>
                             </div>
                             <div className="feed-cardMedia">
-                                <img src={`http://localhost:5000/${feed.media}`}>
+                                <img src={`https://mentorshala-backend.onrender.com/${feed.media}`}>
                                 </img>
                                 
                             </div>

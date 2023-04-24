@@ -10,7 +10,8 @@ export default class mentorShalaDb{
             console.log("connected to collection");
         }
         catch(e){
-            console.error("error")
+            console.log("error4")
+            console.error(e)
         }
     }
     static async getEmail(email){
@@ -77,6 +78,69 @@ export default class mentorShalaDb{
     //         cursor=await mentorshalaUsers.find({})
     //     }
     // }
+    
+    //static async function code for updateName
+    static async updateName(obj){
+        const query={username:obj.username}
+        const newItem={
+            $set:{
+                firstName:obj.firstName,
+                lastName:obj.lastName
+            }
+
+        }
+        await mentorshalaUsers.collection("usersDetails").updateOne(query,newItem,(err,res)=>{
+            if (err) throw err;
+            console.log("1 document updated");
+        })
+    }
+
+    static async updateEmailPass(obj){
+        const query={username:obj.username}
+        const newItem={
+            $set:{
+                Email:obj.email,
+                Password:obj.password
+            }
+
+        }
+        await mentorshalaUsers.collection("usersDetails").updateOne(query,newItem,(err,res)=>{
+            if (err) throw err;
+            console.log("1 document updated");
+        })
+    }
+    
+    
+    static async updateCityCountry(obj){
+        const query={username:obj.username}
+        const newItem={
+            $set:{
+                from:obj.city,
+                country:obj.country
+            }
+
+        }
+        await mentorshalaUsers.collection("usersDetails").updateOne(query,newItem,(err,res)=>{
+            if (err) throw err;
+            console.log("1 document updated");
+        })
+    }
+    static async updateCollegeSpecialization(obj){
+        const query={username:obj.username}
+        const newItem={
+            $set:{
+                college:obj.college,
+                specialization:obj.specialization
+            }
+
+        }
+        await mentorshalaUsers.collection("usersDetails").updateOne(query,newItem,(err,res)=>{
+            if (err) throw err;
+            console.log("1 document updated");
+        })
+    }
+
+
     static async updatePassword(obj){
         const hashedPassword=await bcrypt.hash(obj.password,10)
         const query={username:username}
@@ -268,28 +332,25 @@ export default class mentorShalaDb{
         }
     }
     static async menteeCount(){
-        let cursor
         try{
-            cursor=await mentorshalaUsers.collection("usersDetails").find({role:"Mentee"})
-           const menteeArray=cursor.toArray()
-           return menteeArray.length
+       const mentee= await this.getUser("Mentee")
+       return mentee.length
         }
         catch{
-            console.log("cant get them data");
+            console.log("cant get the mentee count");
             return []
         }
        
     }
     static async mentorCount(){
-        let cursor
         try{
-            cursor =  await mentorshalaUsers.collection("usersDetails").countDocuments({role:"Mentor"})
-           return cursor
-        }
-        catch{
-            console.log("cant get the count");
-            return []
-        }
+            const mentor= await this.getUser("Mentor")
+            return mentor.length
+             }
+             catch{
+                 console.log("cant get the mentor count");
+                 return []
+             }
        
     }
 }

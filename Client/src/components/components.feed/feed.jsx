@@ -1,10 +1,11 @@
 import './feed.css'
 import CreatePost from './createPost';
 import FeedScroll from './feedScroll';
-const Feed=()=>{
+const Feed=(props)=>{
+    const userData=props.userData
     return(
         <div id="feed-container">
-            <CreatePost/>
+            <CreatePost userData={userData}/>
             <FeedScroll/>
         </div>
     )

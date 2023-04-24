@@ -9,27 +9,34 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import axios from 'axios';
 // import httpCommon from '../../htttp.common';
-const CreatePost=()=>{
+const CreatePost=(props)=>{
+    const userData=props.userData
     const [dialogBox,setDialogBox]=useState(false)
     const [media,setMedia]=useState()
     const profile_image="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg";
-    const username="Abhishek Singh";
-    const work="CSE UG-3 Indian Institute of Technology";
+    const username=`${userData.firstName} ${userData.lastName}`;
+    const work=userData.college;
     const postingFeed=async()=>{
         setDialogBox(false);
         const caption=document.getElementById("caption").value
         // console.log(caption);
-        const formData=new FormData()
-        formData.append('username',username)
-        formData.append('profile_image',profile_image)
-        formData.append('work',work)
-        formData.append('media',media)
-        formData.append('caption',caption)
+        const formData={
+            username:username,
+            profile_image:profile_image,
+            work:work,
+            media:media,
+            caption:caption
+        }
+        // formData.append('username',username)
+        // formData.append('profile_image',profile_image)
+        // formData.append('work',work)
+        // formData.append('media',media)
+        // formData.append('caption',caption)
         console.log(formData);
-        await axios.post('http://localhost:5000/api/v1/mentorshala/postFeeds',formData).then((res)=>{
+        await axios.post('https://mentorshala-backend.onrender.com/api/v1/mentorshala/postFeeds',formData).then((res)=>{
             console.log(res.data);
         }).catch((err)=>{
-            console.log("error");
+            console.log(err);
         })
     }
     const fileSelectHandler=(event)=>{

@@ -4,7 +4,7 @@ import CardPart from '../../component-cardPart/src/CardPart'
 import Feed from '../../components.feed/feed'
 import MenuIcon from '@mui/icons-material/Menu';
 import Community from '../../components.feed/main'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import Waves from '../../component-cardPart/src/Waves'
 import { RiCommunityFill } from 'react-icons/ri';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
@@ -12,7 +12,7 @@ import ModeCommentIcon from '@mui/icons-material/ModeComment';
 import SettingsIcon from '@mui/icons-material/Settings';
 // import {useDispatch} from "react-redux";
 // import {addToSet} from "../../../actions/action1";
-
+import UserData from '../../../userDetail';
 const MainPage=()=>{
     // const dispatch = useDispatch();
 
@@ -23,12 +23,18 @@ const MainPage=()=>{
     //   console.log(user);
 
     //   console.log(isAuthenticated);
-
-
-    const [activeParts,setActivePart]=useState(false)
-    // console.log(activeParts);
-    const slidingMessageWindow=()=>{
-        document.getElementById('message-container').classList.add('slideWindow')
+    const [userData, setUserData] = useState(null);
+    useEffect(() => {
+        async function fetchData() {
+          const data = await UserData();
+          setUserData(data);
+        }
+        fetchData();
+      }, []);
+      const [activeParts,setActivePart]=useState(false)
+      // console.log(activeParts);
+      const slidingMessageWindow=()=>{
+          document.getElementById('message-container').classList.add('slideWindow')
         // console.log("1");
     }
     const [toggleCardMode,setToggleCardMode]=useState(true);
@@ -51,6 +57,10 @@ const MainPage=()=>{
             setActiveSetting(true);
         }
     }
+    if (!userData) {
+        return <p>Loading...</p>;
+    }
+    console.log(userData);
     return(
             <div className="mainPage-container">
                 {/* <MessagePart setActivePart={setActivePart} activeParts={activeParts}/>
@@ -69,8 +79,8 @@ const MainPage=()=>{
                 <div className='contentDiv'>
                     {/* <MessagePart setActivePart={setActivePart} activeParts={activeParts}/> */}
                     {/* <CardPart/> */}
-                    <MessagePart settingState={activeSetting}/>
-                    {toggleCardMode?<CardPart/>:<Community/>}
+                    <MessagePart settingState={activeSetting} userData={userData}/>
+                    {toggleCardMode?<CardPart userData={userData}/>:<Community userData={userData}/>}
                     
                 </div>
             </div>

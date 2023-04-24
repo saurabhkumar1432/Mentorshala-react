@@ -92,7 +92,7 @@ const ChatSec=({})=>{
         return(
             <>
             
-            <Particle style="position:fixed;"/>
+            {/* <Particle style="position:fixed;"/> */}
             <div id="chatContainer">
                 
                 <div id="chatNavbar">

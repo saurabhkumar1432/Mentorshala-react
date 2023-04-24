@@ -13,7 +13,7 @@ import cloudinary from "cloudinary";
 
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-
+// import { validateToken} from "../middleware/validateToken.js"
 import fs from "fs";
 
 
@@ -26,6 +26,7 @@ if (!fs.existsSync("./imgUpload")) {
 }
 
 import catchAsyncErrors from "../middleware/catchAsyncErrors.js";
+import { log } from "console";
 
 const upload = multer({ dest: "./imgUpload/" });
 const router = express.Router();
@@ -123,6 +124,13 @@ const DEFAULT_EXPIRATION=3600
 //   });
 // });
 
+
+router.route('/getUserDetail/:email').get(async(req,res)=>{
+  const data=await fetchDetailsCtrl.getUserByEmail(req.params.email)
+  // console.log(data);
+  res.send(data)
+})
+
 router.route(`/get/:role/details`).get(async (req, res) => {
   const role = req.params.role;
   // console.log(role);
@@ -187,68 +195,7 @@ router.route("/getFeeds").get(
 //     res.redirect('https://mentorshala.netlify.app/main')
 // })
 
-router.route("/register").post(catchAsyncErrors(async (req, res, next) => {
-    // if(req.file)
-    // console.log(req.file.path);
-    // else
-    // console.log("no file uploaded");
-    
-    const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-      folder: "avatars",
-      width: 150,
-      crop: "scale",
-    });
 
-    // const myCloud1 = await cloudinary.v2.uploader.upload(req.body.banner, {
-    //   folder: "banners",
-    //   width: 150,
-    //   crop: "scale",
-    // });
-
-    const user = {
-      firstName: req.body.firstname,
-      lastName: req.body.lastname,
-      Email: req.body.email,
-      Password: req.body.password,
-      from: req.body.from,
-      country: req.body.country,
-      college: req.body.college,
-      specialization: req.body.specialization,
-      experience: req.body.experience,
-      Linkedin: req.body.linkedin,
-      description: req.body.description,
-      report: 0,
-      role: req.body.role,
-      resetPasswordToken: "",
-      resetPasswordExpire: "",
-      profilePic: {
-        public_id: myCloud.public_id,
-        url: myCloud.secure_url,
-      },
-      match_list:[],
-      profile_match_list:[],
-      dont_show_again:[],
-
-      // avatar:req.file.path,
-      // banner: {
-      //   public_id: myCloud1.public_id,
-      //   url: myCloud1.secure_url,
-      // },
-    };
-
-    if (user.Password && user.Password !== user.Password) {
-      next();
-    }
-    user.Password = await bcrypt.hash(user.Password, 10);
-
-    try {
-      await postFeedCtrl.postapiUsers(user);
-    } catch {
-      console.log("can't register");
-    }
-    // res.redirect("http://localhost:3000/main");
-    
-}));
 router.route("/postReport").post(async(req,res)=>{
     // console.log(req.body);
     await postFeedCtrl.postReportedUser(req.body)
@@ -285,9 +232,28 @@ router.route("/deleteUser").post(async(req,res)=>{
 
 //     // Find the user by email
 //     const user = await getUserByEmail(email);
-router.route("/updatePassword").post(async(req,res)=>{
+router.route("/updateName").post(async(req,res)=>{
+  console.log(req.body);
+  await MentorShalaDAO.updateName(req.body)
+
+})
+
+
+router.route("/updateEmailPass").post(async(req,res)=>{
     console.log(req.body);
-    await MentorShalaDAO.updatePassword(req.body)
+    await MentorShalaDAO.updateEmailPass(req.body)
+
+})
+
+router.route("/updateCityCountry").post(async(req,res)=>{
+  console.log(req.body);
+  await MentorShalaDAO.updateCityCountry(req.body)
+
+})
+
+router.route("/updateCollegeSpecialization").post(async(req,res)=>{
+  console.log(req.body);
+  await MentorShalaDAO.updateCollegeSpecialization(req.body)
 
 })
 
@@ -361,11 +327,29 @@ router.route("/login").post(catchAsyncErrors(async (req, res, next) => {
   }
   if(user && isPasswordMatched){
     const token = generateToken(user1);
-  console.log(token);
+  res.status(200).json({token})
   }
-  // sendToken(user, 200, res);
+  else{
+    res.status(401);
+    throw new Error("authentication failed")
+  }
+  
 })
 );
+
+// //current user
+// router.route("/current", validateToken).get(catchAsyncErrors(async (req, res, next) => {
+//   try {
+//     // Get user information from the request object (set in validateToken middleware)
+//     const { user } = req;
+
+//     // Return user information as JSON response
+//     res.json({ user });
+//   } catch (err) {
+//     next(err);
+//   }
+
+// }));
 
 //Logout User
 router.route("/logout").get(catchAsyncErrors(async (req, res, next) => {
@@ -396,10 +380,32 @@ router.route("/logout").get(catchAsyncErrors(async (req, res, next) => {
 //   return verified;
 // }
 
+router.post("/register", async (req, res) =>{
+  const obj={
+    'firstName':req.body.firstName,
+    'lastName':req.body.lastName,
+    'Email':req.body.Email,
+    'from':req.body.from,
+    'country':req.body.country,
+    'college':req.body.college,
+    'specialization':req.body.specialization,
+    'description':req.body.description,
+    'role':req.body.role,
+    'experience':req.body.experience,
+    'Linkedin':req.body.Linkedin,
+    'username':req.body.username,
+    'Password':req.body.Password,
+    'profilePic':'https://i.pinimg.com/originals/36/fa/7b/36fa7b46c58c94ab0e5251ccd768d669.jpg',
+    'banner':'https://images.unsplash.com/photo-1581882897974-fca44f329313?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80'
+  }
+  await postFeedCtrl.postapiUsers(obj)
+  // console.log(obj);
+  
+})
 
 router.post("/postFeeds", upload.single("media"), async (req, res) => {
-  // console.log(req.body);
-  // console.log(req.file);
+  console.log(req.body);
+  console.log(req.file);
   if (req.file != undefined) {
     const obj = {
       username: req.body.username,
@@ -466,11 +472,65 @@ router.route('/post/matchListUpdate/:username').post(async(req,res)=>{
     await updateDetailsCtrl.matchListUpdate(username,data)
 });
 
+//swagger documentation
+/**
+ * @swagger
+ * /api/mentorshala/getFeeds:
+ *  get:
+ *   description: Use to request all feeds
+ *  responses:
+ *  '200':
+ *  description: A successful response
+ * content:
+ * application/json:
+ * schema:
+ * type: array
+ * items:
+ * $ref: '#/components/schemas/Feeds'
+ * components:
+ * schemas:
+ * Feeds:
+ * type: object
+ * required:
+ * - username
+ * - profile_image
+ * - work
+ * - media
+ * - caption
+ * - like
+ * properties:
+ * username:
+ * type: string
+ * description: The username of the user
+ * profile_image:
+ * type: string
+ * description: The profile image of the user
+ * work:
+ * type: string
+ * description: The work of the user
+ * media:
+ * type: string
+ * description: The media of the user
+ * caption:
+ * type: string
+ * description: The caption of the user
+ * like:
+ * type: number
+ * description: The like of the user
+ * example:
+ * username: "sai"
+ * profile_image: "https://res.cloudinary.com/mentorshala/image/upload/v1/629e6c0c-1b1f-4b1f-8b1f-1b1f4b1f8b1f"
+ * work: "student"
+ * media: "https://res.cloudinary.com/mentorshala/image/upload/v1/629e6c0c-1b1f-4b1f-8b1f-1b1f4b1f8b1f"
+ * caption: "hello"
+ * like: 0 
+ **/
+
 
 router.route('/adminAuth').post(async(req,res)=>{
     const username=req.body.username;
     const password=req.body.password;
-    const adminUserName = "adminMentorshala";
+    const adminUserName = "admin@Mentorshala";
     const adminPassword = "admin@123";
     if(username===adminUserName && password===adminPassword){
         res.sendStatus(200)
@@ -481,7 +541,8 @@ router.route('/adminAuth').post(async(req,res)=>{
 })
 
 router.route("/menteeCount").get(async (req, res) => {
-  const data = await fetchDetailsCtrl.getMenteeCount();
+  const data = await fetchDetailsCtrl.gementeeCount();
+  console.log(data);
   res.send(data);
 });
 

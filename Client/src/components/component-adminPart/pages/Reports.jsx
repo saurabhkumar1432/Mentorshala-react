@@ -22,7 +22,7 @@ function ReportList() {
   const deleteReport=async(obj)=>{
     const reportObj={"username":obj};
     
-    await axios.post('http://localhost:5000/api/v1/mentorshala/deleteReport',reportObj).catch((err)=>{
+    await axios.post('https://mentorshala-backend.onrender.com/api/v1/mentorshala/deleteReport',reportObj).catch((err)=>{
             console.log("error");
     })
   }
@@ -30,7 +30,7 @@ function ReportList() {
   const deleteUser=async(obj)=>{
     const userObj={"username":obj};
     console.log(userObj);
-    await axios.post('http://localhost:5000/api/v1/mentorshala/deleteUser',userObj).then(await axios.post('http://localhost:5000/api/v1/mentorshala/deleteReport',userObj)).catch((err)=>{
+    await axios.post('https://mentorshala-backend.onrender.com/api/v1/mentorshala/deleteUser',userObj).then(await axios.post('https://mentorshala-backend.onrender.com/api/v1/mentorshala/deleteReport',userObj)).catch((err)=>{
             console.log("error");
     })
   }

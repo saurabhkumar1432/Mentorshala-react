@@ -29,21 +29,19 @@ export default function MessageBox(props) {
     console.log("tguesa",msgDiv)
   }
   return (
-  //   <div className="msgbox">
-  //     {scrollHandler()}
-  //   {props.msgObj.message.map(
-  //     msg => {
-  //         if(msg.sender===true && hasSubsequence(props.searchValue,msg.content)){
-  //             return <div id="sentMessage">{msg.content}</div>
-  //         }
-  //         else if(msg.sender===false && hasSubsequence(props.searchValue,msg.content)){
-  //             return <div id="receivedMessage" class="justify-content-right">{msg.content}</div>
-  //         }
-  //     }
-  // )}
-  // </div>
-  <>
-  <VideoCall/>
-  </>
+    <div className="msgbox">
+      {scrollHandler()}
+    {props.msgObj.message.map(
+      msg => {
+          if(msg.sender===true && hasSubsequence(props.searchValue,msg.content)){
+              return <div id="sentMessage">{msg.content}</div>
+          }
+          else if(msg.sender===false && hasSubsequence(props.searchValue,msg.content)){
+              return <div id="receivedMessage" class="justify-content-right">{msg.content}</div>
+          }
+      }
+  )}
+  </div>
+  
   )
 }

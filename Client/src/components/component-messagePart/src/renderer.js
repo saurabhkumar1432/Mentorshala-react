@@ -5,6 +5,8 @@ import ChatSec from "../../component-chat/src/chat";
 import Matches from "../../component-matches/src/matches";
 const X=(props)=>{
     let checkedArray=[true,false];
+    const userDetail=props.userDetail
+    // console.log(userDetail);
     if(props.mode.id===0){
         checkedArray[0]=true;
         checkedArray[1]=false;
@@ -21,7 +23,7 @@ const X=(props)=>{
                 <ChatSec/>
             </div>
             <div className="modeCards">
-                <Matches/> 
+                <Matches profile_match_list={userDetail.profile_match_list}/> 
             </div>
             
         </div>

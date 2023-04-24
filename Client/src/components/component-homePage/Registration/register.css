@@ -1,0 +1,59 @@
+#register-Container{
+	/* border: 1px solid red; */
+	width: 100wh;
+	height: 100vh;
+	background-color: #734ae8;
+	background-image: linear-gradient(315deg, #734ae8 0%, #89d4cf 74%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.mainContainer{
+	background: white;
+	height: 80%;
+	width: 70%;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.mainContainer .row{
+	/* border: 1px solid red; */
+	height: 100%;
+}
+.mainContainer .row .col-4{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-right: 0.3px solid rgb(177, 177, 177);
+}
+.mainContainer .row .col-8 h4{
+	text-align: center;
+}
+.registrationFormPage{
+	/* border: 1px solid red */
+}
+.registrationFormPage .div-field{
+	/* border: 1px solid green; */
+	padding: 1%;
+}
+.registrationFormPage .div-field .formField{
+	/* border: 1px solid #000; */
+	width: 100%;
+}
+.registrationFormPage .div-field input{
+	border-style: none;
+	color: #000;
+	/* border-bottom: 1px solid black; */
+}
+.registrationFormPage .div-field button{
+	margin: 0% 2%;
+}
+@media (max-width:850px) {
+    .mainContainer{
+		width: 95%;
+	}
+	.mainContainer .row .col-4{
+		display: none;
+	}
+	.mainContainer .row .col-8{
+		width: 100%;
+	}
+}
