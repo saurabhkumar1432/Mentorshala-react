@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 
@@ -12,7 +12,7 @@ function UserSetting(props) {
 
   //set the update name for the user
   const updateNameSubmit = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     const userObj = {
       username: props.userDetail.username,
       firstName: firstName,
@@ -32,7 +32,7 @@ function UserSetting(props) {
 
   //set the update email for the user
   const updateEmailSubmit = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     const userObj = {
       username: props.userDetail.username,
       email: email,
@@ -54,7 +54,7 @@ function UserSetting(props) {
 
   //set the update city and country for the user
   const updateCityCountrySubmit = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     const userObj = {
       username: props.userDetail.username,
@@ -77,7 +77,7 @@ function UserSetting(props) {
 
   //set the update college and specialization for the user
   const updateCollegeSpecializationSubmit = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     const userObj = {
       username: props.userDetail.username,
@@ -162,13 +162,51 @@ function UserSetting(props) {
 
   // };
 
-  const handleDeleteAccount = async(obj)=>{
-    const userObj={"username":obj};
-    console.log(userObj);
-    await axios.post('https://mentorshala-backend.onrender.com/api/v1/mentorshala/deleteUser',userObj).catch((err)=>{
-            console.log("error");
-    })
-  }
+  //handle delete account function
+  const deleteAccount = async (event) => {
+    event.preventDefault();
+
+    const userObj = {
+      username: props.userDetail.username,
+    };
+    // console.log(props.userDetail.username);
+
+    await axios
+      .post("https://mentorshala-backend.onrender.com/api/v1/mentorshala/deleteUser", userObj)
+      .catch((err) => {
+        console.log(err);
+      });
+
+    localStorage.clear();
+  };
+
+  //mystyle
+  const mystyle = {
+    color: "white",
+    backgroundColor: "#3457D5",
+    padding: "10px",
+    fontFamily: "Arial",
+  };
+
+  //useeffect
+  useEffect(() => {
+    const userObj = {
+      username: props.userDetail.username,
+    };
+    // console.log(props.userDetail.username);
+
+    axios
+      .post("https://mentorshala-backend.onrender.com/api/v1/mentorshala/getUser", userObj)
+      .then((res) => {
+        // console.log(res.data);
+        userObj(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [props.userDetail.username]);
+
+
 
   const userDetail = props.userDetail;
 
@@ -308,8 +346,8 @@ function UserSetting(props) {
       </div>
       <br />
       {/* delete acccount */}
-      <button onClick={handleDeleteAccount} style={{background: '#3457D5'}}>Delete Account</button>
-      <a href="/"><button onClick={logOut} style={{background: '#3457D5'}}>Log Out</button></a>
+      <button onClick={deleteAccount} style={mystyle}>Delete Account</button>
+      <a href="/"><button onClick={logOut} style={mystyle}>Log Out</button></a>
  
     </div>
   );
