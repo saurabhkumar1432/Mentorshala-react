@@ -23,7 +23,7 @@ const X=(props)=>{
                 <ChatSec/>
             </div>
             <div className="modeCards">
-                <Matches profile_match_list={userDetail.profile_match_list}/> 
+                <Matches profile_match_list={userDetail.profile_match_list} userDetail={userDetail}/> 
             </div>
             
         </div>
