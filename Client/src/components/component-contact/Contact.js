@@ -11,7 +11,7 @@ const Contact=(props)=>{
             </div>
             <div>
                 <div id="contactName" class="row"> {props.contact.firstName} {props.contact.lastName}</div>
-                <div id="contactLastmessage" class="row">{props.contact.message[props.contact.message.length-1].content}</div>
+                {/* <div id="contactLastmessage" class="row">{props.contact.message[props.contact.message.length-1].content}</div> */}
             </div>
         </div>
             

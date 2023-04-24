@@ -18,13 +18,13 @@ import {Search} from './Search';
 import {Chats} from "./Chats"
 import {Chat} from "./Chat.jsx"
 import Axios from 'axios'
-const ChatSec=({})=>{
+const ChatSec=(props)=>{
     const contactList2 = async (email)=> {
         try{
             console.log(email);
-        const Contacts = await Axios.get(`https://mentorshala-backend.onrender.com/api/v1/mentorshala/getMatches?email=${email}`);
+        const Contacts = await Axios.get(`https://mentorshala-backend.onrender.com/api/v1/mentorshala/getUserDetail/${email}`);
         console.log("these are the contacts",Contacts)
-        return Contacts.data;
+        return Contacts.match_list;
     }
         catch(err){
             console.log(err);
@@ -32,7 +32,8 @@ const ChatSec=({})=>{
         }
     }
     // const contactList=contactList2("siddian17.7@gmail.com")
-    const contactList = chatData
+    const contactList = props.userDetail.match_list
+    console.log(contactList);
     console.log("this is the array: ",contactList)
     let [msgBox,setMsgBox] = useState(0)
     let [msgObj,setMsgObj] = useState(contactList[0])

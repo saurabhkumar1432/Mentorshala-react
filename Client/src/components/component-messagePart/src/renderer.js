@@ -20,7 +20,7 @@ const X=(props)=>{
             <input type="radio" className="radioBtn" name="radio-btn" id="radio1" checked={checkedArray[0]}></input>
             <input type="radio" className="radioBtn" name="radio-btn" id="radio2" checked={checkedArray[1]}></input>
             <div className="modeCards first chatSec">
-                <ChatSec/>
+                <ChatSec userDetail={userDetail}/>
             </div>
             <div className="modeCards">
                 <Matches profile_match_list={userDetail.profile_match_list} userDetail={userDetail}/> 

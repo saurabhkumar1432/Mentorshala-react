@@ -81,9 +81,9 @@ export default class usersDetailsCtrl{
     }
     static async getMatches(email){
         try{
-            const user3=await MentorShalaDAO.getMatch(email);
+            const user3=await MentorShalaDAO.getEmail(email);
             console.log(user3);
-            return user3;
+            return user3.match_list;
         }
         catch{
             console.log("User don't exist");
