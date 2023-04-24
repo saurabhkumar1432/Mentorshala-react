@@ -87,8 +87,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    background-color: #734ae8;
-	background-image: linear-gradient(315deg, #734ae8 0%, #89d4cf 74%);
+    /* background-color: #734ae8;
+	background-image: linear-gradient(315deg, #734ae8 0%, #89d4cf 74%); */
     /* width: 90vw;
     max-width: 260px;
     height: 300px; */

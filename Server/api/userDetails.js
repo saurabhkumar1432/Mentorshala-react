@@ -4,6 +4,7 @@ import fetchDetailsCtrl from "./controller/fetchDetailsCtrl.js";
 import updateDetailsCtrl from "./controller/updateDetailsCtrl.js";
 import postFeedCtrl from "./controller/postDetailCtrl.js";
 import multer from "multer";
+import Redis from "redis";
 import ErrorHandler from "../utils/errorhandler.js";
 // import sendToken from "../utils/jwtToken.js";
 // import sendEmail from "../utils/sendEmail.js";
@@ -15,6 +16,8 @@ import jwt from "jsonwebtoken";
 // import { validateToken} from "../middleware/validateToken.js"
 import fs from "fs";
 
+
+const redisClient=Redis.createClient();
 // Creating uploads folder if not already present
 // In "uploads" folder we will temporarily upload
 // image before uploading to cloudinary
@@ -27,6 +30,99 @@ import { log } from "console";
 
 const upload = multer({ dest: "./imgUpload/" });
 const router = express.Router();
+const DEFAULT_EXPIRATION=3600
+
+// const client = Redis.createClient();
+// router.route("/getFeeds").get(
+//   catchAsyncErrors(async (req, res, next) => {
+//     // Check if data is cached in Redis
+//     client.get("apiFeeds", async (error, cachedData) => {
+//       if (error) throw error;
+
+//       if (cachedData != null) {
+//         // If data is cached, return cached data
+//         console.log("Data retrieved from Redis cache");
+//         res.send(JSON.parse(cachedData));
+//       } else {
+//         // If data is not cached, fetch data from API and cache it in Redis
+//         const data = await fetchDetailsCtrl.getapiFeeds();
+//         console.log("Data retrieved from API");
+
+//         client.setex("apiFeeds", 3600, JSON.stringify(data), (error, result) => {
+//           if (error) throw error;
+//           console.log("Data cached in Redis");
+//         });
+
+//         res.send(data);
+//       }
+//     });
+//   })
+// );
+// router.route("/getFeeds").get(
+//   catchAsyncErrors(async (req, res, next) => {
+//     try {
+//       // const redis = require("redis");
+//       // import Redis from "redis";
+//       const client = Redis.createClient();
+
+//       // Check if data is cached in Redis
+//       client.get("apiFeeds", async (error, cachedData) => {
+//         if (error) throw error;
+
+//         if (cachedData != null) {
+//           // If data is cached, return cached data
+//           console.log("Data retrieved from Redis cache");
+//           res.send(JSON.parse(cachedData));
+//         } else {
+//           // If data is not cached, fetch data from API and cache it in Redis
+//           const data = await fetchDetailsCtrl.getapiFeeds();
+//           console.log("Data retrieved from API");
+
+//           client.setex("apiFeeds", 3600, JSON.stringify(data), (error, result) => {
+//             if (error) throw error;
+//             console.log("Data cached in Redis");
+//           });
+
+//           res.send(data);
+//         }
+//       });
+
+//       // Close Redis client when finished
+//       client.quit();
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).send("Internal Server Error");
+//     }
+//   })
+// );
+
+// router.route(`/get/:role/details`).get(async (req, res) => {
+//   const role = req.params.role;
+
+//   // check if data is cached in Redis
+//   client.get(`apiUsers:${role}`, async (error, cachedData) => {
+//     if (error) {
+//       console.error(error);
+//       res.status(500).send("Internal Server Error");
+//       return;
+//     }
+
+//     if (cachedData !== null) {
+//       // data exists in Redis cache, return it
+//       console.log("Data fetched from Redis cache");
+//       res.send(JSON.parse(cachedData));
+//     } else {
+//       // data not cached in Redis, fetch from API
+//       const data = await fetchDetailsCtrl.getapiUsers(role);
+//       console.log("Data fetched from API");
+
+//       // cache the fetched data in Redis for 1 hour
+//       client.setex(`apiUsers:${role}`, 3600, JSON.stringify(data));
+
+//       res.send(data);
+//     }
+//   });
+// });
 
 
 router.route('/getUserDetail/:email').get(async(req,res)=>{
@@ -42,6 +138,7 @@ router.route(`/get/:role/details`).get(async (req, res) => {
   // console.log(data);
   res.send(data);
 });
+
 router.route("/getFeeds").get(
   catchAsyncErrors(async (req, res, next) => {
     const data = await fetchDetailsCtrl.getapiFeeds();
@@ -307,8 +404,8 @@ router.post("/register", async (req, res) =>{
 })
 
 router.post("/postFeeds", upload.single("media"), async (req, res) => {
-  // console.log(req.body);
-  // console.log(req.file);
+  console.log(req.body);
+  console.log(req.file);
   if (req.file != undefined) {
     const obj = {
       username: req.body.username,
@@ -444,7 +541,7 @@ router.route('/adminAuth').post(async(req,res)=>{
 })
 
 router.route("/menteeCount").get(async (req, res) => {
-  const data = await fetchDetailsCtrl.getMenteeCount();
+  const data = await fetchDetailsCtrl.gementeeCount();
   console.log(data);
   res.send(data);
 });

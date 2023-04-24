@@ -20,17 +20,23 @@ const CreatePost=(props)=>{
         setDialogBox(false);
         const caption=document.getElementById("caption").value
         // console.log(caption);
-        const formData=new FormData()
-        formData.append('username',username)
-        formData.append('profile_image',profile_image)
-        formData.append('work',work)
-        formData.append('media',media)
-        formData.append('caption',caption)
+        const formData={
+            username:username,
+            profile_image:profile_image,
+            work:work,
+            media:media,
+            caption:caption
+        }
+        // formData.append('username',username)
+        // formData.append('profile_image',profile_image)
+        // formData.append('work',work)
+        // formData.append('media',media)
+        // formData.append('caption',caption)
         console.log(formData);
         await axios.post('https://mentorshala-backend.onrender.com/api/v1/mentorshala/postFeeds',formData).then((res)=>{
             console.log(res.data);
         }).catch((err)=>{
-            console.log("error");
+            console.log(err);
         })
     }
     const fileSelectHandler=(event)=>{
