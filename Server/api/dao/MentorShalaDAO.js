@@ -307,8 +307,8 @@ export default class mentorShalaDb{
     static async deleteUser(obj){
         try{
             await mentorshalaUsers.collection("usersDetails").deleteOne(obj,(err,res)=>{
-                if (err) throw err;
                 console.log("user deleted");
+                if (err) throw err;
             })
            
         }
