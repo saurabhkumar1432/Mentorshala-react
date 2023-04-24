@@ -21,9 +21,9 @@ const redisClient=Redis.createClient();
 // Creating uploads folder if not already present
 // In "uploads" folder we will temporarily upload
 // image before uploading to cloudinary
-if (!fs.existsSync("./imgUpload")) {
-  fs.mkdirSync("./imgUpload");
-}
+// if (!fs.existsSync("./imgUpload")) {
+//   fs.mkdirSync("./imgUpload");
+// }
 
 import catchAsyncErrors from "../middleware/catchAsyncErrors.js";
 import { log } from "console";
@@ -403,31 +403,34 @@ router.post("/register", async (req, res) =>{
   
 })
 
-router.post("/postFeeds", upload.single("media"), async (req, res) => {
+router.post("/postFeeds",upload.single('media'),async(req,res)=>{
+
   console.log(req.body);
   console.log(req.file);
-  if (req.file != undefined) {
-    const obj = {
-      username: req.body.username,
-      profile_image: req.body.profile_image,
-      work: req.body.work,
-      media: req.file.path,
-      caption: req.body.caption,
-      like: 0,
-    };
-    await postFeedCtrl.postapiFeeds(obj);
-  } else {
-    const obj = {
-      username: req.body.username,
-      profile_image: req.body.profile_image,
-      work: req.body.work,
-      caption: req.body.caption,
-      like: 0,
-    };
-    await postFeedCtrl.postapiFeeds(obj);
-  }
-});
+  if(req.file!=undefined){
 
+      const obj={
+          "username":req.body.username,
+          "profile_image":req.body.profile_image,
+          "work":req.body.work,
+          "media":req.file.path,
+          "caption":req.body.caption,
+          "like":0
+      }
+      await postFeedCtrl.postapiFeeds(obj)
+  }
+  else{
+      const obj={
+          "username":req.body.username,
+          "profile_image":req.body.profile_image,
+          "work":req.body.work,
+          "caption":req.body.caption,
+          "like":0
+      }
+      await postFeedCtrl.postapiFeeds(obj)
+  }
+  
+})
 router.route("/login").post(catchAsyncErrors(async (req, res, next) => {}));
 
 router.route("/reportUser").post(async (req, res) => {
