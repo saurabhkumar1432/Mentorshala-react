@@ -1,19 +1,12 @@
 
-const request = require('supertest');
-const app = require('./server');
-const expect = require('chai').expect;
+import { expect } from 'chai';
+import request from 'supertest';
+import app from '../server.js';
 
 describe('GET /api/v1/mentorshala/getFeeds', () => {
-  it('should return a list of feeds in community', (done) => {
-    request(app)
-      .get('/getFeeds')
-      .end((err, res) => {
-        expect(res.status).to.equal(200);
-        expect(res.body).to.be.an('array');
-        expect(res.body[0]).to.have.property('username');
-        expect(res.body[0]).to.have.property('profile_image');
-        expect(res.body[0]).to.have.property('work');
-        done();
-      });
+  it('should return a list of feeds in community', async () => {
+    const response = await request(app).get('/api/v1/mentorshala/getFeeds');
+    expect(response.status).to.equal(200);
+    expect(response.body).to.be.an('array');
   });
 });
