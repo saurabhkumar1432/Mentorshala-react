@@ -52,14 +52,7 @@ app.use(cookieParser());
 // app.use(bodyParser.urlencoded({extended:true}));
 
 //cors
-app.use(
-  cors({
-    origin: ["http://localhost:3000","https://mentorshala.netlify.app","http://localhost:5000"],
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    // allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use(cors());
 
 // app.use(bodyParser)
 app.use('/imgUpload',express.static('imgUpload'))
