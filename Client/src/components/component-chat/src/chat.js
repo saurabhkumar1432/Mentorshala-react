@@ -117,7 +117,7 @@ const ChatSec=(props)=>{
         return(
             <>
             
-            {/* <Particle style="position:fixed;"/> */}
+            {/* <Particle style="position:absolute;"/> */}
             <div id="chatContainer">
                 
                 <div id="chatNavbar">

@@ -80,10 +80,10 @@ export default function MessageBox(props) {
   }
   return(
     <>
-    <main>
+    <div>
       {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
       <span ref={dummy}></span>
-    </main>
+    </div>
     <div className="inpSection">
       <form className="msgForm" onSubmit={sendMessage}>
         <button id="msgImage"><AddAPhotoOutlinedIcon style={{ color: 'white',height:'2.7vh',width:'2.7vh' }}/></button>

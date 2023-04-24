@@ -1,13 +1,14 @@
 #contactContainer{
-    width:103.4%;
+    width: 103.4%;
     height: 10vh;
-    background:#fefefe;
+    background: #c5e4ffa8;
     overflow-x: hidden;
     display: flex;
     align-items: center;
     border-style: none;
-    border-bottom:1px solid #004;
-    margin:right 10vh;
+      border-bottom-style: none;
+    border-bottom: 2px solid #004;
+    margin: right 10vh;
     justify-self: center;
     box-shadow: 5px 5px 5px grey;
     margin-bottom: 0.5vh;
