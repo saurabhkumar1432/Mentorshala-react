@@ -16,32 +16,12 @@ import axios from "axios";
 let likedPeople = [];
 let dislikedPeople = [];
 const CardPart = (props) => {
-  const [dbData, setdbData] = useState([]);
+  const dbData=props.dbData
   const userDetail = props.userData;
-  useEffect(() => {
-    http
-      .get(`/get/${userDetail.role}/details`)
-      .then((res) => {
-        const fetchedData = res.data;
-        // console.log(res);
-        const never_to_show = userDetail.dont_show_again;
-        if (never_to_show != undefined) {
-          // console.log(never_to_show);
-          // console.log(fetchedData);
-          const show_data = fetchedData.filter(
-            (element) => !never_to_show.includes(element.username)
-          );
-          console.log(show_data);
-          setdbData(show_data);
-        } else {
-          setdbData(fetchedData);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  
   const [currentIndex, setCurrentIndex] = useState(dbData.length - 1);
+  // console.log(dbData.length - 1);
+  // console.log(currentIndex);
   const [lastDirection, setLastDirection] = useState();
   const currentIndexRef = useRef(currentIndex);
   const childRefs = useMemo(
@@ -87,7 +67,7 @@ const CardPart = (props) => {
       });
   };
   const canGoBack = currentIndex < dbData.length - 1;
-
+  // console.log(currentIndex);
   const canSwipe = currentIndex >= 0;
 
   const swiped = (direction, nameToDelete, index) => {
@@ -113,6 +93,7 @@ const CardPart = (props) => {
   };
 
   const swipe = async (dir) => {
+    console.log(canSwipe);
     if (canSwipe && currentIndex < dbData.length) {
       await childRefs[currentIndex].current.swipe(dir); // Swipe the card!
     }
@@ -200,10 +181,10 @@ const CardPart = (props) => {
           );
         })}
       </div>
-      {/* <div className='card-buttons'>
+      <div className='card-buttons'>
         <button id='rejected' style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}><ThumbDownOffAltIcon/></button>
         <button id='accepted' style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}><ThumbUpOffAltIcon/></button>
-      </div> */}
+      </div>
       {/* {lastDirection ? (
         <h2 key={lastDirection} className='infoText'>
           You swiped {lastDirection}

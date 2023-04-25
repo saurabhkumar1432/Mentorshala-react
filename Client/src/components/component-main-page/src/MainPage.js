@@ -15,6 +15,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import UserData from '../../../userDetail';
 import {AuthContextProvider} from "../../../context/AuthContext"
 import { ChatContextProvider } from '../../../context/ChatContext';
+import CardContainer from '../../component-cardPart/src/CardContainer';
 const MainPage=()=>{
     // const dispatch = useDispatch();
 
@@ -84,7 +85,7 @@ const MainPage=()=>{
                     {/* <MessagePart setActivePart={setActivePart} activeParts={activeParts}/> */}
                     {/* <CardPart/> */}
                     <MessagePart settingState={activeSetting} userData={userData}/>
-                    {toggleCardMode?<CardPart userData={userData}/>:<Community userData={userData}/>}
+                    {toggleCardMode?<CardContainer userData={userData}/>:<Community userData={userData}/>}
                     
                 </div>
             </div>
