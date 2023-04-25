@@ -31,96 +31,59 @@ const upload = multer({ dest: "./imgUpload/" });
 const router = express.Router();
 const DEFAULT_EXPIRATION=3600
 
-router.route("/getFeeds").get(
-  catchAsyncErrors(async (req, res, next) => {
-    // Check if data is cached in Redis
-    client.get("apiFeeds", async (error, cachedData) => {
-      if (error) throw error;
-
-      if (cachedData != null) {
-        // If data is cached, return cached data
-        console.log("Data retrieved from Redis cache");
-        res.send(JSON.parse(cachedData));
-      } else {
-        // If data is not cached, fetch data from API and cache it in Redis
-        const data = await fetchDetailsCtrl.getapiFeeds();
-        console.log("Data retrieved from API");
-
-        client.setex("apiFeeds", 3600, JSON.stringify(data), (error, result) => {
-          if (error) throw error;
-          console.log("Data cached in Redis");
-        });
-
-        res.send(data);
-      }
-    });
-  })
-);
 // router.route("/getFeeds").get(
 //   catchAsyncErrors(async (req, res, next) => {
-//     try {
-//       // const redis = require("redis");
-//       // import Redis from "redis";
-//       const client = Redis.createClient();
+//     // Check if data is cached in Redis
+//     client.get("apiFeeds", async (error, cachedData) => {
+//       if (error) throw error;
 
-//       // Check if data is cached in Redis
-//       client.get("apiFeeds", async (error, cachedData) => {
-//         if (error) throw error;
+//       if (cachedData != null) {
+//         // If data is cached, return cached data
+//         console.log("Data retrieved from Redis cache");
+//         res.send(JSON.parse(cachedData));
+//       } else {
+//         // If data is not cached, fetch data from API and cache it in Redis
+//         const data = await fetchDetailsCtrl.getapiFeeds();
+//         console.log("Data retrieved from API");
 
-//         if (cachedData != null) {
-//           // If data is cached, return cached data
-//           console.log("Data retrieved from Redis cache");
-//           res.send(JSON.parse(cachedData));
-//         } else {
-//           // If data is not cached, fetch data from API and cache it in Redis
-//           const data = await fetchDetailsCtrl.getapiFeeds();
-//           console.log("Data retrieved from API");
+//         client.setex("apiFeeds", 3600, JSON.stringify(data), (error, result) => {
+//           if (error) throw error;
+//           console.log("Data cached in Redis");
+//         });
 
-//           client.setex("apiFeeds", 3600, JSON.stringify(data), (error, result) => {
-//             if (error) throw error;
-//             console.log("Data cached in Redis");
-//           });
-
-//           res.send(data);
-//         }
-//       });
-
-//       // Close Redis client when finished
-//       client.quit();
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).send("Internal Server Error");
-//     }
+//         res.send(data);
+//       }
+//     });
 //   })
 // );
 
-router.route(`/get/:role/details`).get(async (req, res) => {
-  const role = req.params.role;
+// router.route(`/get/:role/details`).get(async (req, res) => {
+//   const role = req.params.role;
 
-  // check if data is cached in Redis
-  client.get(`apiUsers:${role}`, async (error, cachedData) => {
-    if (error) {
-      console.error(error);
-      res.status(500).send("Internal Server Error");
-      return;
-    }
+//   // check if data is cached in Redis
+//   client.get(`apiUsers:${role}`, async (error, cachedData) => {
+//     if (error) {
+//       console.error(error);
+//       res.status(500).send("Internal Server Error");
+//       return;
+//     }
 
-    if (cachedData !== null) {
-      // data exists in Redis cache, return it
-      console.log("Data fetched from Redis cache");
-      res.send(JSON.parse(cachedData));
-    } else {
-      // data not cached in Redis, fetch from API
-      const data = await fetchDetailsCtrl.getapiUsers(role);
-      console.log("Data fetched from API");
+//     if (cachedData !== null) {
+//       // data exists in Redis cache, return it
+//       console.log("Data fetched from Redis cache");
+//       res.send(JSON.parse(cachedData));
+//     } else {
+//       // data not cached in Redis, fetch from API
+//       const data = await fetchDetailsCtrl.getapiUsers(role);
+//       console.log("Data fetched from API");
 
-      // cache the fetched data in Redis for 1 hour
-      client.setex(`apiUsers:${role}`, 3600, JSON.stringify(data));
+//       // cache the fetched data in Redis for 1 hour
+//       client.setex(`apiUsers:${role}`, 3600, JSON.stringify(data));
 
-      res.send(data);
-    }
-  });
-});
+//       res.send(data);
+//     }
+//   });
+// });
 
 
 router.route('/getUserDetail/:email').get(async(req,res)=>{
@@ -130,13 +93,13 @@ router.route('/getUserDetail/:email').get(async(req,res)=>{
   res.send(data)
 })
 
-// router.route(`/get/:role/details`).get(async (req, res) => {
-//   const role = req.params.role;
-//   // console.log(role);
-//   const data = await fetchDetailsCtrl.getapiUsers(role);
-//   // console.log(data);
-//   res.send(data);
-// });
+router.route(`/get/:role/details`).get(async (req, res) => {
+  const role = req.params.role;
+  // console.log(role);
+  const data = await fetchDetailsCtrl.getapiUsers(role);
+  // console.log(data);
+  res.send(data);
+});
 
 // router.route("/getFeeds").get(
 //   catchAsyncErrors(async (req, res, next) => {
