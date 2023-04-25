@@ -80,7 +80,7 @@ export default function MessageBox(props) {
   }
   return(
     <>
-    <div>
+    <div className='msgSpace'>
       {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
       <span ref={dummy}></span>
     </div>
