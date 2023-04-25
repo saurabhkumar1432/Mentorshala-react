@@ -16,48 +16,53 @@ const StepContext = () => {
     const navigate = useNavigate();
     const [err, setErr] = useState(false);
     async function submitData(){
-        setFinalData(userData)
-
-        const displayName = userData.Username;
-        const emailReal = userData.Email;
-        const passwordReal = userData.Password;
-  
-        try {
-          //Create user
-          const res = await createUserWithEmailAndPassword(auth, emailReal, passwordReal);
-          console.log('this happened1');
-          //Create a unique image name
-          const date = new Date().getTime();
-          const storageRef = ref(storage, `${displayName + date}`);
-  
+        if(userData.Password.length>=6){
+          setFinalData(userData)
+          const displayName = userData.Username;
+          const emailReal = userData.Email;
+          const passwordReal = userData.Password;
+    
           try {
-            console.log('this happened2');
-            //Update profile
-            await updateProfile(res.user, {
-              displayName,
-            });
-            console.log('this happened3');
-            //create user on firestore
-            await setDoc(doc(db, "users", res.user.uid), {
-              uid: res.user.uid,
-              displayName,
-              emailReal,
-            });
-  
-            //create empty user chats on firestore
-            await setDoc(doc(db, "userChats", res.user.uid), {});
-            navigate("/");
+            //Create user
+            const res = await createUserWithEmailAndPassword(auth, emailReal, passwordReal);
+            console.log('this happened1');
+            //Create a unique image name
+            const date = new Date().getTime();
+            const storageRef = ref(storage, `${displayName + date}`);
+    
+            try {
+              console.log('this happened2');
+              //Update profile
+              await updateProfile(res.user, {
+                displayName,
+              });
+              console.log('this happened3');
+              //create user on firestore
+              await setDoc(doc(db, "users", res.user.uid), {
+                uid: res.user.uid,
+                displayName,
+                emailReal,
+              });
+    
+              //create empty user chats on firestore
+              await setDoc(doc(db, "userChats", res.user.uid), {});
+              navigate("/");
+            } catch (err) {
+              console.log(err);
+              setErr(true);
+              // setLoading(false);
+            }
           } catch (err) {
-            console.log(err);
             setErr(true);
             // setLoading(false);
           }
-        } catch (err) {
-          setErr(true);
-          // setLoading(false);
-        }
+          
+          setUserData([])
+          }
+          
         
-        setUserData([])
+
+        
     }
   return (
     <div>
