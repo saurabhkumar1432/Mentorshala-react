@@ -32,7 +32,13 @@ const ChatSec=(props)=>{
         }
     }
     // const contactList=contactList2("siddian17.7@gmail.com")
-    const contactList = props.userDetail.match_list
+    let contactList;
+    if(props.userDetail.match_list!=null){
+        contactList=props.userDetail.match_list;
+    }
+    else{
+        contactList=[]
+    } 
     console.log(contactList);
     console.log("this is the array: ",contactList)
     let [msgBox,setMsgBox] = useState(0)

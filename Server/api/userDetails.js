@@ -406,8 +406,8 @@ router.post("/register", async (req, res) =>{
     'Password':req.body.Password,
     'profilePic':'https://i.pinimg.com/originals/36/fa/7b/36fa7b46c58c94ab0e5251ccd768d669.jpg',
     'banner':'https://images.unsplash.com/photo-1581882897974-fca44f329313?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80',
-    'match_list':[],
-    'profile_match_list':[]
+    // 'match_list':[],
+    // 'profile_match_list':[]
     }
   await postFeedCtrl.postapiUsers(obj)
   // console.log(obj);

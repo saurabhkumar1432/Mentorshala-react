@@ -14,8 +14,9 @@
     width: 75%;
     /* height: 100%; */
     /* border: 1px solid red; */
-    overflow-y: auto;
+    overflow-y: hidden;
     position: relative;
+    overflow-x: hidden;
 }
 .reportBtn{
     color: #fff;
@@ -81,6 +82,8 @@
 }
 .card-container{
     overflow-y: hidden;
+    overflow-x: hidden
+    overflow;
     height: 100%;
     /* border: 1px solid black; */
     display: flex;
@@ -92,6 +95,7 @@
     /* width: 90vw;
     max-width: 260px;
     height: 300px; */
+    width: 100%;
 }
 .bgGreen{
     background: #6ac96a;
