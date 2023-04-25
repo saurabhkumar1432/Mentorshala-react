@@ -240,6 +240,11 @@ export default class mentorShalaDb{
             if (err) throw err;
             console.log("1 document updated");
         })
+        const pullquery={$pull: { 'profile_match_list': { 'username': data.username } }}
+        await mentorshalaUsers.collection("usersDetails").updateOne(query,pullquery,(err,res)=>{
+            if (err) throw err;
+            console.log("1 document updated");
+        })
     }
     static async getFeed(){
         let cursor

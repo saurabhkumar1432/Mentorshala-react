@@ -32,7 +32,7 @@ const MainPage=()=>{
           setUserData(data);
         }
         fetchData();
-      }, []);
+      });
       const [activeParts,setActivePart]=useState(false)
       // console.log(activeParts);
       const slidingMessageWindow=()=>{
