@@ -80,8 +80,13 @@
     
     /* border: 1px solid red; */
 }
-main{
-    height:80vh;
+.msgSpace{
+    height: 70vh;
+margin-bottom: 20vh;
+/* border: 2px solid black; */
+overflow-y: scroll;
+scrollbar-width: none;
+position: fixed;
 }
 .inpSection{
     background: white;
