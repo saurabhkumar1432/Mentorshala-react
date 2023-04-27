@@ -8,7 +8,7 @@
     /* color:white; */
     font-family: "Quicksand";
     font-size: calc(0.5vh+0.5vw);
-    margin-top:1%;
+    margin-top:2%;
     background: rgba(5, 10, 66, 0.163);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(6.1px);
@@ -23,7 +23,7 @@
     float:left;
     margin-left:2.6%;
     clear: both;
-    margin-top: 1%;
+    margin-top: 2%;
     border-radius: 10px 10px 10px 0;
     
     background: linear-gradient(#034a9b,#095ebe);
@@ -87,6 +87,7 @@ margin-bottom: 20vh;
 overflow-y: scroll;
 scrollbar-width: none;
 position: fixed;
+width:25vw;
 }
 .inpSection{
     background: white;
