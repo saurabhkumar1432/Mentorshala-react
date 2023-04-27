@@ -25,20 +25,20 @@ const MatchItem = (props) => {
     }
   }
   const matchListUpdate=async()=>{
-    await axios.post(`https://mentorshala-backend.onrender.com/api/v1/mentorshala/post/matchListUpdate/${userDetail.username}`,profileDetails)
+    await axios.post(`http//localhost:5000/api/v1/mentorshala/post/matchListUpdate/${userDetail.username}`,profileDetails)
     .then(res=>{
       console.log(res);
     })
     .catch(err=>{
       console.log(err);
     })
-    await axios.post(`https://mentorshala-backend.onrender.com/api/v1/mentorshala/post/matchListUpdate/${profileDetails.username}`,userDetail)
-    .then(res=>{
-      console.log(res);
-    })
-    .catch(err=>{
-      console.log(err);
-    })
+    // await axios.post(`https://mentorshala-backend.onrender.com/api/v1/mentorshala/post/matchListUpdate/${profileDetails.username}`,userDetail)
+    // .then(res=>{
+    //   console.log(res);
+    // })
+    // .catch(err=>{
+    //   console.log(err);
+    // })
   }
   return (
     <div className="matchItem-main-container">

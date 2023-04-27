@@ -47,15 +47,6 @@ const CreatePost=()=>{
                     <div className="card-createPost">
                         <button onClick={()=>{setDialogBox(true)}}>Create+</button>
                     </div>
-                    <div className="card-buttons">
-                        <label for="chooseImage"><i><PhotoSizeSelectActualIcon className='svg_icons'/>Photos</i></label>
-                        <input type="file" id="chooseImage" style={{display:"none"}}></input>
-                        
-                        <label for="chooseVideo"><i><VideoLibraryIcon className='svg_icons'/>Videos</i></label>
-                        <input type="file" id="chooseVideo" style={{display:"none"}}></input>
-                        <label><i><EventIcon className='svg_icons'/>Events</i></label>
-                        <input type="file" id="chooseEvent" style={{display:"none"}}></input>
-                    </div>
                 </Card>
             </div>
 

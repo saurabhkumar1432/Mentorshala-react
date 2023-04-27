@@ -17,6 +17,7 @@
     overflow-y: hidden;
     position: relative;
     overflow-x: hidden;
+    position: relative;
 }
 .reportBtn{
     color: #fff;
@@ -82,8 +83,7 @@
 }
 .card-container{
     overflow-y: hidden;
-    overflow-x: hidden
-    overflow;
+    overflow-x: hidden;
     height: 100%;
     /* border: 1px solid black; */
     display: flex;
@@ -132,6 +132,9 @@
     align-items: center;
     justify-content: center;
     height: 10%;
+    position: absolute;
+    bottom: 0%;
+    left: 30%;
     /* border: 1px solid green; */
 }
 .card-buttons button{
@@ -142,6 +145,7 @@
     border-radius: 50%;
     border-style: none;
     box-shadow: 0 10px 10px rgb(0 0 0 / 0.5);
+    z-index: 100;
 }
 .card-buttons button:active{
     transform: scale(1.05);
