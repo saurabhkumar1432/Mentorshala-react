@@ -10,11 +10,11 @@ now on localhost port 3000 , you can find you application running.
 1. Clone This project.
 2. In Server directory, create an env file .
 3. In that config.env file, write following lines:
-        1. MENTORSHALA_DB_URI=mongodb+srv://        saurabhkumar1432001:Saurabh%40mongodb@mentorshala.3gffj.mongodb.net/mydb
+        1. MENTORSHALA_DB_URI=mxyz.mongodb.net/mydb
         2. MENTORSHAL_NS=mydb
         3.PORT=5000
 
-4. In Client directory, replace every statement 'https://mentorshala-backend.onrender.com' with ' http://localhost:5000'
+4. In Client directory, replace every statement 'https://xyz.nrender.com' with ' http://localhost:5000'
 
 5. Open terminal, in client directory run npm start
 6. Open new terminal, in server directory run nodemon server
